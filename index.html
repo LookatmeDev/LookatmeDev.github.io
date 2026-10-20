@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0d0c">
+
+  <!-- SEO и превью ссылки. Эти значения читают Telegram и соцсети без JavaScript,
+       поэтому их нужно поменять здесь вручную (имя, описание, адрес сайта). -->
+  <title>Look at me — Middle developer</title>
+  <meta name="description" content="Разрабатываю Telegram-ботов, парсеры и веб-приложения. Портфолио, стек и контакты.">
+  <link rel="canonical" href="https://lookatmedev.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Look at me">
+  <meta property="og:title" content="Look at me — Middle developer">
+  <meta property="og:description" content="Разрабатываю Telegram-ботов, парсеры и веб-приложения.">
+  <meta property="og:url" content="https://lookatmedev.github.io/">
+  <meta property="og:image" content="https://lookatmedev.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Look at me — Middle developer">
+  <meta name="twitter:description" content="Разрабатываю Telegram-ботов, парсеры и веб-приложения.">
+  <meta name="twitter:image" content="https://lookatmedev.github.io/assets/og-image.png">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="Наверх">
+        <span class="logo__bracket">&lt;</span><span data-config="shortName">LM</span><span class="logo__bracket">/&gt;</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#about">Обо мне</a></li>
+          <li><a class="nav__link" href="#projects">Проекты</a></li>
+          <li><a class="nav__link" href="#stack">Стек</a></li>
+          <li><a class="nav__link" href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <p class="hero__label mono reveal"><span class="dot" aria-hidden="true"></span> <span data-config="role">Middle developer</span> · <span data-config="status">открыт к проектам</span></p>
+        <h1 class="hero__title reveal" id="hero-title" data-config="name">Look at me</h1>
+        <p class="hero__tagline reveal" data-config="tagline">Разрабатываю Telegram-ботов, парсеры и веб-приложения</p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary" href="#projects">Смотреть проекты</a>
+          <a class="btn btn--ghost" href="https://t.me/na_farme" data-config-href="telegram" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M21.5 4.2 2.9 11.4c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.8-1.4-1.6ZM9.2 14.2l8.6-5.4c.4-.3.8-.1.5.2l-7.2 6.5-.3 3.1-1.6-4.4Z"/></svg>
+            Написать в Telegram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ОБО МНЕ -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about">
+        <div class="reveal">
+          <p class="section__label mono">01 / about</p>
+          <h2 class="section__title" id="about-title">Обо мне</h2>
+          <div class="about__text" data-config-list="about"></div>
+        </div>
+        <ul class="facts reveal" data-config-facts></ul>
+      </div>
+    </section>
+
+    <!-- ПРОЕКТЫ -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="reveal">
+          <p class="section__label mono">02 / projects</p>
+          <h2 class="section__title" id="projects-title">Проекты</h2>
+        </div>
+        <div class="filters reveal" role="group" aria-label="Фильтр по категориям" id="filters"></div>
+        <div class="projects" id="projects-grid" aria-live="polite">
+          <p class="projects__empty">Загружаю проекты…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- СТЕК -->
+    <section class="section" id="stack" aria-labelledby="stack-title">
+      <div class="container">
+        <div class="reveal">
+          <p class="section__label mono">03 / stack</p>
+          <h2 class="section__title" id="stack-title">Стек</h2>
+        </div>
+        <div class="stack" id="stack-groups"></div>
+      </div>
+    </section>
+
+    <!-- УСЛУГИ И ПРОЦЕСС -->
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="reveal">
+          <p class="section__label mono">04 / process</p>
+          <h2 class="section__title" id="services-title">Услуги и процесс работы</h2>
+        </div>
+        <ol class="steps" id="steps"></ol>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="section" id="contacts" aria-labelledby="contacts-title">
+      <div class="container">
+        <div class="contact-card reveal">
+          <p class="section__label mono">05 / contacts</p>
+          <h2 class="section__title" id="contacts-title">Обсудим ваш проект?</h2>
+          <p class="contact-card__text">Опишите задачу в паре предложений — отвечу в течение дня, предложу решение и примерные сроки.</p>
+          <a class="btn btn--primary btn--lg" href="https://t.me/na_farme" data-config-href="telegram" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M21.5 4.2 2.9 11.4c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.8-1.4-1.6ZM9.2 14.2l8.6-5.4c.4-.3.8-.1.5.2l-7.2 6.5-.3 3.1-1.6-4.4Z"/></svg>
+            <span data-config="telegramHandle">@na_farme</span>
+          </a>
+          <ul class="contact-links">
+            <li>
+              <a class="contact-link" href="mailto:you@example.com" data-config-href="email">
+                <span class="mono contact-link__label">email</span>
+                <span data-config="email">you@example.com</span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-link" href="https://github.com/LookatmeDev" data-config-href="github" target="_blank" rel="noopener">
+                <span class="mono contact-link__label">github</span>
+                <span data-config="githubHandle">github.com/LookatmeDev</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="mono">© <span id="year">2026</span> <span data-config="name">Look at me</span></p>
+      <a class="footer__up mono" href="#top">Наверх ↑</a>
+    </div>
+  </footer>
+</body>
+</html>

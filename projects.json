@@ -1,0 +1,31 @@
+[
+  {
+    "title": "Бот поиска вакансий",
+    "description": "Telegram-бот собирает вакансии с 8 сайтов, фильтрует их по критериям пользователя и присылает новые по подписке без повторов. Сборщик и бот работают как отдельные сервисы в Docker.",
+    "stack": ["Go", "Python", "FastAPI", "PostgreSQL", "Redis", "Docker"],
+    "category": "Боты",
+    "image": "assets/project-jobs-bot.svg",
+    "links": {},
+    "featured": true
+  },
+  {
+    "title": "PWA онлайн-записи для студий",
+    "description": "Мультитенантное приложение записи для автосервисов и детейлинга: клиенты бронируют время, владелец видит расписание и статистику. Новая студия подключается за несколько минут.",
+    "stack": ["React", "TypeScript", "Supabase", "PWA", "Web Push", "Playwright"],
+    "category": "Мини-аппы",
+    "image": "assets/project-booking-pwa.svg",
+    "links": {
+      "demo": "https://pwaproject.pages.dev/s/graphite/"
+    },
+    "featured": false
+  },
+  {
+    "title": "Парсер организаций 2ГИС",
+    "description": "Скрипт выгружает организации по городу и рубрике: названия, адреса, телефоны и сайты. Результат сохраняется в CSV и XLSX для обзвона и аналитики.",
+    "stack": ["Python", "Selenium", "Pandas"],
+    "category": "Парсеры",
+    "image": "assets/project-parser-2gis.svg",
+    "links": {},
+    "featured": false
+  }
+]
