@@ -320,8 +320,48 @@ function initNav() {
   }
 }
 
+/* ---------- Telegram Mini App ---------- */
+// Telegram добавляет в адрес #tgWebAppData=…, поэтому SDK грузим только внутри Telegram,
+// обычные посетители сайта лишний скрипт не скачивают.
+const IN_TELEGRAM = /tgWebApp(Data|Version|Platform)/.test(location.hash + location.search);
+
+function initTelegram() {
+  if (!IN_TELEGRAM) return;
+  document.documentElement.classList.add("tg");
+
+  const script = document.createElement("script");
+  script.src = "https://telegram.org/js/telegram-web-app.js";
+  script.onload = () => {
+    const tg = window.Telegram && window.Telegram.WebApp;
+    if (!tg) return;
+    tg.ready();
+    tg.expand();
+    const supports = (version) => tg.isVersionAtLeast && tg.isVersionAtLeast(version);
+    if (supports("6.1")) {
+      tg.setHeaderColor("#0a0d0c");
+      tg.setBackgroundColor("#0a0d0c");
+    }
+    if (supports("7.10")) tg.setBottomBarColor("#0a0d0c");
+    // чтобы приложение не сворачивалось, когда листаешь страницу вниз
+    if (supports("7.7")) tg.disableVerticalSwipes();
+
+    // внешние ссылки открываем средствами Telegram, иначе они не откроются из Mini App
+    document.addEventListener("click", (event) => {
+      const link = event.target.closest("a[href]");
+      if (!link) return;
+      const url = new URL(link.href, location.href);
+      if (url.origin === location.origin || !/^https?:$/.test(url.protocol)) return;
+      event.preventDefault();
+      if (url.hostname === "t.me") tg.openTelegramLink(url.href);
+      else tg.openLink(url.href);
+    });
+  };
+  document.head.append(script);
+}
+
 /* ---------- Старт ---------- */
 document.addEventListener("DOMContentLoaded", () => {
+  initTelegram();
   applyConfig();
   initNav();
   $$(".reveal").forEach(observeReveal);

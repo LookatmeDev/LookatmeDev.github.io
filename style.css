@@ -721,6 +721,11 @@ h1, h2, h3, p { margin: 0; }
 }
 
 /* ===== Сниженная анимация ===== */
+/* ===== Внутри Telegram Mini App ===== */
+/* у Telegram своя шапка, поэтому сверху делаем отступ поменьше */
+.tg .hero { padding-top: 48px; }
+.tg body { overscroll-behavior: none; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
