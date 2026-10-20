@@ -338,10 +338,10 @@ function initTelegram() {
     tg.expand();
     const supports = (version) => tg.isVersionAtLeast && tg.isVersionAtLeast(version);
     if (supports("6.1")) {
-      tg.setHeaderColor("#0a0d0c");
-      tg.setBackgroundColor("#0a0d0c");
+      tg.setHeaderColor("#0a0c0f");
+      tg.setBackgroundColor("#0a0c0f");
     }
-    if (supports("7.10")) tg.setBottomBarColor("#0a0d0c");
+    if (supports("7.10")) tg.setBottomBarColor("#0a0c0f");
     // чтобы приложение не сворачивалось, когда листаешь страницу вниз
     if (supports("7.7")) tg.disableVerticalSwipes();
 
