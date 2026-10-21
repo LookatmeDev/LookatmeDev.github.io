@@ -515,6 +515,7 @@ em { font-style: italic; }
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-auto-flow: dense; /* обычные карточки заполняют дыры рядом с широкими featured */
   gap: 20px;
 }
 .projects__empty {

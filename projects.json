@@ -1,8 +1,33 @@
 [
   {
+    "title": "SubTrack: трекер подписок",
+    "description": "Telegram Mini App для учёта платных подписок: считает расходы в месяц и год, показывает календарь списаний, а бот напоминает за день до оплаты. Платные тарифы оплачиваются через Telegram Stars.",
+    "stack": [
+      "React",
+      "TypeScript",
+      "Fastify",
+      "grammY",
+      "PostgreSQL",
+      "Telegram Stars"
+    ],
+    "category": "Mini Apps",
+    "image": "assets/project-subtrack.svg",
+    "links": {
+      "demo": "https://t.me/otpishis_bot/app"
+    },
+    "featured": true
+  },
+  {
     "title": "Бот поиска вакансий",
     "description": "Telegram-бот собирает вакансии с 8 сайтов, фильтрует их по критериям пользователя и присылает новые по подписке без повторов. Сборщик и бот работают как отдельные сервисы в Docker.",
-    "stack": ["Go", "Python", "FastAPI", "PostgreSQL", "Redis", "Docker"],
+    "stack": [
+      "Go",
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Redis",
+      "Docker"
+    ],
     "category": "Боты",
     "image": "assets/project-jobs-bot.svg",
     "links": {},
@@ -11,7 +36,14 @@
   {
     "title": "PWA онлайн-записи для студий",
     "description": "Мультитенантное приложение записи для автосервисов и детейлинга: клиенты бронируют время, владелец видит расписание и статистику. Новая студия подключается за несколько минут.",
-    "stack": ["React", "TypeScript", "Supabase", "PWA", "Web Push", "Playwright"],
+    "stack": [
+      "React",
+      "TypeScript",
+      "Supabase",
+      "PWA",
+      "Web Push",
+      "Playwright"
+    ],
     "category": "Mini Apps",
     "image": "assets/project-booking-pwa.svg",
     "links": {
@@ -22,7 +54,11 @@
   {
     "title": "Парсер организаций 2ГИС",
     "description": "Скрипт выгружает организации по городу и рубрике: названия, адреса, телефоны и сайты. Результат сохраняется в CSV и XLSX для обзвона и аналитики.",
-    "stack": ["Python", "Selenium", "Pandas"],
+    "stack": [
+      "Python",
+      "Selenium",
+      "Pandas"
+    ],
     "category": "Парсеры",
     "image": "assets/project-parser-2gis.svg",
     "links": {},

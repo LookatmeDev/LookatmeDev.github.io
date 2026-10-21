@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#101317"/>
+<defs><radialGradient id="g" cx="0.5" cy="0.3" r="0.6"><stop offset="0" stop-color="#4cc9ff" stop-opacity="0.18"/><stop offset="1" stop-color="#4cc9ff" stop-opacity="0"/></radialGradient></defs>
+<rect width="800" height="500" fill="url(#g)"/>
+<rect x="240" y="30" width="320" height="490" rx="30" fill="#030405" stroke="#1a1e24" stroke-width="2"/>
+<g font-family="Segoe UI, Arial, sans-serif">
+<text x="268" y="78" font-size="13" fill="#8a95a1">Расходы в месяц</text>
+<text x="268" y="118" font-size="34" font-weight="700" fill="#f4f7fa">4 870 ₽</text>
+<text x="268" y="142" font-size="13" fill="#4cc9ff">58 440 ₽ в год</text>
+<g fill="#4cc9ff"><rect x="268" y="196" width="22" height="24" rx="4" fill-opacity="0.35"/><rect x="298" y="180" width="22" height="40" rx="4" fill-opacity="0.5"/><rect x="328" y="188" width="22" height="32" rx="4" fill-opacity="0.4"/><rect x="358" y="166" width="22" height="54" rx="4"/><rect x="388" y="184" width="22" height="36" rx="4" fill-opacity="0.45"/><rect x="418" y="174" width="22" height="46" rx="4" fill-opacity="0.6"/><rect x="448" y="192" width="22" height="28" rx="4" fill-opacity="0.35"/><rect x="478" y="178" width="22" height="42" rx="4" fill-opacity="0.5"/></g>
+<text x="268" y="256" font-size="13" fill="#8a95a1">Ближайшие списания</text>
+<g font-size="15">
+<rect x="262" y="270" width="276" height="56" rx="14" fill="#0b0d10" stroke="#4cc9ff" stroke-opacity="0.6"/><circle cx="290" cy="298" r="13" fill="#4cc9ff" fill-opacity="0.85"/><text x="314" y="294" fill="#f4f7fa" font-weight="600">Музыка</text><text x="314" y="313" font-size="12" fill="#4cc9ff">завтра · напомню</text><text x="522" y="303" text-anchor="end" fill="#f4f7fa" font-weight="600">299 ₽</text>
+<rect x="262" y="334" width="276" height="56" rx="14" fill="#0b0d10" stroke="#1a1e24"/><circle cx="290" cy="362" r="13" fill="#8a95a1" fill-opacity="0.5"/><text x="314" y="358" fill="#f4f7fa" font-weight="600">Кинотеатр</text><text x="314" y="377" font-size="12" fill="#8a95a1">через 4 дня</text><text x="522" y="367" text-anchor="end" fill="#f4f7fa" font-weight="600">699 ₽</text>
+<rect x="262" y="398" width="276" height="56" rx="14" fill="#0b0d10" stroke="#1a1e24"/><circle cx="290" cy="426" r="13" fill="#8a95a1" fill-opacity="0.5"/><text x="314" y="422" fill="#f4f7fa" font-weight="600">Облако 2 ТБ</text><text x="314" y="441" font-size="12" fill="#8a95a1">через 12 дней</text><text x="522" y="431" text-anchor="end" fill="#f4f7fa" font-weight="600">399 ₽</text>
+</g>
+<rect x="262" y="466" width="276" height="44" rx="12" fill="#4cc9ff"/><text x="400" y="494" text-anchor="middle" font-size="15" font-weight="700" fill="#02101a">+ Добавить подписку</text>
+</g>
+<g font-family="Consolas, monospace" font-size="13">
+<rect x="590" y="120" width="170" height="64" rx="12" fill="#0b0d10" stroke="#272d35"/><text x="606" y="146" fill="#4cc9ff">bot</text><text x="606" y="168" fill="#d9e0e7">Завтра списание 299 ₽</text>
+<rect x="40" y="300" width="160" height="56" rx="12" fill="#0b0d10" stroke="#272d35"/><text x="56" y="324" fill="#4cc9ff">★ Telegram Stars</text><text x="56" y="344" fill="#8a95a1">Plus · Pro</text>
+</g></svg>

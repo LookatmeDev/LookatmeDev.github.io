@@ -36,7 +36,7 @@ const CONFIG = {
 
   stack: [
     { group: "Языки", items: ["Go", "Python", "TypeScript", "JavaScript", "SQL"] },
-    { group: "Бэкенд", items: ["FastAPI", "Telegram Bot API", "Supabase Edge Functions", "httpx / asyncio", "BeautifulSoup / lxml", "REST API"] },
+    { group: "Бэкенд", items: ["FastAPI", "Node.js / Fastify", "grammY", "Telegram Bot API", "Telegram Stars", "Supabase Edge Functions", "httpx / asyncio", "BeautifulSoup / lxml", "REST API"] },
     { group: "Фронтенд", items: ["React", "Vite", "Tailwind CSS", "PWA / Workbox", "Web Push", "HTML / CSS"] },
     { group: "Базы данных", items: ["PostgreSQL", "Redis", "Supabase", "RLS-политики"] },
     { group: "Инструменты", items: ["Docker", "Docker Compose", "Git / GitHub", "Pytest", "Vitest", "Playwright", "Claude Code"] },
