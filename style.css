@@ -249,12 +249,31 @@ h1, h2, h3, p { margin: 0; }
   color: var(--text-strong);
   margin-bottom: 22px;
 }
-.hero__tagline {
-  max-width: 640px;
+/* Направления: у каждого пункта своя светящаяся точка, переносятся целыми пунктами */
+.hero__specs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 760px;
+  gap: 6px 24px;
+  margin-bottom: 40px;
   font-size: clamp(18px, 2.4vw, 23px);
   line-height: 1.5;
-  color: var(--muted);
-  margin-bottom: 40px;
+  font-weight: 500;
+  color: var(--text);
+}
+.spec { white-space: nowrap; }
+.spec::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 10px;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+  transform: translateY(-1px);
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
 

@@ -12,7 +12,7 @@
     "title": "PWA онлайн-записи для студий",
     "description": "Мультитенантное приложение записи для автосервисов и детейлинга: клиенты бронируют время, владелец видит расписание и статистику. Новая студия подключается за несколько минут.",
     "stack": ["React", "TypeScript", "Supabase", "PWA", "Web Push", "Playwright"],
-    "category": "Мини-аппы",
+    "category": "Mini Apps",
     "image": "assets/project-booking-pwa.svg",
     "links": {
       "demo": "https://pwaproject.pages.dev/s/graphite/"

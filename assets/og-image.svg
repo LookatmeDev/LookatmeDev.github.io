@@ -6,7 +6,7 @@
 <rect width="1200" height="630" fill="#0a0c0f"/><rect width="1200" height="630" fill="url(#grid)"/><rect width="1200" height="630" fill="url(#g)"/>
 <text x="90" y="170" font-family="JetBrains Mono, Consolas, monospace" font-size="30" fill="#4cc9ff">&lt;/&gt; Middle developer</text>
 <text x="90" y="320" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="104" font-weight="800" fill="#f1f5f9" letter-spacing="-3">Look at me</text>
-<text x="90" y="400" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="38" fill="#7f8b97">Telegram-боты · парсеры · веб-приложения</text>
+<text x="90" y="400" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="38" fill="#7f8b97">Telegram-боты · Mini Apps · парсеры · веб</text>
 <rect x="90" y="460" width="80" height="4" rx="2" fill="#4cc9ff"/>
 <text x="90" y="540" font-family="JetBrains Mono, Consolas, monospace" font-size="28" fill="#d7dfe6">t.me/na_farme</text>
 </svg>
