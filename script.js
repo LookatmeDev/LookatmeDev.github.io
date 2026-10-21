@@ -8,7 +8,13 @@ const CONFIG = {
   shortName: "LM", // буквы в логотипе
   role: "Middle developer",
   status: "открыт к проектам",
-  // направления в первом экране, выводятся в одну строку через точки
+
+  // главный оффер в первом экране; accent подсвечивается голубым курсивом
+  offer: { before: "Боты и приложения, которые", accent: "работают", after: "за вас" },
+  offerText: "Делаю Telegram-ботов, Mini Apps, парсеры и веб-приложения под ключ. Беру задачу целиком: от идеи до запуска и поддержки.",
+  // короткие гарантии под кнопками и в финальном блоке
+  trust: ["Ответ в течение дня", "Фиксированная смета", "2 недели гарантии"],
+  // направления в первом экране, выводятся строкой с точками
   specialties: ["Telegram-боты", "Mini Apps", "Парсеры", "Веб-приложения", "Автоматизация", "API-интеграции"],
 
   telegram: "na_farme", // без @
@@ -36,8 +42,16 @@ const CONFIG = {
     { group: "Инструменты", items: ["Docker", "Docker Compose", "Git / GitHub", "Pytest", "Vitest", "Playwright", "Claude Code"] },
   ],
 
+  // блок «Знакомо? Решаю»: задача клиента и что он получает
+  solutions: [
+    { icon: "bot", pain: "Заявки теряются в переписке", fix: "Telegram-бот принимает заявки круглосуточно, задаёт нужные вопросы и присылает вам готовую карточку клиента.", tag: "Telegram-боты" },
+    { icon: "app", pain: "Клиентам неудобно записываться", fix: "Mini App прямо в Telegram: выбор услуги и времени в пару касаний, напоминания и кабинет владельца.", tag: "Mini Apps" },
+    { icon: "data", pain: "Данные собираете вручную", fix: "Парсер сам обходит сайты, чистит дубли и выгружает результат в Excel, Google Таблицы или базу.", tag: "Парсеры" },
+    { icon: "flow", pain: "Рутина съедает часы", fix: "Связываю сервисы через API и автоматизирую повторяющиеся действия, чтобы команда занималась делом.", tag: "Автоматизация" },
+  ],
+
   steps: [
-    { title: "Что делаю", text: "Telegram-боты и Mini Apps, парсеры и сбор данных, сайты и PWA, интеграции с API и автоматизация рутины.", meta: "боты · парсеры · веб" },
+    { title: "Заявка", text: "Пишете в Telegram или на почту пару строк о задаче. Можно без ТЗ, разберёмся вместе.", meta: "5 минут" },
     { title: "Бриф и оценка", text: "Обсуждаем задачу, я предлагаю решение, фиксируем объём работ, стоимость и сроки.", meta: "1–2 дня" },
     { title: "Разработка", text: "Работаю итерациями и показываю промежуточный результат. Вы видите прогресс и можете поправить курс.", meta: "от 3 дней до 4 недель" },
     { title: "Запуск и поддержка", text: "Деплою на ваш сервер или хостинг, передаю код и инструкцию. Исправляю ошибки после запуска.", meta: "2 недели гарантии" },
@@ -72,6 +86,24 @@ function el(tag, attrs = {}, children = []) {
   return node;
 }
 
+/* ---------- Иконки (Lucide-подобные, линейные) ---------- */
+const ICONS = {
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  bot: '<rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9.5 17h5"/>',
+  app: '<rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3M9 7h6M9 11h4"/>',
+  data: '<ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6M5 11.5v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6"/>',
+  flow: '<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6H14a3 3 0 0 1 3 3v6.5M15.5 18H10a3 3 0 0 1-3-3V8.5"/>',
+};
+
+function svgIcon(name) {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("aria-hidden", "true");
+  svg.setAttribute("class", "icon icon--stroke");
+  svg.innerHTML = ICONS[name] || "";
+  return svg;
+}
+
 /* ---------- Подстановка конфига ---------- */
 function applyConfig() {
   const values = {
@@ -87,6 +119,27 @@ function applyConfig() {
 
   const specialties = $("[data-config-list='specialties']");
   specialties.replaceChildren(...CONFIG.specialties.map((text) => el("li", { class: "spec", text })));
+
+  const { before, accent, after } = CONFIG.offer;
+  $("[data-config-offer]").replaceChildren(before + " ", el("em", { text: accent }), " " + after);
+
+  $$("[data-config-list='trust']").forEach((list) => {
+    list.replaceChildren(
+      ...CONFIG.trust.map((text) => el("li", { class: "trust__item" }, [svgIcon("check"), document.createTextNode(text)]))
+    );
+  });
+
+  const solutions = $("#solutions");
+  CONFIG.solutions.forEach((item, i) => {
+    solutions.append(
+      el("li", { class: "solution reveal", style: "--i:" + i }, [
+        el("span", { class: "solution__icon" }, [svgIcon(item.icon)]),
+        el("p", { class: "solution__pain", text: item.pain }),
+        el("p", { class: "solution__fix", text: item.fix }),
+        el("span", { class: "solution__tag mono", text: item.tag }),
+      ])
+    );
+  });
 
   $$("[data-config]").forEach((node) => {
     const value = values[node.dataset.config];
@@ -342,10 +395,10 @@ function initTelegram() {
     tg.expand();
     const supports = (version) => tg.isVersionAtLeast && tg.isVersionAtLeast(version);
     if (supports("6.1")) {
-      tg.setHeaderColor("#0a0c0f");
-      tg.setBackgroundColor("#0a0c0f");
+      tg.setHeaderColor("#030405");
+      tg.setBackgroundColor("#030405");
     }
-    if (supports("7.10")) tg.setBottomBarColor("#0a0c0f");
+    if (supports("7.10")) tg.setBottomBarColor("#030405");
     // чтобы приложение не сворачивалось, когда листаешь страницу вниз
     if (supports("7.7")) tg.disableVerticalSwipes();
 

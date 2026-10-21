@@ -3,7 +3,7 @@
 <radialGradient id="g" cx="0.75" cy="0.2" r="0.7"><stop offset="0" stop-color="#4cc9ff" stop-opacity="0.18"/><stop offset="1" stop-color="#4cc9ff" stop-opacity="0"/></radialGradient>
 <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#4cc9ff" stroke-opacity="0.05"/></pattern>
 </defs>
-<rect width="1200" height="630" fill="#0a0c0f"/><rect width="1200" height="630" fill="url(#grid)"/><rect width="1200" height="630" fill="url(#g)"/>
+<rect width="1200" height="630" fill="#030405"/><rect width="1200" height="630" fill="url(#grid)"/><rect width="1200" height="630" fill="url(#g)"/>
 <text x="90" y="170" font-family="JetBrains Mono, Consolas, monospace" font-size="30" fill="#4cc9ff">&lt;/&gt; Middle developer</text>
 <text x="90" y="320" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="104" font-weight="800" fill="#f1f5f9" letter-spacing="-3">Look at me</text>
 <text x="90" y="400" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="38" fill="#7f8b97">Telegram-боты · Mini Apps · парсеры · веб</text>
