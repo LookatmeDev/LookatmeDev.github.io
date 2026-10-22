@@ -18,6 +18,23 @@
     "featured": true
   },
   {
+    "title": "LAM: сайт студии интерьеров",
+    "description": "Лендинг студии дизайна интерьеров: портфолио с фильтром и карточками проектов, тарифы с калькулятором стоимости, этапы работы и форма заявки с проверкой телефона. Один HTML-файл без библиотек, удобный на телефоне.",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Адаптивная вёрстка",
+      "SVG"
+    ],
+    "category": "Сайты",
+    "image": "assets/project-lam.webp",
+    "links": {
+      "demo": "https://lookatmedev.github.io/projects/lam/"
+    },
+    "featured": false
+  },
+  {
     "title": "Бот поиска вакансий",
     "description": "Telegram-бот собирает вакансии с 8 сайтов, фильтрует их по критериям пользователя и присылает новые по подписке без повторов. Сборщик и бот работают как отдельные сервисы в Docker.",
     "stack": [
@@ -31,7 +48,7 @@
     "category": "Боты",
     "image": "assets/project-jobs-bot.svg",
     "links": {},
-    "featured": true
+    "featured": false
   },
   {
     "title": "PWA онлайн-записи для студий",

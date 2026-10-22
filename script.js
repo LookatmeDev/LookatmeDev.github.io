@@ -407,7 +407,9 @@ function initTelegram() {
       const link = event.target.closest("a[href]");
       if (!link) return;
       const url = new URL(link.href, location.href);
-      if (url.origin === location.origin || !/^https?:$/.test(url.protocol)) return;
+      if (!/^https?:$/.test(url.protocol)) return;
+      // свои страницы открываем как обычно, кроме ссылок в новой вкладке (демо-проекты)
+      if (url.origin === location.origin && link.target !== "_blank") return;
       event.preventDefault();
       if (url.hostname === "t.me") tg.openTelegramLink(url.href);
       else tg.openLink(url.href);
