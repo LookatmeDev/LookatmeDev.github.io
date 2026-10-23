@@ -11,7 +11,7 @@
       "Telegram Stars"
     ],
     "category": "Mini Apps",
-    "image": "assets/project-subtrack.svg",
+    "image": "assets/project-subtrack.webp",
     "links": {
       "demo": "https://t.me/otpishis_bot/app"
     },
@@ -62,7 +62,7 @@
       "Playwright"
     ],
     "category": "Mini Apps",
-    "image": "assets/project-booking-pwa.svg",
+    "image": "assets/project-pwa.webp",
     "links": {
       "demo": "https://pwaproject.pages.dev/s/lam/"
     },
