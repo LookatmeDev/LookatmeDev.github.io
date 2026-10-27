@@ -361,12 +361,21 @@ ul, ol {
 }
 
 .hero__title {
-  max-width: 13ch;
+  max-width: none;
   margin-top: 32px;
   font-weight: 800;
   font-size: clamp(40px, 8vw, 96px);
   line-height: 1.04;
   letter-spacing: 0.05em;
+}
+
+.hero__line {
+  display: block;
+}
+
+/* вторая фраза слогана приглушена */
+.hero__line + .hero__line {
+  color: var(--muted);
 }
 
 .hero__grid {

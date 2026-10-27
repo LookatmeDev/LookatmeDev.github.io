@@ -87,6 +87,8 @@ function applyConfig() {
     email: "mailto:" + CONFIG.email,
   };
 
+  $("[data-config-offer]").replaceChildren(...CONFIG.offer.map((line) => el("span", { class: "hero__line", text: line })));
+
   $$("[data-config]").forEach((node) => {
     const value = values[node.dataset.config];
     if (typeof value === "string") node.textContent = value;
