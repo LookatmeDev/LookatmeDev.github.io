@@ -1,7 +1,7 @@
 import { Bot, InlineKeyboard } from "grammy";
 
 const SITE_URL = "https://lookatmedev.github.io/";
-const CONTACT_URL = "https://t.me/na_farme";
+const CONTACT_URL = "https://t.me/AXIdesign";
 
 const token = process.env.BOT_TOKEN;
 if (!token) {
@@ -18,8 +18,9 @@ const keyboard = () =>
     .url("Обсудить проект", CONTACT_URL);
 
 const WELCOME =
-  "Привет! Я Лев. Делаю Telegram-ботов, Mini Apps, сайты и автоматизацию под ключ.\n\n" +
-  "Нажмите кнопку ниже, чтобы посмотреть проекты, стек и контакты.";
+  "AXI — дизайн и разработка сайтов.\n\n" +
+  "Лендинги, сайты-визитки и интернет-магазины: продуманный дизайн, чистая вёрстка, запуск под ключ. " +
+  "Первый этап показываю на согласование до основной работы.";
 
 bot.command("start", (ctx) => ctx.reply(WELCOME, { reply_markup: keyboard() }));
 bot.command("portfolio", (ctx) => ctx.reply("Портфолио:", { reply_markup: keyboard() }));
