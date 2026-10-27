@@ -1,84 +1,67 @@
 [
   {
-    "title": "SubTrack: трекер подписок",
-    "description": "Telegram Mini App для учёта платных подписок: считает расходы в месяц и год, показывает календарь списаний, а бот напоминает за день до оплаты. Платные тарифы оплачиваются через Telegram Stars.",
-    "stack": [
-      "React",
-      "TypeScript",
-      "Fastify",
-      "grammY",
-      "PostgreSQL",
-      "Telegram Stars"
-    ],
-    "category": "Mini Apps",
-    "image": "assets/project-subtrack.webp",
+    "title": "Арка: студия дизайна интерьеров",
+    "description": "Сайт студии интерьеров под ключ: концепция, дизайн и вёрстка. Тёмная тема с арочной графикой, портфолио с фильтром, калькулятор стоимости, этапы работы и форма заявки.",
+    "stack": ["Веб-дизайн", "Адаптивная вёрстка", "Калькулятор", "SEO"],
+    "category": "Сайты",
+    "image": "assets/work-arka.webp",
     "links": {
-      "demo": "https://t.me/otpishis_bot/app"
+      "demo": "https://lookatmedev.github.io/projects/arka/"
     },
     "featured": true
   },
   {
-    "title": "LAM: сайт студии интерьеров",
-    "description": "Лендинг студии дизайна интерьеров: портфолио с фильтром и карточками проектов, тарифы с калькулятором стоимости, этапы работы и форма заявки с проверкой телефона. Один HTML-файл без библиотек, удобный на телефоне.",
-    "stack": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Адаптивная вёрстка",
-      "SVG"
-    ],
+    "title": "Зацеп: скалодром в Казани",
+    "description": "Яркий сайт скалодрома: схема трасс вместо стоковых фото, цена пробного занятия на первом экране, расписание групп и запись в два касания с телефона.",
+    "stack": ["Веб-дизайн", "Иллюстрация", "Запись онлайн", "Mobile first"],
     "category": "Сайты",
-    "image": "assets/project-lam.webp",
+    "image": "assets/work-zatsep.webp",
+    "gallery": true,
+    "links": {}
+  },
+  {
+    "title": "Эмаль: стоматологическая клиника",
+    "description": "Сайт клиники, который снимает страх перед ценой: интерактивный план лечения с суммой по каждому зубу, рейтинг с Яндекс Карт и запись на бесплатный осмотр.",
+    "stack": ["Веб-дизайн", "UX", "Интерактивный план", "Адаптив"],
+    "category": "Сайты",
+    "image": "assets/work-emal.webp",
+    "gallery": true,
+    "links": {}
+  },
+  {
+    "title": "SubTrack: трекер подписок",
+    "description": "Telegram Mini App для учёта платных подписок: расходы в месяц и год, календарь списаний и напоминание за день до оплаты. Платные тарифы через Telegram Stars.",
+    "stack": ["React", "TypeScript", "Fastify", "PostgreSQL", "Telegram Stars"],
+    "category": "Веб-приложения",
+    "image": "assets/project-subtrack.webp",
     "links": {
-      "demo": "https://lookatmedev.github.io/projects/lam/"
-    },
-    "featured": false
+      "demo": "https://t.me/otpishis_bot/app"
+    }
   },
   {
-    "title": "Бот поиска вакансий",
-    "description": "Telegram-бот собирает вакансии с 8 сайтов, фильтрует их по критериям пользователя и присылает новые по подписке без повторов. Сборщик и бот работают как отдельные сервисы в Docker.",
-    "stack": [
-      "Go",
-      "Python",
-      "FastAPI",
-      "PostgreSQL",
-      "Redis",
-      "Docker"
-    ],
-    "category": "Боты",
-    "image": "assets/project-jobs-bot.svg",
-    "links": {},
-    "featured": false
-  },
-  {
-    "title": "PWA онлайн-записи для студий",
-    "description": "Мультитенантное приложение записи для автосервисов и детейлинга: клиенты бронируют время, владелец видит расписание и статистику. Новая студия подключается за несколько минут.",
-    "stack": [
-      "React",
-      "TypeScript",
-      "Supabase",
-      "PWA",
-      "Web Push",
-      "Playwright"
-    ],
-    "category": "Mini Apps",
+    "title": "Онлайн-запись для студий",
+    "description": "PWA для автосервисов и детейлинга: клиенты бронируют время, владелец видит расписание и статистику. Новая студия подключается за несколько минут.",
+    "stack": ["React", "TypeScript", "Supabase", "PWA", "Web Push"],
+    "category": "Веб-приложения",
     "image": "assets/project-pwa.webp",
     "links": {
       "demo": "https://pwaproject.pages.dev/s/lam/"
-    },
-    "featured": false
+    }
+  },
+  {
+    "title": "Бот поиска вакансий",
+    "description": "Telegram-бот собирает вакансии с 8 сайтов, фильтрует их по критериям пользователя и присылает новые по подписке без повторов.",
+    "stack": ["Go", "Python", "PostgreSQL", "Redis", "Docker"],
+    "category": "Автоматизация",
+    "image": "assets/project-jobs-bot.svg",
+    "links": {}
   },
   {
     "title": "Парсер организаций 2ГИС",
-    "description": "Скрипт выгружает организации по городу и рубрике: названия, адреса, телефоны и сайты. Результат сохраняется в CSV и XLSX для обзвона и аналитики.",
-    "stack": [
-      "Python",
-      "Selenium",
-      "Pandas"
-    ],
-    "category": "Парсеры",
+    "description": "Выгружает организации по городу и рубрике: названия, адреса, телефоны и сайты. Результат сохраняется в CSV и XLSX для обзвона и аналитики.",
+    "stack": ["Python", "Selenium", "Pandas"],
+    "category": "Автоматизация",
     "image": "assets/project-parser-2gis.svg",
-    "links": {},
-    "featured": false
+    "links": {}
   }
 ]

@@ -4,57 +4,47 @@
    их нужно поправить там же: Telegram не выполняет JavaScript.
    ===================================================================== */
 const CONFIG = {
-  name: "Look at me",
-  shortName: "LM", // буквы в логотипе
-  role: "Middle developer",
-  status: "открыт к проектам",
+  name: "AXI.",
+  tagline: "Студия веб-дизайна · Сайты под ключ",
 
-  // главный оффер в первом экране; accent подсвечивается голубым курсивом
-  offer: { before: "Боты и приложения, которые", accent: "работают", after: "за вас" },
-  offerText: "Делаю Telegram-ботов, Mini Apps, парсеры и веб-приложения под ключ. Беру задачу целиком: от идеи до запуска и поддержки.",
-  // короткие гарантии под кнопками и в финальном блоке
-  trust: ["Ответ в течение дня", "Фиксированная смета", "2 недели гарантии"],
-  // направления в первом экране, выводятся строкой с точками
-  specialties: ["Telegram-боты", "Mini Apps", "Парсеры", "Веб-приложения", "Автоматизация", "API-интеграции"],
+  offer: "Сайты, в которые хочется войти",
+  offerText: "Проектируем и запускаем сайты под ключ. Концепция, дизайн, тексты, вёрстка и запуск в одних руках.",
 
   telegram: "na_farme", // без @
   email: "levtarasenko0305@gmail.com",
-  github: "LookatmeDev",
-
-  about: [
-    "Привет! Я разработчик уровня middle. Делаю Telegram-ботов, мини-приложения, парсеры и сайты, причём веду проект целиком: от первой идеи до запуска на сервере.",
-    "Бэкенд пишу на Go и Python, интерфейсы на TypeScript и React. Мне важно, чтобы внутри всё было просто и понятно. Поэтому код покрыт тестами, а проект упакован в Docker и запускается одной командой.",
-    "Прежде чем садиться за код, разбираюсь, какую задачу на самом деле нужно решить. По ходу работы показываю, что уже готово, так что вы всегда знаете, на каком этапе проект.",
-  ],
 
   facts: [
-    { value: "3+", label: "года коммерческой разработки" },
-    { value: "20+", label: "запущенных проектов" },
-    { value: "8", label: "источников в одном парсере" },
-    { value: "24 ч", label: "время ответа на заявку" },
+    { value: "7", label: "проектов в портфолио" },
+    { value: "2–4", label: "недели на сайт под ключ" },
+    { value: "24 ч", label: "ответ на заявку" },
+    { value: "100%", label: "адаптивная вёрстка" },
+  ],
+
+  services: [
+    { title: "Сайт под ключ", text: "Аналитика, структура, тексты, дизайн, вёрстка, домен и запуск. Вы получаете готовый сайт, который приводит заявки.", meta: "от 2 недель" },
+    { title: "Веб-дизайн", text: "Концепция и макеты в Figma для десктопа и телефона. Типографика, сетка и визуальный язык под ваш бренд.", meta: "от 5 дней" },
+    { title: "Лендинг", text: "Одна страница под продукт или услугу: сильный первый экран, понятная логика и форма заявки.", meta: "от 7 дней" },
+    { title: "Редизайн", text: "Переосмысляем старый сайт: убираем лишнее, усиливаем доверие и переводим на современную адаптивную вёрстку.", meta: "от 10 дней" },
+    { title: "Веб-приложения", text: "Личные кабинеты, онлайн-запись, Telegram Mini Apps. Когда сайту нужна логика, а не только витрина.", meta: "по задаче" },
+  ],
+
+  about: [
+    "Мы работаем как небольшое архитектурное бюро, только в вебе. Сначала разбираемся в бизнесе, аудитории и задаче, потом строим структуру, и только после этого рисуем.",
+    "Каждый элемент на странице должен работать. Чистая типографика, воздух и сдержанная палитра делают сайт дороже, а понятная логика превращает посетителей в клиентов.",
+    "Дизайн и разработку ведём сами, поэтому макет и готовый сайт совпадают до пикселя. После запуска остаёмся на связи и помогаем с доработками.",
   ],
 
   stack: [
-    { group: "Языки", items: ["Go", "Python", "TypeScript", "JavaScript", "SQL"] },
-    { group: "Бэкенд", items: ["FastAPI", "Node.js / Fastify", "grammY", "Telegram Bot API", "Telegram Stars", "Supabase Edge Functions", "httpx / asyncio", "BeautifulSoup / lxml", "REST API"] },
-    { group: "Фронтенд", items: ["React", "Vite", "Tailwind CSS", "PWA / Workbox", "Web Push", "HTML / CSS"] },
-    { group: "Базы данных", items: ["PostgreSQL", "Redis", "Supabase", "RLS-политики"] },
-    { group: "Инструменты", items: ["Docker", "Docker Compose", "Git / GitHub", "Pytest", "Vitest", "Playwright", "Claude Code"] },
-  ],
-
-  // блок «Знакомо? Решаю»: задача клиента и что он получает
-  solutions: [
-    { icon: "bot", pain: "Заявки теряются в переписке", fix: "Telegram-бот принимает заявки круглосуточно, задаёт нужные вопросы и присылает вам готовую карточку клиента.", tag: "Telegram-боты" },
-    { icon: "app", pain: "Клиентам неудобно записываться", fix: "Mini App прямо в Telegram: выбор услуги и времени в пару касаний, напоминания и кабинет владельца.", tag: "Mini Apps" },
-    { icon: "data", pain: "Данные собираете вручную", fix: "Парсер сам обходит сайты, чистит дубли и выгружает результат в Excel, Google Таблицы или базу.", tag: "Парсеры" },
-    { icon: "flow", pain: "Рутина съедает часы", fix: "Связываю сервисы через API и автоматизирую повторяющиеся действия, чтобы команда занималась делом.", tag: "Автоматизация" },
+    { group: "Дизайн", items: ["Figma", "Прототипирование", "UI-кит", "Иллюстрация"] },
+    { group: "Разработка", items: ["HTML / CSS", "JavaScript", "TypeScript", "React", "Vite"] },
+    { group: "Запуск", items: ["SEO-основа", "Аналитика", "Хостинг и домен", "PWA"] },
   ],
 
   steps: [
-    { title: "Заявка", text: "Пишете в Telegram или на почту пару строк о задаче. Можно без ТЗ, разберёмся вместе.", meta: "5 минут" },
-    { title: "Бриф и оценка", text: "Обсуждаем задачу, я предлагаю решение, фиксируем объём работ, стоимость и сроки.", meta: "1–2 дня" },
-    { title: "Разработка", text: "Работаю итерациями и показываю промежуточный результат. Вы видите прогресс и можете поправить курс.", meta: "от 3 дней до 4 недель" },
-    { title: "Запуск и поддержка", text: "Деплою на ваш сервер или хостинг, передаю код и инструкцию. Исправляю ошибки после запуска.", meta: "2 недели гарантии" },
+    { title: "Бриф", text: "Короткий созвон или переписка: цели, аудитория, сроки и бюджет. Можно без ТЗ.", meta: "1 день" },
+    { title: "Структура", text: "Прототип страниц и тексты. Договариваемся о логике до того, как появится дизайн.", meta: "2–3 дня" },
+    { title: "Дизайн", text: "Концепция первого экрана, затем все страницы для десктопа и телефона.", meta: "5–10 дней" },
+    { title: "Запуск", text: "Вёрстка, подключение форм и аналитики, домен. Передаём доступы и инструкцию.", meta: "3–7 дней" },
   ],
 };
 
@@ -86,60 +76,15 @@ function el(tag, attrs = {}, children = []) {
   return node;
 }
 
-/* ---------- Иконки (Lucide-подобные, линейные) ---------- */
-const ICONS = {
-  check: '<path d="M20 6 9 17l-5-5"/>',
-  bot: '<rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9.5 17h5"/>',
-  app: '<rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3M9 7h6M9 11h4"/>',
-  data: '<ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6M5 11.5v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6"/>',
-  flow: '<circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6H14a3 3 0 0 1 3 3v6.5M15.5 18H10a3 3 0 0 1-3-3V8.5"/>',
-};
-
-function svgIcon(name) {
-  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("viewBox", "0 0 24 24");
-  svg.setAttribute("aria-hidden", "true");
-  svg.setAttribute("class", "icon icon--stroke");
-  svg.innerHTML = ICONS[name] || "";
-  return svg;
-}
+const pad = (n) => String(n).padStart(2, "0");
 
 /* ---------- Подстановка конфига ---------- */
 function applyConfig() {
-  const values = {
-    ...CONFIG,
-    telegramHandle: "@" + CONFIG.telegram,
-    githubHandle: "github.com/" + CONFIG.github,
-  };
+  const values = { ...CONFIG, telegramHandle: "@" + CONFIG.telegram };
   const hrefs = {
     telegram: "https://t.me/" + CONFIG.telegram,
     email: "mailto:" + CONFIG.email,
-    github: "https://github.com/" + CONFIG.github,
   };
-
-  const specialties = $("[data-config-list='specialties']");
-  specialties.replaceChildren(...CONFIG.specialties.map((text) => el("li", { class: "spec", text })));
-
-  const { before, accent, after } = CONFIG.offer;
-  $("[data-config-offer]").replaceChildren(before + " ", el("em", { text: accent }), " " + after);
-
-  $$("[data-config-list='trust']").forEach((list) => {
-    list.replaceChildren(
-      ...CONFIG.trust.map((text) => el("li", { class: "trust__item" }, [svgIcon("check"), document.createTextNode(text)]))
-    );
-  });
-
-  const solutions = $("#solutions");
-  CONFIG.solutions.forEach((item, i) => {
-    solutions.append(
-      el("li", { class: "solution reveal", style: "--i:" + i }, [
-        el("span", { class: "solution__icon" }, [svgIcon(item.icon)]),
-        el("p", { class: "solution__pain", text: item.pain }),
-        el("p", { class: "solution__fix", text: item.fix }),
-        el("span", { class: "solution__tag mono", text: item.tag }),
-      ])
-    );
-  });
 
   $$("[data-config]").forEach((node) => {
     const value = values[node.dataset.config];
@@ -150,9 +95,6 @@ function applyConfig() {
     if (href) node.href = href;
   });
 
-  const about = $("[data-config-list='about']");
-  CONFIG.about.forEach((text) => about.append(el("p", { text })));
-
   const facts = $("[data-config-facts]");
   CONFIG.facts.forEach((fact) => {
     facts.append(
@@ -162,6 +104,21 @@ function applyConfig() {
       ])
     );
   });
+
+  const services = $("#services-list");
+  CONFIG.services.forEach((item, i) => {
+    services.append(
+      el("li", { class: "service reveal" }, [
+        el("span", { class: "service__num", text: pad(i + 1) }),
+        el("h3", { class: "service__title", text: item.title }),
+        el("p", { class: "service__text", text: item.text }),
+        el("span", { class: "service__meta meta", text: item.meta }),
+      ])
+    );
+  });
+
+  const about = $("[data-config-list='about']");
+  CONFIG.about.forEach((text) => about.append(el("p", { text })));
 
   const stack = $("#stack-groups");
   CONFIG.stack.forEach((group) => {
@@ -174,12 +131,13 @@ function applyConfig() {
   });
 
   const steps = $("#steps");
-  CONFIG.steps.forEach((step) => {
+  CONFIG.steps.forEach((step, i) => {
     steps.append(
       el("li", { class: "step reveal" }, [
+        el("span", { class: "step__num", text: pad(i + 1) }),
         el("h3", { class: "step__title", text: step.title }),
         el("p", { class: "step__text", text: step.text }),
-        step.meta && el("span", { class: "step__meta", text: step.meta }),
+        el("span", { class: "step__meta meta", text: step.meta }),
       ])
     );
   });
@@ -188,22 +146,24 @@ function applyConfig() {
 }
 
 /* ---------- Проекты ---------- */
-function projectCard(project) {
+function projectCard(project, index) {
   const featured = project.featured === true;
   const links = project.links || {};
   const live = LIVE_LINKS.find(([type]) => links[type]);
-  const href = live ? links[live[0]] : "https://t.me/" + CONFIG.telegram;
-  const ctaText = live ? live[1] : "Запросить демо";
+  // макеты без живой ссылки открываются во весь экран, остальное ведёт в Telegram
+  const gallery = !live && project.gallery === true && project.image;
+  const href = live ? links[live[0]] : gallery ? project.image : "https://t.me/" + CONFIG.telegram;
+  const ctaText = live ? live[1] : gallery ? "Смотреть макет" : "Запросить демо";
 
   const media = el("div", { class: "card__media" });
   if (project.image) {
     const img = el("img", {
       src: project.image,
-      alt: "Скриншот проекта «" + project.title + "»",
-      loading: "lazy",
+      alt: "Проект «" + project.title + "»",
+      loading: index < 2 ? "eager" : "lazy",
       decoding: "async",
-      width: 800,
-      height: 500,
+      width: 1600,
+      height: 968,
     });
     // если файл не найден, показываем заглушку
     img.addEventListener("error", () => img.replaceWith(placeholder(project.title)));
@@ -212,17 +172,29 @@ function projectCard(project) {
     media.append(placeholder(project.title));
   }
 
+  const link = el("a", {
+    class: "card__cover-link",
+    href,
+    target: gallery ? null : "_blank",
+    rel: gallery ? null : "noopener",
+    "aria-label": ctaText + ": " + project.title,
+    text: project.title,
+  });
+  if (gallery) {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      openLightbox(project.image, project.title);
+    });
+  }
+
   // Вся карточка кликабельна: ссылка в заголовке растянута на неё через ::after
-  return el("article", { class: "card" + (featured ? " card--featured" : "") + (live ? " card--live" : ""), "data-category": project.category || "" }, [
-    featured && el("span", { class: "card__badge", text: "★ featured" }),
+  return el("article", { class: "card" + (featured ? " card--featured" : ""), "data-category": project.category || "" }, [
     media,
     el("div", { class: "card__body" }, [
-      project.category && el("p", { class: "card__category", text: "# " + project.category }),
-      el("h3", { class: "card__title" }, [
-        el("a", { class: "card__cover-link", href, target: "_blank", rel: "noopener", "aria-label": ctaText + ": " + project.title, text: project.title }),
-      ]),
+      el("p", { class: "card__category meta", text: pad(index + 1) + " · " + (project.category || "") }),
+      el("h3", { class: "card__title" }, [link]),
       el("p", { class: "card__desc", text: project.description || "" }),
-      el("ul", { class: "tags", "aria-label": "Стек" }, (project.stack || []).map((t) => el("li", { class: "tag", text: t }))),
+      el("ul", { class: "tags", "aria-label": "Что сделано" }, (project.stack || []).map((t) => el("li", { class: "tag", text: t }))),
       el("span", { class: "card__cta", "aria-hidden": "true" }, [
         document.createTextNode(ctaText),
         el("span", { class: "card__cta-arrow", text: "→" }),
@@ -232,13 +204,27 @@ function projectCard(project) {
 }
 
 function placeholder(title) {
-  const initials = title
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-  return el("div", { class: "card__placeholder", "aria-hidden": "true", text: "</" + initials + ">" });
+  return el("div", { class: "card__placeholder", "aria-hidden": "true", text: title.split(/[\s:]+/)[0] });
+}
+
+/* ---------- Просмотр макета ---------- */
+function openLightbox(src, title) {
+  const dialog = $("#lightbox");
+  const img = $(".lightbox__img", dialog);
+  img.src = src;
+  img.alt = "Макет проекта «" + title + "»";
+  $(".lightbox__caption", dialog).textContent = title;
+  if (typeof dialog.showModal === "function") dialog.showModal();
+  else window.open(src, "_blank", "noopener");
+}
+
+function initLightbox() {
+  const dialog = $("#lightbox");
+  $(".lightbox__close", dialog).addEventListener("click", () => dialog.close());
+  // клик по затемнённому фону закрывает окно
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
 }
 
 function renderFilters(projects, grid) {
@@ -256,7 +242,7 @@ function renderFilters(projects, grid) {
   const buttons = options.map(([name, count], i) =>
     el("button", { class: "filter", type: "button", "aria-pressed": i === 0 ? "true" : "false", "data-filter": i === 0 ? "*" : name }, [
       document.createTextNode(name),
-      el("span", { class: "filter__count", text: String(count) }),
+      el("sup", { class: "filter__count", text: String(count) }),
     ])
   );
   filters.append(...buttons);
@@ -282,7 +268,7 @@ async function loadProjects() {
     // featured-проекты показываем первыми
     projects.sort((a, b) => (b.featured === true) - (a.featured === true));
 
-    grid.replaceChildren(...projects.map(projectCard));
+    grid.replaceChildren(...projects.map((project, i) => projectCard(project, i)));
     if (projects.length === 0) {
       grid.append(el("p", { class: "projects__empty", text: "Проекты скоро появятся." }));
     }
@@ -395,10 +381,10 @@ function initTelegram() {
     tg.expand();
     const supports = (version) => tg.isVersionAtLeast && tg.isVersionAtLeast(version);
     if (supports("6.1")) {
-      tg.setHeaderColor("#030405");
-      tg.setBackgroundColor("#030405");
+      tg.setHeaderColor("#0F1B3D");
+      tg.setBackgroundColor("#0F1B3D");
     }
-    if (supports("7.10")) tg.setBottomBarColor("#030405");
+    if (supports("7.10")) tg.setBottomBarColor("#0F1B3D");
     // чтобы приложение не сворачивалось, когда листаешь страницу вниз
     if (supports("7.7")) tg.disableVerticalSwipes();
 
@@ -423,6 +409,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initTelegram();
   applyConfig();
   initNav();
+  initLightbox();
   $$(".reveal").forEach(observeReveal);
   loadProjects();
 });

@@ -3,27 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#030405">
+  <meta name="theme-color" content="#0F1B3D">
 
   <!-- SEO и превью ссылки. Эти значения читают Telegram и соцсети без JavaScript,
-       поэтому их нужно поменять здесь вручную (имя, описание, адрес сайта). -->
-  <title>Look at me · Middle developer</title>
-  <meta name="description" content="Telegram-боты, Mini Apps, парсеры, веб-приложения и автоматизация под ключ. Портфолио, стек и контакты.">
+       поэтому их нужно поменять здесь вручную (название, описание, адрес сайта). -->
+  <title>AXI. · Студия веб-дизайна. Сайты под ключ</title>
+  <meta name="description" content="AXI. Студия веб-дизайна: проектируем и запускаем сайты под ключ. Дизайн, вёрстка, тексты и запуск. Aesthetic. eXquisite. Idyllic.">
   <link rel="canonical" href="https://lookatmedev.github.io/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
-  <meta property="og:site_name" content="Look at me">
-  <meta property="og:title" content="Look at me · Middle developer">
-  <meta property="og:description" content="Боты и приложения, которые работают за вас. Telegram-боты, Mini Apps, парсеры, веб.">
+  <meta property="og:site_name" content="AXI.">
+  <meta property="og:title" content="AXI. · Студия веб-дизайна">
+  <meta property="og:description" content="Сайты под ключ: от концепции и дизайна до запуска. Aesthetic. eXquisite. Idyllic.">
   <meta property="og:url" content="https://lookatmedev.github.io/">
   <meta property="og:image" content="https://lookatmedev.github.io/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Look at me · Middle developer">
-  <meta name="twitter:description" content="Боты и приложения, которые работают за вас. Telegram-боты, Mini Apps, парсеры, веб.">
+  <meta name="twitter:title" content="AXI. · Студия веб-дизайна">
+  <meta name="twitter:description" content="Сайты под ключ: от концепции и дизайна до запуска. Aesthetic. eXquisite. Idyllic.">
   <meta name="twitter:image" content="https://lookatmedev.github.io/assets/og-image.png">
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -31,7 +31,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
@@ -41,68 +41,52 @@
 
   <header class="header" id="top">
     <div class="container header__inner">
-      <a class="logo" href="#top" aria-label="Наверх">
-        <span class="logo__bracket">&lt;</span><span data-config="shortName">LM</span><span class="logo__bracket">/&gt;</span>
-      </a>
+      <a class="logo" href="#top" aria-label="AXI., наверх"><span data-config="name">AXI.</span></a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
-        <span></span><span></span><span></span>
+        <span></span><span></span>
       </button>
 
       <nav class="nav" id="nav" aria-label="Основная навигация">
         <ul class="nav__list">
-          <li><a class="nav__link" href="#about">Обо мне</a></li>
-          <li><a class="nav__link" href="#projects">Проекты</a></li>
-          <li><a class="nav__link" href="#stack">Стек</a></li>
+          <li><a class="nav__link" href="#work">Работы</a></li>
+          <li><a class="nav__link" href="#services">Услуги</a></li>
+          <li><a class="nav__link" href="#about">Подход</a></li>
+          <li><a class="nav__link" href="#process">Процесс</a></li>
           <li><a class="nav__link" href="#contacts">Контакты</a></li>
         </ul>
-        <a class="btn btn--primary btn--sm nav__cta" href="https://t.me/na_farme" data-config-href="telegram" target="_blank" rel="noopener">Обсудить проект</a>
+        <a class="btn btn--light btn--sm" href="https://t.me/na_farme" data-config-href="telegram" target="_blank" rel="noopener">Обсудить проект</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- 1. HERO: оффер и призыв -->
+    <!-- 1. Первый экран -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__glow" aria-hidden="true"></div>
-      <div class="container hero__inner">
-        <p class="eyebrow reveal">
-          <span class="dot" aria-hidden="true"></span>
-          <span class="eyebrow__name"><span data-config="name">Look at me</span> ·</span> <span data-config="role">Middle developer</span> · <span data-config="status">открыт к проектам</span>
+      <div class="container">
+        <p class="meta reveal" data-config="tagline">Студия веб-дизайна · Сайты под ключ</p>
+        <h1 class="hero__title reveal" id="hero-title" data-config="offer">Сайты, в&nbsp;которые хочется войти</h1>
+        <div class="hero__grid">
+          <p class="hero__lead reveal" data-config="offerText">Проектируем и запускаем сайты под ключ. Концепция, дизайн, тексты, вёрстка и запуск в одних руках.</p>
+          <div class="hero__actions reveal">
+            <a class="btn btn--light" href="https://t.me/na_farme" data-config-href="telegram" target="_blank" rel="noopener">Обсудить проект</a>
+            <a class="btn btn--line" href="#work">Смотреть работы</a>
+          </div>
+        </div>
+        <p class="motto reveal" aria-label="Aesthetic. eXquisite. Idyllic.">
+          <span><b>A</b>esthetic.</span> <span>e<b>X</b>quisite.</span> <span><b>I</b>dyllic.</span>
         </p>
-        <h1 class="hero__title reveal" id="hero-title" data-config-offer>Боты и приложения, которые <em>работают</em> за вас</h1>
-        <p class="hero__lead reveal" data-config="offerText">Делаю Telegram-ботов, Mini Apps, парсеры и веб-приложения под ключ. Беру задачу целиком: от идеи до запуска и поддержки.</p>
-        <div class="hero__actions reveal">
-          <a class="btn btn--primary btn--lg" href="https://t.me/na_farme" data-config-href="telegram" target="_blank" rel="noopener">
-            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M21.5 4.2 2.9 11.4c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.8-1.4-1.6ZM9.2 14.2l8.6-5.4c.4-.3.8-.1.5.2l-7.2 6.5-.3 3.1-1.6-4.4Z"/></svg>
-            Обсудить проект
-          </a>
-          <a class="btn btn--ghost btn--lg" href="#projects">Смотреть проекты</a>
-        </div>
-        <ul class="trust reveal" data-config-list="trust" aria-label="Условия работы"></ul>
-        <ul class="hero__specs reveal" data-config-list="specialties" aria-label="Чем занимаюсь"></ul>
+        <ul class="facts reveal" data-config-facts aria-label="Студия в цифрах"></ul>
       </div>
     </section>
 
-    <!-- 2. ЗАДАЧИ: проблема и решение -->
-    <section class="section" id="services" aria-labelledby="services-title">
+    <!-- 2. Работы -->
+    <section class="section" id="work" aria-labelledby="work-title">
       <div class="container">
         <div class="section__head reveal">
-          <p class="section__label mono">01 / задачи</p>
-          <h2 class="section__title" id="services-title">Знакомо? <em>Решаю</em></h2>
-          <p class="section__lead">Типичные задачи, с которыми ко мне приходят, и что получается на выходе.</p>
-        </div>
-        <ul class="solutions" id="solutions"></ul>
-      </div>
-    </section>
-
-    <!-- 3. ПРОЕКТЫ: решение в деле -->
-    <section class="section" id="projects" aria-labelledby="projects-title">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="section__label mono">02 / проекты</p>
-          <h2 class="section__title" id="projects-title">Проекты</h2>
-          <p class="section__lead">Нажмите на карточку, чтобы открыть проект.</p>
+          <p class="meta">01 — Работы</p>
+          <h2 class="section__title" id="work-title">Избранные проекты</h2>
+          <p class="section__lead">Сайты, которые мы спроектировали и запустили. Нажмите на карточку, чтобы открыть проект.</p>
         </div>
         <div class="filters reveal" role="group" aria-label="Фильтр по категориям" id="filters"></div>
         <div class="projects" id="projects-grid" aria-live="polite">
@@ -111,72 +95,81 @@
       </div>
     </section>
 
-    <!-- 4. ОБО МНЕ И ФАКТЫ: почему со мной -->
-    <section class="section" id="about" aria-labelledby="about-title">
+    <!-- 3. Услуги -->
+    <section class="section section--line" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="meta">02 — Услуги</p>
+          <h2 class="section__title" id="services-title">Что мы делаем</h2>
+        </div>
+        <ol class="services" id="services-list"></ol>
+      </div>
+    </section>
+
+    <!-- 4. Подход: светлый блок -->
+    <section class="section section--light" id="about" aria-labelledby="about-title">
       <div class="container about">
         <div class="reveal">
-          <p class="section__label mono">03 / обо мне</p>
-          <h2 class="section__title" id="about-title">Обо мне</h2>
-          <div class="about__text" data-config-list="about"></div>
+          <p class="meta">03 — Подход</p>
+          <h2 class="section__title" id="about-title">Дизайн, в&nbsp;котором нет лишнего</h2>
         </div>
-        <ul class="facts reveal" data-config-facts></ul>
+        <div class="about__text reveal" data-config-list="about"></div>
       </div>
     </section>
 
-    <section class="section section--tight" id="stack" aria-labelledby="stack-title">
+    <!-- 5. Процесс -->
+    <section class="section" id="process" aria-labelledby="process-title">
       <div class="container">
         <div class="section__head reveal">
-          <p class="section__label mono">04 / стек</p>
-          <h2 class="section__title" id="stack-title">Стек</h2>
-        </div>
-        <div class="stack" id="stack-groups"></div>
-      </div>
-    </section>
-
-    <section class="section section--tight" id="process" aria-labelledby="process-title">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="section__label mono">05 / процесс</p>
-          <h2 class="section__title" id="process-title">Как работаем</h2>
+          <p class="meta">04 — Процесс</p>
+          <h2 class="section__title" id="process-title">Как мы работаем</h2>
         </div>
         <ol class="steps" id="steps"></ol>
       </div>
     </section>
 
-    <!-- 5. ФИНАЛЬНЫЙ CTA -->
-    <section class="section" id="contacts" aria-labelledby="contacts-title">
-      <div class="container">
-        <div class="cta reveal">
-          <div class="cta__glow" aria-hidden="true"></div>
-          <p class="section__label mono">06 / контакты</p>
-          <h2 class="cta__title" id="contacts-title">Начнём с <em>короткого</em> сообщения</h2>
-          <p class="cta__text">Опишите задачу в паре предложений. Отвечу в течение дня, предложу решение и назову сроки.</p>
-          <ul class="trust trust--center" data-config-list="trust" aria-label="Условия работы"></ul>
-          <div class="cta__actions">
-            <a class="btn btn--primary btn--lg" href="https://t.me/na_farme" data-config-href="telegram" target="_blank" rel="noopener">
-              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M21.5 4.2 2.9 11.4c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.8-1.4-1.6ZM9.2 14.2l8.6-5.4c.4-.3.8-.1.5.2l-7.2 6.5-.3 3.1-1.6-4.4Z"/></svg>
-              Написать <span data-config="telegramHandle">@na_farme</span>
-            </a>
-            <a class="btn btn--ghost btn--lg" href="mailto:levtarasenko0305@gmail.com" data-config-href="email">
-              <svg class="icon icon--stroke" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              Написать на почту
-            </a>
-          </div>
-          <p class="cta__links mono">
-            <a href="mailto:levtarasenko0305@gmail.com" data-config-href="email" data-config="email">levtarasenko0305@gmail.com</a>
-            <span aria-hidden="true">·</span>
-            <a href="https://github.com/LookatmeDev" data-config-href="github" data-config="githubHandle" target="_blank" rel="noopener">github.com/LookatmeDev</a>
-          </p>
+    <section class="section section--line section--tight" id="tools" aria-labelledby="tools-title">
+      <div class="container tools">
+        <div class="reveal">
+          <p class="meta">05 — Инструменты</p>
+          <h2 class="section__title section__title--sm" id="tools-title">Технологии</h2>
         </div>
+        <div class="stack" id="stack-groups"></div>
+      </div>
+    </section>
+
+    <!-- 6. Контакты -->
+    <section class="section section--line" id="contacts" aria-labelledby="contacts-title">
+      <div class="container cta reveal">
+        <p class="meta">06 — Контакты</p>
+        <h2 class="cta__title" id="contacts-title">Расскажите о&nbsp;проекте</h2>
+        <p class="cta__text">Пара предложений о задаче достаточно. Ответим в течение дня, предложим решение и назовём сроки.</p>
+        <div class="cta__actions">
+          <a class="btn btn--light" href="https://t.me/na_farme" data-config-href="telegram" target="_blank" rel="noopener">Написать в Telegram</a>
+          <a class="btn btn--line" href="mailto:levtarasenko0305@gmail.com" data-config-href="email">Написать на почту</a>
+        </div>
+        <ul class="cta__links">
+          <li><a href="https://t.me/na_farme" data-config-href="telegram" data-config="telegramHandle" target="_blank" rel="noopener">@na_farme</a></li>
+          <li><a href="mailto:levtarasenko0305@gmail.com" data-config-href="email" data-config="email">levtarasenko0305@gmail.com</a></li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <p class="mono">© <span id="year">2026</span> <span data-config="name">Look at me</span></p>
-      <a class="footer__up mono" href="#top">Наверх ↑</a>
+      <p class="footer__logo" data-config="name">AXI.</p>
+      <p class="meta">Aesthetic. eXquisite. Idyllic.</p>
+      <p class="meta">© <span id="year">2026</span> Студия веб-дизайна <span data-config="name">AXI.</span></p>
     </div>
   </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Просмотр макета">
+    <button class="lightbox__close" type="button" aria-label="Закрыть">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <img class="lightbox__img" alt="">
+    <p class="lightbox__caption meta"></p>
+  </dialog>
 </body>
 </html>
