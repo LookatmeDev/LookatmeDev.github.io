@@ -10,14 +10,14 @@ const CONFIG = {
   offer: "Сайты, в которые хочется войти",
   offerText: "Проектируем и запускаем сайты под ключ. Концепция, дизайн, тексты, вёрстка и запуск в одних руках.",
 
-  telegram: "na_farme", // без @
+  telegram: "AXIdesign", // без @
   email: "levtarasenko0305@gmail.com",
 
+  // три принципа на первом экране, по буквам девиза
   facts: [
-    { value: "7", label: "проектов в портфолио" },
-    { value: "2–4", label: "недели на сайт под ключ" },
-    { value: "24 ч", label: "ответ на заявку" },
-    { value: "100%", label: "адаптивная вёрстка" },
+    { letter: "A", word: "Aesthetic", title: "Эстетика", text: "Чистая типографика, воздух и сдержанная палитра. Сайт выглядит дорого с первого экрана." },
+    { letter: "X", word: "eXquisite", title: "Точность", text: "Каждый отступ выверен, а готовый сайт совпадает с макетом до пикселя." },
+    { letter: "I", word: "Idyllic", title: "Спокойствие", text: "Берём проект целиком, от брифа до запуска. Вам не нужно контролировать процесс." },
   ],
 
   services: [
@@ -76,7 +76,8 @@ function el(tag, attrs = {}, children = []) {
   return node;
 }
 
-const pad = (n) => String(n).padStart(2, "0");
+// номер пункта в виде «1 / 5»: текущий выделен, общее количество приглушено
+const counter = (n, total) => [el("b", { text: String(n) }), document.createTextNode(" / " + total)];
 
 /* ---------- Подстановка конфига ---------- */
 function applyConfig() {
@@ -98,9 +99,11 @@ function applyConfig() {
   const facts = $("[data-config-facts]");
   CONFIG.facts.forEach((fact) => {
     facts.append(
-      el("li", { class: "fact" }, [
-        el("span", { class: "fact__value", text: fact.value }),
-        el("span", { class: "fact__label", text: fact.label }),
+      el("li", { class: "pillar" }, [
+        el("span", { class: "pillar__letter", "aria-hidden": "true", text: fact.letter }),
+        el("span", { class: "pillar__word", text: fact.word }),
+        el("h3", { class: "pillar__title", text: fact.title }),
+        el("p", { class: "pillar__text", text: fact.text }),
       ])
     );
   });
@@ -109,7 +112,7 @@ function applyConfig() {
   CONFIG.services.forEach((item, i) => {
     services.append(
       el("li", { class: "service reveal" }, [
-        el("span", { class: "service__num", text: pad(i + 1) }),
+        el("span", { class: "service__num" }, counter(i + 1, CONFIG.services.length)),
         el("h3", { class: "service__title", text: item.title }),
         el("p", { class: "service__text", text: item.text }),
         el("span", { class: "service__meta meta", text: item.meta }),
@@ -134,7 +137,7 @@ function applyConfig() {
   CONFIG.steps.forEach((step, i) => {
     steps.append(
       el("li", { class: "step reveal" }, [
-        el("span", { class: "step__num", text: pad(i + 1) }),
+        el("span", { class: "step__num" }, counter(i + 1, CONFIG.steps.length)),
         el("h3", { class: "step__title", text: step.title }),
         el("p", { class: "step__text", text: step.text }),
         el("span", { class: "step__meta meta", text: step.meta }),
@@ -191,7 +194,7 @@ function projectCard(project, index) {
   return el("article", { class: "card" + (featured ? " card--featured" : ""), "data-category": project.category || "" }, [
     media,
     el("div", { class: "card__body" }, [
-      el("p", { class: "card__category meta", text: pad(index + 1) + " · " + (project.category || "") }),
+      el("p", { class: "card__category meta", text: project.category || "" }),
       el("h3", { class: "card__title" }, [link]),
       el("p", { class: "card__desc", text: project.description || "" }),
       el("ul", { class: "tags", "aria-label": "Что сделано" }, (project.stack || []).map((t) => el("li", { class: "tag", text: t }))),

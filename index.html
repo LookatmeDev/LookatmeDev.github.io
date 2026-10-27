@@ -33,15 +33,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=2">
-  <script src="script.js?v=2" defer></script>
+  <link rel="stylesheet" href="style.css?v=3">
+  <script src="script.js?v=3" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержимому</a>
 
   <header class="header" id="top">
     <div class="container header__inner">
-      <a class="logo" href="#top" aria-label="AXI., наверх"><span data-config="name">AXI.</span></a>
+      <div class="brand">
+        <a class="logo" href="#top" aria-label="AXI., наверх"><span data-config="name">AXI.</span></a>
+        <p class="brand__motto">Aesthetic. eXquisite. Idyllic.</p>
+        <a class="brand__tg" href="https://t.me/AXIdesign" data-config-href="telegram" data-config="telegramHandle" target="_blank" rel="noopener">@AXIdesign</a>
+      </div>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
         <span></span><span></span>
@@ -55,7 +59,7 @@
           <li><a class="nav__link" href="#process">Процесс</a></li>
           <li><a class="nav__link" href="#contacts">Контакты</a></li>
         </ul>
-        <a class="btn btn--light btn--sm" href="https://t.me/na_farme" data-config-href="telegram" target="_blank" rel="noopener">Обсудить проект</a>
+        <a class="btn btn--light btn--sm" href="https://t.me/AXIdesign" data-config-href="telegram" target="_blank" rel="noopener">Обсудить проект</a>
       </nav>
     </div>
   </header>
@@ -69,14 +73,11 @@
         <div class="hero__grid">
           <p class="hero__lead reveal" data-config="offerText">Проектируем и запускаем сайты под ключ. Концепция, дизайн, тексты, вёрстка и запуск в одних руках.</p>
           <div class="hero__actions reveal">
-            <a class="btn btn--light" href="https://t.me/na_farme" data-config-href="telegram" target="_blank" rel="noopener">Обсудить проект</a>
+            <a class="btn btn--light" href="https://t.me/AXIdesign" data-config-href="telegram" target="_blank" rel="noopener">Обсудить проект</a>
             <a class="btn btn--line" href="#work">Смотреть работы</a>
           </div>
         </div>
-        <p class="motto reveal" aria-label="Aesthetic. eXquisite. Idyllic.">
-          <span><b>A</b>esthetic.</span> <span>e<b>X</b>quisite.</span> <span><b>I</b>dyllic.</span>
-        </p>
-        <ul class="facts reveal" data-config-facts aria-label="Студия в цифрах"></ul>
+        <ul class="pillars reveal" data-config-facts aria-label="Принципы студии"></ul>
       </div>
     </section>
 
@@ -84,7 +85,7 @@
     <section class="section" id="work" aria-labelledby="work-title">
       <div class="container">
         <div class="section__head reveal">
-          <p class="meta">01 — Работы</p>
+          <p class="label">Работы</p>
           <h2 class="section__title" id="work-title">Избранные проекты</h2>
           <p class="section__lead">Сайты, которые мы спроектировали и запустили. Нажмите на карточку, чтобы открыть проект.</p>
         </div>
@@ -99,7 +100,7 @@
     <section class="section section--line" id="services" aria-labelledby="services-title">
       <div class="container">
         <div class="section__head reveal">
-          <p class="meta">02 — Услуги</p>
+          <p class="label">Услуги</p>
           <h2 class="section__title" id="services-title">Что мы делаем</h2>
         </div>
         <ol class="services" id="services-list"></ol>
@@ -110,7 +111,7 @@
     <section class="section section--light" id="about" aria-labelledby="about-title">
       <div class="container about">
         <div class="reveal">
-          <p class="meta">03 — Подход</p>
+          <p class="label">Подход</p>
           <h2 class="section__title" id="about-title">Дизайн, в&nbsp;котором нет лишнего</h2>
         </div>
         <div class="about__text reveal" data-config-list="about"></div>
@@ -121,7 +122,7 @@
     <section class="section" id="process" aria-labelledby="process-title">
       <div class="container">
         <div class="section__head reveal">
-          <p class="meta">04 — Процесс</p>
+          <p class="label">Процесс</p>
           <h2 class="section__title" id="process-title">Как мы работаем</h2>
         </div>
         <ol class="steps" id="steps"></ol>
@@ -131,7 +132,7 @@
     <section class="section section--line section--tight" id="tools" aria-labelledby="tools-title">
       <div class="container tools">
         <div class="reveal">
-          <p class="meta">05 — Инструменты</p>
+          <p class="label">Инструменты</p>
           <h2 class="section__title section__title--sm" id="tools-title">Технологии</h2>
         </div>
         <div class="stack" id="stack-groups"></div>
@@ -141,15 +142,15 @@
     <!-- 6. Контакты -->
     <section class="section section--line" id="contacts" aria-labelledby="contacts-title">
       <div class="container cta reveal">
-        <p class="meta">06 — Контакты</p>
+        <p class="label">Контакты</p>
         <h2 class="cta__title" id="contacts-title">Расскажите о&nbsp;проекте</h2>
         <p class="cta__text">Пара предложений о задаче достаточно. Ответим в течение дня, предложим решение и назовём сроки.</p>
         <div class="cta__actions">
-          <a class="btn btn--light" href="https://t.me/na_farme" data-config-href="telegram" target="_blank" rel="noopener">Написать в Telegram</a>
+          <a class="btn btn--light" href="https://t.me/AXIdesign" data-config-href="telegram" target="_blank" rel="noopener">Написать в Telegram</a>
           <a class="btn btn--line" href="mailto:levtarasenko0305@gmail.com" data-config-href="email">Написать на почту</a>
         </div>
         <ul class="cta__links">
-          <li><a href="https://t.me/na_farme" data-config-href="telegram" data-config="telegramHandle" target="_blank" rel="noopener">@na_farme</a></li>
+          <li><a href="https://t.me/AXIdesign" data-config-href="telegram" data-config="telegramHandle" target="_blank" rel="noopener">@AXIdesign</a></li>
           <li><a href="mailto:levtarasenko0305@gmail.com" data-config-href="email" data-config="email">levtarasenko0305@gmail.com</a></li>
         </ul>
       </div>
