@@ -197,7 +197,7 @@ function projectCard(project, index) {
   return el("article", { class: "card" + (featured ? " card--featured" : ""), "data-category": project.category || "" }, [
     media,
     el("div", { class: "card__body" }, [
-      el("p", { class: "card__category meta", text: project.category || "" }),
+      el("p", { class: "card__category meta", text: (featured ? "Флагманский проект · " : "") + (project.category || "") }),
       el("h3", { class: "card__title" }, [link]),
       el("p", { class: "card__desc", text: project.description || "" }),
       el("ul", { class: "tags", "aria-label": "Что сделано" }, (project.stack || []).map((t) => el("li", { class: "tag", text: t }))),
