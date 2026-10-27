@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Бот @AXIdesign_bot: открывает портфолио как Telegram Mini App",
+  "scripts": {
+    "start": "node --env-file=.env index.js"
+  },
+  "dependencies": {
+    "grammy": "^1.30.0"
+  },
+  "engines": {
+    "node": ">=20.6"
+  }
+}
