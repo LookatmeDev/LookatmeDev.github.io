@@ -39,13 +39,13 @@
     }
   },
   {
-    "title": "Онлайн-запись для студий",
-    "description": "PWA для автосервисов и детейлинга: клиенты бронируют время, владелец видит расписание и статистику. Новая студия подключается за несколько минут.",
-    "stack": ["React", "TypeScript", "Supabase", "PWA", "Web Push"],
-    "category": "Веб-приложения",
-    "image": "assets/project-pwa.webp",
+    "title": "AXI: продающий сайт с калькулятором",
+    "description": "Демо-макет для заказчика: 3D-карусель пакетов, калькулятор стоимости с живым чеком, до/после, FAQ и форма заявки с расчётом. Глубокий голубой, плавные анимации.",
+    "stack": ["Веб-дизайн", "Калькулятор", "GSAP", "Анимации"],
+    "category": "Сайты",
+    "image": "assets/work-axi-demo.webp",
     "links": {
-      "demo": "https://pwaproject.pages.dev/s/lam/"
+      "demo": "https://lookatmedev.github.io/projects/axi-demo/"
     }
   },
   {
