@@ -33,8 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=8">
-  <script src="script.js?v=8" defer></script>
+  <link rel="stylesheet" href="style.css?v=9">
+  <script src="script.js?v=9" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -93,6 +93,9 @@
         <div class="filters reveal" role="group" aria-label="Фильтр по категориям" id="filters"></div>
         <div class="projects" id="projects-grid" aria-live="polite">
           <p class="projects__empty">Загружаю проекты…</p>
+        </div>
+        <div class="projects__more" id="projects-more" hidden>
+          <button class="btn btn--line" type="button">Показать ещё<sup class="projects__more-count"></sup></button>
         </div>
       </div>
     </section>

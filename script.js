@@ -316,11 +316,38 @@ function renderFilters(projects, grid) {
   filters.addEventListener("click", (event) => {
     const button = event.target.closest(".filter");
     if (!button) return;
-    const value = button.dataset.filter;
     buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
-    $$(".card", grid).forEach((card) => {
-      card.classList.toggle("is-hidden", value !== "*" && card.dataset.category !== value);
-    });
+    view.filter = button.dataset.filter;
+    updateGrid(grid);
+  });
+}
+
+/* ---------- Сколько карточек показывать ---------- */
+// флагман на всю ширину + 6 лучших работ, остальные открываются кнопкой
+const PREVIEW_COUNT = 7;
+const view = { filter: "*", expanded: false };
+
+const matchingCards = (grid) => $$(".card", grid).filter((card) => view.filter === "*" || card.dataset.category === view.filter);
+
+function updateGrid(grid) {
+  const matching = matchingCards(grid);
+  $$(".card", grid).forEach((card) => card.classList.add("is-hidden"));
+  matching.forEach((card, i) => card.classList.toggle("is-hidden", !view.expanded && i >= PREVIEW_COUNT));
+
+  const rest = view.expanded ? 0 : Math.max(0, matching.length - PREVIEW_COUNT);
+  const more = $("#projects-more");
+  more.hidden = rest === 0;
+  $(".projects__more-count", more).textContent = String(rest);
+}
+
+function initMore(grid) {
+  const button = $("#projects-more button");
+  button.addEventListener("click", () => {
+    const firstHidden = matchingCards(grid)[PREVIEW_COUNT];
+    view.expanded = true;
+    updateGrid(grid);
+    // фокус на первую открывшуюся работу, чтобы с клавиатуры не терять место
+    if (firstHidden) $(".card__cover-link", firstHidden).focus({ preventScroll: true });
   });
 }
 
@@ -339,6 +366,8 @@ async function loadProjects() {
       grid.append(el("p", { class: "projects__empty", text: "Проекты скоро появятся." }));
     }
     renderFilters(projects, grid);
+    initMore(grid);
+    updateGrid(grid);
     $$(".card", grid).forEach((card) => observeReveal(card));
   } catch (error) {
     console.error("Не удалось загрузить projects.json:", error);
