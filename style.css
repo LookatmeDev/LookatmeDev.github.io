@@ -28,7 +28,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
-  scroll-padding-top: 112px;
+  scroll-padding-top: 99px;
 }
 
 body {
@@ -857,6 +857,189 @@ ul, ol {
 
 @media (min-width: 900px) {
   .tools {
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+  }
+}
+
+/* ---------- Цены ---------- */
+.pricing {
+  display: grid;
+  gap: 24px;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 40px 32px;
+  border: 1px solid var(--line);
+}
+
+.plan__title {
+  font-weight: 800;
+  font-size: clamp(24px, 2.5vw, 32px);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.plan__price {
+  margin-top: 8px;
+  font-weight: 800;
+  font-size: clamp(32px, 3.6vw, 44px);
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+}
+
+.plan__term,
+.plan__text {
+  color: var(--muted);
+}
+
+.plan__term {
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+
+.plan__items {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.plan__items li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.plan__items li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+}
+
+.plan .btn {
+  margin-top: auto;
+}
+
+/* выделенный тариф: белая карточка, ровно два цвета */
+.plan--featured {
+  background: var(--white);
+  color: var(--navy);
+  border-color: var(--white);
+}
+
+.plan--featured .plan__term,
+.plan--featured .plan__text {
+  color: var(--navy);
+}
+
+.plan--featured .plan__items {
+  border-top-color: var(--navy);
+}
+
+.btn--dark {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+
+.btn--dark:hover {
+  background: transparent;
+  color: var(--navy);
+}
+
+.pricing__note {
+  max-width: 760px;
+  margin-top: 40px;
+  color: var(--muted);
+}
+
+@media (min-width: 900px) {
+  .pricing {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Частые вопросы ---------- */
+.faq {
+  display: grid;
+  gap: 40px;
+}
+
+.faq .section__title {
+  margin-top: 20px;
+}
+
+.faq__list {
+  border-top: 1px solid var(--line);
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 44px;
+  padding: 28px 0;
+  font-weight: 800;
+  font-size: clamp(18px, 1.6vw, 22px);
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq__q::-webkit-details-marker {
+  display: none;
+}
+
+/* плюс, который превращается в минус */
+.faq__icon {
+  position: relative;
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+.faq__icon::before,
+.faq__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 20px;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.3s var(--ease);
+}
+
+.faq__icon::after {
+  transform: rotate(90deg);
+}
+
+.faq__item[open] .faq__icon::after {
+  transform: rotate(0deg);
+}
+
+.faq__a {
+  max-width: 720px;
+  padding-bottom: 28px;
+  color: var(--muted);
+}
+
+@media (min-width: 900px) {
+  .faq {
     grid-template-columns: 1fr 2fr;
     gap: 80px;
   }
