@@ -3,30 +3,34 @@
   'use strict';
 
   /* ===================== ДАННЫЕ (DEMO) ===================== */
+  // base: цена основы пакета, per: цена за один экран/страницу/сценарий, unit: [1, 2-4, 5+], weeks: базовый срок
   const PACKAGES = [
-    { name: 'Эскиз', tag: 'Старт', rate: 1500, weeks: 1,
-      desc: 'Два варианта планировки с расстановкой мебели и зонированием. Подходит, если ремонт вы делаете сами.' },
-    { name: 'Базовый', tag: 'Основа', rate: 3200, weeks: 3,
-      desc: 'Планировка, концепция и эскизы стен. Основа для ремонта с понятным и предсказуемым результатом.' },
-    { name: 'Полный', tag: 'Популярный', rate: 4800, weeks: 5,
-      desc: '3D-визуализации всех комнат, подбор отделки и света, комплект рабочих чертежей для строителей.' },
-    { name: 'Под ключ', tag: 'Всё включено', rate: 7200, weeks: 8,
-      desc: 'Полная документация и спецификации. Вы получаете готовый список закупок и чёткий план работ.' },
-    { name: 'Премиум', tag: 'Сопровождение', rate: 9800, weeks: 10,
-      desc: 'Проект плюс личный куратор: контроль подрядчиков, выезды на объект и сдача по чек-листу.' }
+    { name: 'Лендинг', tag: 'Одна страница', base: 18000, per: 2500, weeks: 1, unitTitle: 'Количество экранов', unit: ['экран', 'экрана', 'экранов'],
+      desc: 'Одностраничный сайт под одно действие: оффер, доказательства, форма заявки. Подходит для услуги, акции или запуска продукта.' },
+    { name: 'Сайт компании', tag: 'Несколько страниц', base: 35000, per: 4000, weeks: 2, unitTitle: 'Количество страниц', unit: ['страница', 'страницы', 'страниц'],
+      desc: 'Многостраничный сайт: услуги, о компании, кейсы, контакты. Единый стиль и удобная навигация.' },
+    { name: 'Каталог и магазин', tag: 'Товары и заказы', base: 70000, per: 3500, weeks: 4, unitTitle: 'Количество страниц', unit: ['страница', 'страницы', 'страниц'],
+      desc: 'Каталог товаров с карточками, фильтрами и корзиной. Заказы приходят вам в Telegram или на почту.' },
+    { name: 'Telegram Mini App', tag: 'Внутри Telegram', base: 60000, per: 5000, weeks: 3, unitTitle: 'Количество экранов', unit: ['экран', 'экрана', 'экранов'],
+      desc: 'Приложение, которое открывается прямо в Telegram: каталог, запись, личный кабинет, оплата Telegram Stars.' },
+    { name: 'Telegram-бот', tag: 'Автоответы и заявки', base: 25000, per: 3000, weeks: 1, unitTitle: 'Количество сценариев', unit: ['сценарий', 'сценария', 'сценариев'],
+      desc: 'Бот принимает заявки, отвечает на частые вопросы, присылает уведомления и подключается к вашей CRM.' },
+    { name: 'Веб-приложение', tag: 'Сложная логика', base: 120000, per: 8000, weeks: 6, unitTitle: 'Количество экранов', unit: ['экран', 'экрана', 'экранов'],
+      desc: 'PWA или кабинет с логикой: онлайн-запись, расписание, роли, статистика и push-уведомления.' }
   ];
   const OPTIONS = [
-    { id: 'viz',  name: '3D-визуализации',     note: 'Каждая комната в картинке', perM2: 600 },
-    { id: 'spec', name: 'Комплектация',        note: 'Списки закупок и поставщики', perM2: 900 },
-    { id: 'sup',  name: 'Авторский надзор',    note: 'Выезды на объект', perM2: 1800 },
-    { id: 'meas', name: 'Выезд на замер',      note: 'Обмеры и фотофиксация', fixed: 7000 }
+    { id: 'anim', name: 'Премиум-анимации',   note: 'Как на этой странице', perUnit: 800 },
+    { id: 'copy', name: 'Тексты от нас',      note: 'Структура и копирайтинг', perUnit: 1200 },
+    { id: 'cms',  name: 'Админка',            note: 'Правите цены и тексты сами', fixed: 25000 },
+    { id: 'pay',  name: 'Приём оплат',        note: 'ЮKassa или Telegram Stars', fixed: 20000 },
+    { id: 'seo',  name: 'SEO и аналитика',    note: 'Метрика и базовая оптимизация', fixed: 12000 }
   ];
   const URGENCY = [
     { name: 'Стандарт',  note: 'по графику',  k: 1,    t: 1 },
     { name: 'Ускоренно', note: 'срок −30%',   k: 1.25, t: 0.7 },
     { name: 'Экспресс',  note: 'срок −45%',   k: 1.5,  t: 0.55 }
   ];
-  const PRICING = { minArea: 20, maxArea: 300, bigAreaFrom: 120, bigAreaDiscount: 0.07, comboFrom: 2, comboDiscount: 0.03 };
+  const PRICING = { min: 1, max: 20, bigFrom: 10, bigDiscount: 0.07, comboFrom: 2, comboDiscount: 0.03 };
 
   /* ===================== УТИЛИТЫ ===================== */
   // Всегда начинаем с начала страницы, иначе после перезагрузки блоки ниже экрана не успевают появиться
@@ -84,57 +88,59 @@
   }
 
   /* ===================== КАЛЬКУЛЯТОР ===================== */
-  const state = { pkg: 1, area: 70, opts: new Set(), urg: 0 };
+  const state = { pkg: 0, area: 5, opts: new Set(), urg: 0 };
+  const unitWord = (p, n) => p.unit[n % 100 > 10 && n % 100 < 15 ? 2 : n % 10 === 1 ? 0 : n % 10 > 1 && n % 10 < 5 ? 1 : 2];
   const tv = { v: 0 };
   const el = {
     pkgs: $('#calcPkgs'), opts: $('#calcOpts'), urg: $('#calcUrg'), area: $('#area'), areaOut: $('#areaOut'),
-    total: $('#totalVal'), save: $('#saveLine'), lines: $('#lines'), weeks: $('#weeksVal'), perM2: $('#perM2'),
+    total: $('#totalVal'), save: $('#saveLine'), lines: $('#lines'), weeks: $('#weeksVal'), perM2: $('#perM2'), perLabel: $('#perM2').previousElementSibling, unitLabel: $('#unitLabel'),
     summary: $('#leadSummary'), field: $('#calcField')
   };
 
   el.pkgs.innerHTML = PACKAGES.map((p, i) => `
     <label class="opt-card"><input type="radio" name="pkg" value="${i}" ${i === state.pkg ? 'checked' : ''}>
-      <div><b>${p.name}</b><small>${fmt(p.rate)} ₽/м²</small></div></label>`).join('');
+      <div><b>${p.name}</b><small>от ${fmt(p.base)} ₽</small></div></label>`).join('');
   el.opts.innerHTML = OPTIONS.map(o => `
     <label class="switch"><input type="checkbox" value="${o.id}">
-      <span class="t"><b>${o.name}</b><small>${o.note} · ${o.fixed ? fmt(o.fixed) + ' ₽' : '+' + fmt(o.perM2) + ' ₽/м²'}</small></span>
+      <span class="t"><b>${o.name}</b><small>${o.note} · ${o.fixed ? fmt(o.fixed) + ' ₽' : '+' + fmt(o.perUnit) + ' ₽ за ед.'}</small></span>
       <span class="knob"></span></label>`).join('');
   el.urg.innerHTML = URGENCY.map((u, i) => `
     <label><input type="radio" name="urg" value="${i}" ${i === state.urg ? 'checked' : ''}>${u.name}<small>${u.note}</small></label>`).join('');
 
   function compute() {
-    const p = PACKAGES[state.pkg], u = URGENCY[state.urg], a = state.area;
-    const lines = [{ n: `${p.name} · ${a} м²`, v: p.rate * a }];
-    let sum = p.rate * a;
+    const p = PACKAGES[state.pkg], u = URGENCY[state.urg], n = state.area;
+    const lines = [{ n: `${p.name}: основа`, v: p.base }, { n: `${n} ${unitWord(p, n)}`, v: p.per * n }];
+    let sum = p.base + p.per * n;
     OPTIONS.filter(o => state.opts.has(o.id)).forEach(o => {
-      const v = o.fixed ? o.fixed : o.perM2 * a; sum += v; lines.push({ n: o.name, v });
+      const v = o.fixed ? o.fixed : o.perUnit * n; sum += v; lines.push({ n: o.name, v });
     });
     const urgSum = sum * u.k;
     if (u.k !== 1) lines.push({ n: `${u.name} (×${String(u.k).replace('.', ',')})`, v: urgSum - sum });
     let disc = 0;
-    if (a >= PRICING.bigAreaFrom) disc += PRICING.bigAreaDiscount;
+    if (n >= PRICING.bigFrom) disc += PRICING.bigDiscount;
     if (state.opts.size >= PRICING.comboFrom) disc += PRICING.comboDiscount;
     const save = urgSum * disc, total = urgSum - save;
     if (disc) lines.push({ n: `Скидка ${Math.round(disc * 100)}%`, v: -save });
-    const weeks = Math.max(2, Math.round((p.weeks + a / 30) * u.t));
-    return { lines, total, save, weeks, perM2: total / a };
+    const weeks = Math.max(1, Math.round((p.weeks + n / 4) * u.t));
+    return { lines, total, save, weeks, perUnit: total / n };
   }
 
   function renderCalc() {
-    const c = compute();
-    el.areaOut.textContent = `${state.area} м²`;
-    el.area.style.setProperty('--p', ((state.area - PRICING.minArea) / (PRICING.maxArea - PRICING.minArea) * 100) + '%');
+    const c = compute(), p = PACKAGES[state.pkg];
+    el.unitLabel.textContent = p.unitTitle;
+    el.areaOut.textContent = state.area;
+    el.area.style.setProperty('--p', ((state.area - PRICING.min) / (PRICING.max - PRICING.min) * 100) + '%');
     el.lines.innerHTML = c.lines.map(l => `<li><span>${l.n}</span><span>${l.v < 0 ? '−' : ''}${fmt(Math.abs(l.v))} ₽</span></li>`).join('');
     el.weeks.textContent = `${c.weeks} ${plural(c.weeks, 'неделя', 'недели', 'недель')}`;
-    el.perM2.textContent = `${fmt(c.perM2)} ₽`;
+    el.perM2.textContent = `${fmt(c.perUnit)} ₽`;
+    el.perLabel.textContent = `Стоимость: 1 ${p.unit[0]}`;
     el.save.hidden = !c.save;
     if (c.save) el.save.textContent = `Вы экономите ${fmt(c.save)} ₽`;
     if (hasGsap && !reduce) {
       gsap.to(tv, { v: c.total, duration: .85, ease: 'power3.out', overwrite: true, onUpdate: () => { el.total.textContent = fmt(tv.v); } });
     } else { tv.v = c.total; el.total.textContent = fmt(c.total); }
-    const p = PACKAGES[state.pkg];
-    el.summary.innerHTML = `<span>Пакет «${p.name}», ${state.area} м², ${c.weeks} ${plural(c.weeks, 'неделя', 'недели', 'недель')}</span><b>${fmt(c.total)} ₽</b>`;
-    el.field.value = `Пакет: ${p.name}; площадь: ${state.area} м²; опции: ${[...state.opts].join(',') || 'нет'}; срочность: ${URGENCY[state.urg].name}; итого: ${fmt(c.total)} ₽`;
+    el.summary.innerHTML = `<span>«${p.name}», ${state.area} ${unitWord(p, state.area)}, ${c.weeks} ${plural(c.weeks, 'неделя', 'недели', 'недель')}</span><b>${fmt(c.total)} ₽</b>`;
+    el.field.value = `Пакет: ${p.name}; объём: ${state.area} ${unitWord(p, state.area)}; опции: ${[...state.opts].join(',') || 'нет'}; срочность: ${URGENCY[state.urg].name}; итого: ${fmt(c.total)} ₽`;
   }
   function plural(n, a, b, c) { const m = n % 100, d = n % 10; return m > 10 && m < 15 ? c : d === 1 ? a : d > 1 && d < 5 ? b : c; }
 
@@ -162,7 +168,7 @@
   const cards = PACKAGES.map((p, i) => {
     const d = document.createElement('div');
     d.className = 'pcard'; d.dataset.i = i;
-    d.innerHTML = `<div class="art">${art(i)}</div><div class="meta"><small>${p.tag}</small><b>${p.name}</b><span>от ${fmt(p.rate)} ₽/м²</span></div>`;
+    d.innerHTML = `<div class="art">${art(i)}</div><div class="meta"><small>${p.tag}</small><b>${p.name}</b><span>от ${fmt(p.base)} ₽</span></div>`;
     ring.appendChild(d); return d;
   });
   const dotsEl = $('#dots');
@@ -204,7 +210,7 @@
     cards.forEach((c, i) => c.classList.toggle('active', i === idx));
     $$('button', dotsEl).forEach((b, i) => b.setAttribute('aria-selected', i === idx));
     const p = PACKAGES[idx];
-    $('#pickTag').textContent = p.tag; $('#pickName').textContent = p.name; $('#pickDesc').textContent = p.desc; $('#pickPrice').textContent = `${fmt(p.rate)} ₽`;
+    $('#pickTag').textContent = p.tag; $('#pickName').textContent = p.name; $('#pickDesc').textContent = p.desc; $('#pickPrice').textContent = `от ${fmt(p.base)} ₽`; $('#pickUnit').textContent = `+ ${fmt(p.per)} ₽ за ${p.unit[0]}`;
     if (hasGsap && !reduce) gsap.fromTo('.pick-info > *, .pick-price', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .5, stagger: .05, ease: 'power3.out', overwrite: true });
   }
   const bump = () => { idleUntil = performance.now() + 9000; };
@@ -262,44 +268,47 @@
   });
 
   /* ===================== ДО / ПОСЛЕ ===================== */
-  function room(after) {
-    const c = after
-      ? { wall: ['#1d3578', '#0F1B3D'], floor: '#0a1331', sofa: '#2F5BFF', win: ['#8FB4FF', '#2a4a9c'], rug: '#8FB4FF', glow: true }
-      : { wall: ['#4a5166', '#363c4e'], floor: '#272c3b', sofa: 'none', win: ['#9aa3b5', '#7f889b'], rug: 'none', glow: false };
+  function landing(after) {
+    if (!after) return `<svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect width="800" height="400" fill="#3a4156"/>
+      <rect x="0" y="0" width="800" height="52" fill="#2d3346"/>
+      <rect x="30" y="18" width="70" height="16" rx="3" fill="#6d7690"/>
+      ${[430, 500, 570, 640].map(x => `<rect x="${x}" y="20" width="52" height="12" rx="3" fill="#59627b"/>`).join('')}
+      <rect x="40" y="86" width="320" height="26" rx="3" fill="#7b849c"/><rect x="40" y="124" width="250" height="26" rx="3" fill="#7b849c"/>
+      <rect x="40" y="170" width="300" height="10" rx="3" fill="#59627b"/><rect x="40" y="188" width="270" height="10" rx="3" fill="#59627b"/><rect x="40" y="206" width="180" height="10" rx="3" fill="#59627b"/>
+      <rect x="40" y="240" width="110" height="34" rx="3" fill="#8b94ab"/><rect x="160" y="240" width="110" height="34" rx="3" fill="#59627b"/>
+      <rect x="450" y="80" width="310" height="200" fill="#2d3346" stroke="#6d7690" stroke-width="2"/><path d="M450 80l310 200M760 80 450 280" stroke="#6d7690" stroke-width="2"/>
+      ${[40, 300, 560].map(x => `<rect x="${x}" y="310" width="200" height="70" fill="#4a526a"/><rect x="${x + 14}" y="326" width="120" height="8" rx="2" fill="#6d7690"/><rect x="${x + 14}" y="344" width="150" height="8" rx="2" fill="#59627b"/>`).join('')}
+      <text x="400" y="298" fill="#ff8a9b" fill-opacity=".85" font-size="13" text-anchor="middle" font-family="sans-serif" opacity="0">.</text>
+    </svg>`;
     return `<svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
-        <linearGradient id="w${after}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c.wall[0]}"/><stop offset="1" stop-color="${c.wall[1]}"/></linearGradient>
-        <linearGradient id="s${after}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c.win[0]}"/><stop offset="1" stop-color="${c.win[1]}"/></linearGradient>
-        <radialGradient id="l${after}"><stop offset="0" stop-color="#ffd9a0" stop-opacity=".85"/><stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/></radialGradient>
+        <linearGradient id="la" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16285A"/><stop offset="1" stop-color="#0A1430"/></linearGradient>
+        <radialGradient id="lo" cx=".32" cy=".28"><stop offset="0" stop-color="#8FB4FF"/><stop offset=".45" stop-color="#2F5BFF"/><stop offset="1" stop-color="#0F1B3D"/></radialGradient>
+        <radialGradient id="lg"><stop offset="0" stop-color="#2F5BFF" stop-opacity=".55"/><stop offset="1" stop-color="#2F5BFF" stop-opacity="0"/></radialGradient>
       </defs>
-      <rect width="800" height="400" fill="url(#w${after})"/>
-      <path d="M0 290h800v110H0z" fill="${c.floor}"/>
-      ${after ? '<path d="M0 320h800M0 350h800M0 380h800" stroke="#fff" stroke-opacity=".05"/>' : '<path d="M60 290l-30 110M240 290l-20 110M420 290v110M600 290l20 110" stroke="#fff" stroke-opacity=".07"/>'}
-      <rect x="520" y="50" width="190" height="200" rx="4" fill="url(#s${after})" stroke="#fff" stroke-opacity=".35" stroke-width="3"/>
-      <path d="M615 50v200M520 150h190" stroke="#fff" stroke-opacity=".4" stroke-width="3"/>
-      ${after ? `
-        <rect x="170" y="62" width="170" height="100" rx="3" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2"/>
-        <circle cx="255" cy="112" r="26" fill="#8FB4FF" fill-opacity=".5"/>
-        <ellipse cx="300" cy="352" rx="250" ry="30" fill="${c.rug}" fill-opacity=".16"/>
-        <rect x="130" y="196" width="340" height="86" rx="22" fill="${c.sofa}" fill-opacity=".92"/>
-        <rect x="150" y="160" width="300" height="70" rx="20" fill="${c.sofa}"/>
-        <rect x="112" y="206" width="44" height="82" rx="18" fill="#5d86ff"/><rect x="444" y="206" width="44" height="82" rx="18" fill="#5d86ff"/>
-        <rect x="610" y="150" width="3" height="140" fill="#fff" fill-opacity=".8"/>
-        <path d="M585 150l28-40 28 40z" fill="#fff" fill-opacity=".9"/>
-        <circle cx="613" cy="160" r="120" fill="url(#l${after})"/>
-        <path d="M730 290c-10-50 0-90 12-110M742 190c-18 6-26 20-26 36M742 190c16 4 26 18 28 34" stroke="#8FB4FF" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <rect x="716" y="276" width="50" height="16" rx="4" fill="#fff" fill-opacity=".85"/>`
-      : `
-        <path d="M130 282V196h340v86M150 196v-40h300v40" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="2" stroke-dasharray="7 7"/>
-        <path d="M130 310h340" stroke="#ff8a9b" stroke-opacity=".6" stroke-dasharray="4 4"/>
-        <text x="300" y="332" fill="#ff8a9b" fill-opacity=".8" font-size="13" text-anchor="middle" font-family="sans-serif">3 400 мм</text>
-        <rect x="620" y="244" width="46" height="46" rx="3" fill="#5a6177"/><rect x="640" y="214" width="46" height="34" rx="3" fill="#69718a"/>
-        <path d="M200 60l140 4M210 70v40" stroke="#fff" stroke-opacity=".2" stroke-width="2"/>
-        <path d="M60 80c20-10 30 10 50 0" stroke="#fff" stroke-opacity=".18" fill="none" stroke-width="2"/>`}
+      <rect width="800" height="400" fill="url(#la)"/>
+      <circle cx="640" cy="170" r="230" fill="url(#lg)"/>
+      <rect x="30" y="16" width="26" height="26" rx="8" fill="none" stroke="#fff" stroke-opacity=".5"/><path d="M36 36l7-14 7 14M39 32h8" stroke="#fff" stroke-width="2" fill="none"/>
+      <rect x="66" y="23" width="44" height="12" rx="3" fill="#fff"/>
+      ${[400, 470, 540].map(x => `<rect x="${x}" y="24" width="46" height="9" rx="4" fill="#fff" fill-opacity=".55"/>`).join('')}
+      <rect x="640" y="14" width="130" height="30" rx="15" fill="#fff" fill-opacity=".12" stroke="#fff" stroke-opacity=".25"/>
+      <rect x="40" y="90" width="150" height="9" rx="4" fill="#8FB4FF"/>
+      <rect x="40" y="116" width="330" height="34" rx="6" fill="#fff"/><rect x="40" y="160" width="270" height="34" rx="6" fill="#fff"/><rect x="40" y="204" width="190" height="34" rx="6" fill="#8FB4FF"/>
+      <rect x="40" y="256" width="300" height="9" rx="4" fill="#fff" fill-opacity=".55"/><rect x="40" y="274" width="240" height="9" rx="4" fill="#fff" fill-opacity=".55"/>
+      <rect x="40" y="304" width="150" height="40" rx="20" fill="#fff"/><rect x="204" y="304" width="120" height="40" rx="20" fill="none" stroke="#fff" stroke-opacity=".4"/>
+      <circle cx="590" cy="190" r="125" fill="url(#lo)"/>
+      <circle cx="590" cy="190" r="165" fill="none" stroke="#fff" stroke-opacity=".25" stroke-dasharray="4 6"/>
+      <circle cx="590" cy="190" r="205" fill="none" stroke="#fff" stroke-opacity=".12"/>
+      <circle cx="494" cy="82" r="5" fill="#fff"/>
+      <rect x="470" y="130" width="100" height="56" rx="14" fill="#fff" fill-opacity=".12" stroke="#fff" stroke-opacity=".3"/><rect x="484" y="146" width="40" height="7" rx="3" fill="#fff" fill-opacity=".6"/><rect x="484" y="162" width="60" height="12" rx="4" fill="#fff"/>
+      <rect x="690" y="220" width="90" height="56" rx="14" fill="#fff" fill-opacity=".12" stroke="#fff" stroke-opacity=".3"/><rect x="702" y="236" width="36" height="7" rx="3" fill="#fff" fill-opacity=".6"/><rect x="702" y="252" width="56" height="12" rx="4" fill="#fff"/>
+      <rect x="420" y="312" width="340" height="58" rx="16" fill="#fff" fill-opacity=".08" stroke="#fff" stroke-opacity=".2"/>
+      ${[440, 540, 640].map(x => `<circle cx="${x + 10}" cy="341" r="9" fill="#2F5BFF"/><rect x="${x + 28}" y="331" width="54" height="8" rx="3" fill="#fff"/><rect x="${x + 28}" y="345" width="40" height="6" rx="3" fill="#fff" fill-opacity=".5"/>`).join('')}
     </svg>`;
   }
-  $('#baAfter').innerHTML = room(true);
-  $('#baBefore').innerHTML = room(false);
+  $('#baAfter').innerHTML = landing(true);
+  $('#baBefore').innerHTML = landing(false);
   const ba = $('#ba'), baRange = $('#baRange');
   const setPos = v => ba.style.setProperty('--pos', v + '%');
   baRange.addEventListener('input', () => setPos(baRange.value));
@@ -343,6 +352,36 @@
       setTimeout(() => { ok2.hidden = true; }, 6000);
     }, 1100);
   });
+
+  /* ===================== МЕТКИ «ЧТО КУДА ПОДСТАВИТЬ» ===================== */
+  const hintLayer = $('#hintLayer'), hintToggle = $('#hintToggle'), hintTargets = $$('[data-hint]');
+  const hintBadges = hintTargets.map(t => {
+    const b = document.createElement('div'); b.className = 'hint'; b.innerHTML = '<i></i><span></span>';
+    b.lastChild.textContent = t.dataset.hint; hintLayer.appendChild(b); return b;
+  });
+  let hintsOn = false, hintRaf = 0;
+  function placeHints() {
+    const vh = innerHeight, top = 78;
+    hintTargets.forEach((t, i) => {
+      const r = t.getBoundingClientRect(), b = hintBadges[i], inHeader = !!t.closest('.header');
+      const show = inHeader ? scrollY < 160 : r.width > 0 && r.bottom > top + 40 && r.top < vh - 30;
+      if (!show) { b.classList.remove('vis'); return; }
+      const y = inHeader ? r.bottom + 12 : Math.min(Math.max(r.top - 14, top), r.bottom - 44);
+      const x = Math.max(Math.min(r.left + 12, innerWidth - b.offsetWidth - 8), 8);
+      b.style.transform = `translate3d(${x}px,${y}px,0)`; b.classList.add('vis');
+    });
+    hintRaf = requestAnimationFrame(placeHints);
+  }
+  function setHints(on) {
+    hintsOn = on;
+    hintLayer.classList.toggle('on', on); document.body.classList.toggle('hints-on', on);
+    hintToggle.setAttribute('aria-pressed', String(on));
+    cancelAnimationFrame(hintRaf); if (on) placeHints();
+  }
+  hintToggle.addEventListener('click', () => setHints(!hintsOn));
+  $('#fitHints').addEventListener('click', () => { setHints(true); scrollToEl('#top'); toast('Метки включены. Пролистайте страницу сверху вниз.'); });
+  // Включаем метки после вступительной анимации
+  setTimeout(() => { setHints(true); toast('Белые метки показывают, что подставится под ваш бизнес. Выключить можно кнопкой слева внизу.'); }, reduce ? 300 : 4600);
 
   /* ===================== АНИМАЦИИ (GSAP) ===================== */
   if (!hasGsap || reduce) {

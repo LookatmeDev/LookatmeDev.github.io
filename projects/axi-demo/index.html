@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -33,30 +33,34 @@
 
 <div class="progress" id="progress"></div>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="hint-layer" id="hintLayer" aria-hidden="true"></div>
 
-<!-- Фоновые свечения -->
 <div class="glows" aria-hidden="true">
   <i class="glow g1"></i><i class="glow g2"></i><i class="glow g3"></i>
 </div>
 <div class="grain" aria-hidden="true"></div>
 
 <header class="header" id="header">
-  <a href="#top" class="logo" data-link>
+  <a href="#top" class="logo" data-link data-hint="Ваш логотип и фирменные цвета">
     <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="none" stroke="currentColor" stroke-opacity=".5"/><path d="M8 24 16 8l8 16M11.5 18.5h9" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
     <span>AXI</span>
   </a>
   <nav class="nav" aria-label="Основная навигация">
+    <a href="#features" data-link>Возможности</a>
     <a href="#collection" data-link>Пакеты</a>
     <a href="#calc" data-link>Калькулятор</a>
-    <a href="#process" data-link>Процесс</a>
     <a href="#works" data-link>Работы</a>
     <a href="#faq" data-link>Вопросы</a>
   </nav>
   <a href="#calc" class="btn btn-sm magnetic" id="headCalc" data-link>
-    <span>Рассчитать стоимость</span>
+    <span>Рассчитать проект</span>
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
   </a>
 </header>
+
+<button class="hint-toggle" id="hintToggle" aria-pressed="true" title="Показать или скрыть метки">
+  <i></i><span class="full">Метки: что куда подставить</span><span class="short">Метки</span>
+</button>
 
 <main id="top">
 
@@ -64,71 +68,117 @@
   <section class="hero container">
     <div class="hero-copy">
       <p class="eyebrow" data-hero>Aesthetic. eXquisite. Idyllic.</p>
-      <h1 class="h-display" aria-label="Интерьер, в котором спокойно жить">
-        <span class="line"><span class="inner">Интерьер,</span></span>
-        <span class="line"><span class="inner">в котором</span></span>
-        <span class="line"><span class="inner"><em>спокойно</em> жить</span></span>
+      <h1 class="h-display" aria-label="Сайт, который не просто красив, а продаёт" data-hint="Ваш главный оффер: что вы продаёте и кому">
+        <span class="line"><span class="inner">Сайт, который</span></span>
+        <span class="line"><span class="inner">не просто красив,</span></span>
+        <span class="line"><span class="inner">а <em>продаёт</em></span></span>
       </h1>
-      <p class="lead" data-hero>Продумываем пространство до последней розетки. Вы видите стоимость и сроки проекта сразу, без звонков и ожидания.</p>
-      <div class="hero-cta" data-hero>
-        <a href="#calc" class="btn btn-primary magnetic" data-link><span>Рассчитать за минуту</span>
+      <p class="lead" data-hero>Это живой макет того, что AXI соберёт для вашего бизнеса. Листайте, крутите карусель, считайте стоимость. Метки покажут, что подставится под вас.</p>
+      <div class="hero-cta" data-hero data-hint="Главное действие: заявка, запись или звонок">
+        <a href="#calc" class="btn btn-primary magnetic" data-link><span>Рассчитать проект</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a href="#collection" class="btn btn-ghost magnetic" data-link><span>Смотреть пакеты</span></a>
+        <a href="#fit" class="btn btn-ghost magnetic" data-link><span>Что куда подставить</span></a>
       </div>
       <ul class="hero-perks" data-hero>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Фиксированная цена в договоре</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Проект от 3 недель</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Личный куратор</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Дизайн и разработка в одной команде</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Адаптив под телефон</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Заявки сразу в Telegram</li>
       </ul>
     </div>
 
-    <div class="hero-visual" id="heroVisual" aria-hidden="true">
+    <div class="hero-visual" id="heroVisual" aria-hidden="true" data-hint="Ваши преимущества или ключевые цифры">
       <div class="orb">
         <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
         <div class="core"></div>
       </div>
-      <div class="chip c1" data-depth="26"><small>Проектов</small><b>180+</b></div> <!-- DEMO -->
-      <div class="chip c2" data-depth="44"><small>Средний срок</small><b>5 недель</b></div> <!-- DEMO -->
-      <div class="chip c3" data-depth="16"><small>Оценка клиентов</small><b>4,9 / 5</b></div> <!-- DEMO -->
+      <div class="chip c1" data-depth="26"><small>Формат</small><b>Сайт</b></div>
+      <div class="chip c2" data-depth="44"><small>Формат</small><b>Mini App</b></div>
+      <div class="chip c3" data-depth="16"><small>Формат</small><b>Бот</b></div>
     </div>
 
-    <a href="#problem" class="scroll-hint" data-link aria-label="Прокрутить вниз"><span></span></a>
+    <a href="#features" class="scroll-hint" data-link aria-label="Прокрутить вниз"><span></span></a>
   </section>
 
-  <!-- 2. Проблема -> решение -->
+  <!-- 2. Возможности -->
+  <section class="section container" id="features">
+    <div class="section-head rv">
+      <p class="eyebrow">Что мы умеем</p>
+      <h2 class="h-section">Всё, что вы видите на странице, можно <em>собрать для вас</em></h2>
+    </div>
+    <div class="feats" data-hint="Ваши услуги, товары или направления">
+      <a href="#top" class="feat glass tilt rv" data-link>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.7 0 2-1.2 1.4-2.2-.7-1.3.1-2.8 1.6-2.8H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/></svg>
+        <h3>Дизайн под бренд</h3>
+        <p>Палитру, шрифты и стиль берём у вас. Здесь это глубокий голубой и строгий белый.</p>
+        <span class="more">Смотреть на странице</span>
+      </a>
+      <a href="#collection" class="feat glass tilt rv" data-link>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg>
+        <h3>Анимации и 3D</h3>
+        <p>Плавное появление блоков, 3D-карусель, параллакс. Всё работает и на телефоне.</p>
+        <span class="more">Крутить карусель</span>
+      </a>
+      <a href="#calc" class="feat glass tilt rv" data-link>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7.5h7M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/></svg>
+        <h3>Калькуляторы и логика</h3>
+        <p>Клиент сам считает цену: параметры, скидки, срок. Меньше звонков, больше готовых заявок.</p>
+        <span class="more">Попробовать</span>
+      </a>
+      <a href="#lead" class="feat glass tilt rv" data-link>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4 3 11l6 2.5L11.5 20 21 4z"/><path d="m9 13.5 5.5-4"/></svg>
+        <h3>Заявки в Telegram</h3>
+        <p>Форма отправляет лид вам в бот, на почту или в CRM вместе с расчётом клиента.</p>
+        <span class="more">Открыть форму</span>
+      </a>
+      <a href="#works" class="feat glass tilt rv" data-link>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
+        <h3>Mini App и боты</h3>
+        <p>Каталог, запись и оплата прямо в Telegram. Клиенту не нужно ничего устанавливать.</p>
+        <span class="more">Наши работы</span>
+      </a>
+      <a href="#process" class="feat glass tilt rv" data-link>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+        <h3>Админка и аналитика</h3>
+        <p>Цены и тексты вынесены в один файл, а отдельная панель по запросу. Видно, откуда приходят клиенты.</p>
+        <span class="more">Как мы работаем</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 3. Почему это работает -->
   <section class="section container" id="problem">
     <div class="section-head rv">
       <p class="eyebrow">Почему это работает</p>
-      <h2 class="h-section">Ремонт пугает не работой, а <em>неизвестностью</em></h2>
+      <h2 class="h-section">Сайт должен решать <em>задачу</em>, а не просто висеть</h2>
     </div>
-    <div class="pairs">
+    <div class="pairs" data-hint="Ваши аргументы: почему выбирают вас">
       <article class="pair glass tilt rv">
         <span class="num">01</span>
-        <p class="pain">Цена растёт в процессе</p>
-        <p class="fix">Фиксируем смету в договоре. То, что вы видите в калькуляторе, и есть итог.</p>
+        <p class="pain">Красиво, но заявок нет</p>
+        <p class="fix">Структура строится вокруг одного действия: оффер, доказательства, кнопка.</p>
       </article>
       <article class="pair glass tilt rv">
         <span class="num">02</span>
-        <p class="pain">Непонятно, что получится</p>
-        <p class="fix">3D-визуализации каждой комнаты до начала работ. Вы утверждаете результат глазами.</p>
+        <p class="pain">Цена непонятна</p>
+        <p class="fix">Калькулятор показывает стоимость и срок сразу, без переписки и ожидания.</p>
       </article>
       <article class="pair glass tilt rv">
         <span class="num">03</span>
-        <p class="pain">Подрядчики делают по-своему</p>
-        <p class="fix">Авторский надзор и чертежи для мастеров. Всё строго по проекту.</p>
+        <p class="pain">Заявки теряются</p>
+        <p class="fix">Форма отправляет лид вам в Telegram за секунду, сразу с расчётом клиента.</p>
       </article>
     </div>
   </section>
 
-  <!-- 3. Карусель -->
+  <!-- 4. Карусель -->
   <section class="section" id="collection">
     <div class="container section-head rv">
-      <p class="eyebrow">Пакеты услуг</p>
-      <h2 class="h-section">Выберите <em>глубину</em> проекта</h2>
-      <p class="sub">Потяните карточки, чтобы прокрутить. Нажмите «Добавить в расчёт» и цена посчитается автоматически.</p>
+      <p class="eyebrow">Пакеты</p>
+      <h2 class="h-section">Что можно <em>заказать</em></h2>
+      <p class="sub">Потяните карточки, чтобы прокрутить. Здесь пример каталога: на вашем сайте будут ваши товары, услуги или тарифы. Нажмите «Добавить в расчёт», и цена посчитается.</p>
     </div>
 
-    <div class="carousel rv" id="carousel" tabindex="0" aria-label="Карусель пакетов услуг. Стрелки влево и вправо переключают пакет.">
+    <div class="carousel rv" id="carousel" tabindex="0" data-hint="Ваш каталог: товары, услуги, тарифы" aria-label="Карусель пакетов. Стрелки влево и вправо переключают пакет.">
       <div class="stage"><div class="ring3d" id="ring3d"></div></div>
       <button class="car-btn prev magnetic" id="carPrev" aria-label="Предыдущий пакет"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
       <button class="car-btn next magnetic" id="carNext" aria-label="Следующий пакет"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
@@ -142,7 +192,7 @@
           <p id="pickDesc"></p>
         </div>
         <div class="pick-buy">
-          <div class="pick-price"><b id="pickPrice"></b><small>за м²</small></div>
+          <div class="pick-price"><b id="pickPrice"></b><small id="pickUnit"></small></div>
           <button class="btn btn-primary magnetic" id="pickAdd"><span>Добавить в расчёт</span></button>
         </div>
       </div>
@@ -150,25 +200,25 @@
     </div>
   </section>
 
-  <!-- 4. Калькулятор -->
+  <!-- 5. Калькулятор -->
   <section class="section container" id="calc">
     <div class="section-head rv">
       <p class="eyebrow">Калькулятор</p>
       <h2 class="h-section">Узнайте стоимость <em>за минуту</em></h2>
-      <p class="sub">Двигайте параметры, и итог пересчитается сразу. Это ориентир, точная смета фиксируется после замера.</p>
+      <p class="sub">Такой калькулятор мы соберём и для вашего бизнеса: свои параметры, цены и логика. Здесь он считает стоимость наших работ. Цены демонстрационные.</p>
     </div>
 
     <div class="calc">
-      <div class="calc-form glass rv">
+      <div class="calc-form glass rv" data-hint="Ваши параметры: что именно считаем">
         <fieldset>
-          <legend>1. Пакет услуг</legend>
-          <div class="seg-cards" id="calcPkgs" role="radiogroup" aria-label="Пакет услуг"></div>
+          <legend>1. Что нужно</legend>
+          <div class="seg-cards" id="calcPkgs" role="radiogroup" aria-label="Пакет"></div>
         </fieldset>
 
         <fieldset>
-          <legend>2. Площадь объекта <output id="areaOut" for="area">70 м²</output></legend>
-          <input type="range" id="area" min="20" max="300" step="5" value="70" aria-label="Площадь в квадратных метрах">
-          <div class="range-scale"><span>20</span><span>100</span><span>200</span><span>300</span></div>
+          <legend><span id="unitLabel">Количество экранов</span> <output id="areaOut" for="area">5</output></legend>
+          <input type="range" id="area" min="1" max="20" step="1" value="5" aria-label="Количество экранов или страниц">
+          <div class="range-scale"><span>1</span><span>5</span><span>10</span><span>20</span></div>
         </fieldset>
 
         <fieldset>
@@ -182,95 +232,117 @@
         </fieldset>
       </div>
 
-      <aside class="receipt glass rv" aria-live="polite">
-        <p class="receipt-title">Ваш расчёт</p>
+      <aside class="receipt glass rv" aria-live="polite" data-hint="Ваши цены и формулы. Заявка уйдёт вам в Telegram">
+        <p class="receipt-title">Ориентир стоимости</p>
         <div class="total"><span id="totalVal">0</span><small>₽</small></div>
         <p class="save" id="saveLine" hidden></p>
         <ul class="lines" id="lines"></ul>
         <div class="receipt-meta">
-          <div><small>Срок проекта</small><b id="weeksVal">—</b></div>
-          <div><small>Цена за м²</small><b id="perM2">—</b></div>
+          <div><small>Срок</small><b id="weeksVal">—</b></div>
+          <div><small>Стоимость экрана</small><b id="perM2">—</b></div>
         </div>
         <a href="#lead" class="btn btn-primary btn-block magnetic" id="toLead" data-link><span>Оставить заявку с расчётом</span></a>
-        <p class="fine">Не является публичной офертой. Данные в макете условные.</p>
+        <p class="fine">Не является офертой. Точная смета после брифа.</p>
       </aside>
     </div>
   </section>
 
-  <!-- 5. Процесс -->
+  <!-- 6. Что куда подставляется -->
+  <section class="section container" id="fit">
+    <div class="section-head rv">
+      <p class="eyebrow">Что куда подставляется</p>
+      <h2 class="h-section">Вы даёте материалы, мы <em>собираем</em> всё остальное</h2>
+      <p class="sub">Шесть мест на странице, которые мы наполняем вашим содержимым. Если материалов нет, поможем подготовить.</p>
+      <button class="btn btn-ghost magnetic fit-btn" id="fitHints"><span>Показать метки на странице</span></button>
+    </div>
+    <div class="fit-grid">
+      <article class="fit glass rv"><span class="fit-n">1</span><h3>Логотип и цвета</h3><p>Ваша палитра и шрифты заменят голубой и белый. Логотип встаёт в шапку и на экран загрузки.</p></article>
+      <article class="fit glass rv"><span class="fit-n">2</span><h3>Оффер и тексты</h3><p>Заголовок, подзаголовок и преимущества на первом экране. Нет текстов, поможем написать.</p></article>
+      <article class="fit glass rv"><span class="fit-n">3</span><h3>Товары и услуги</h3><p>Карточки в 3D-карусели: название, цена, описание и картинка каждой позиции.</p></article>
+      <article class="fit glass rv"><span class="fit-n">4</span><h3>Цены и формулы</h3><p>Калькулятор с вашими параметрами, скидками и сроками. Всё лежит в одном файле настроек.</p></article>
+      <article class="fit glass rv"><span class="fit-n">5</span><h3>Заявки</h3><p>Форма присылает лид в Telegram, на почту или в CRM вместе с расчётом клиента.</p></article>
+      <article class="fit glass rv"><span class="fit-n">6</span><h3>Кейсы и отзывы</h3><p>Фото работ, сравнение до и после, отзывы клиентов или ваши проекты.</p></article>
+    </div>
+  </section>
+
+  <!-- 7. Процесс -->
   <section class="section container" id="process">
     <div class="section-head rv">
       <p class="eyebrow">Как мы работаем</p>
-      <h2 class="h-section">Пять шагов от <em>идеи</em> до ключей</h2>
+      <h2 class="h-section">Пять шагов от <em>идеи</em> до запуска</h2>
     </div>
-    <div class="steps" id="steps">
+    <div class="steps" id="steps" data-hint="Ваш процесс работы с клиентом">
       <div class="steps-line"><span id="stepsFill"></span></div>
-      <article class="step rv"><span class="step-n">1</span><h3>Знакомство и замер</h3><p>Обсуждаем задачи, привычки семьи, бюджет. Выезжаем на объект.</p></article>
-      <article class="step rv"><span class="step-n">2</span><h3>Планировка</h3><p>Предлагаем два варианта расстановки. Выбираем лучший вместе.</p></article>
-      <article class="step rv"><span class="step-n">3</span><h3>Концепция и 3D</h3><p>Подбираем материалы и свет, показываем каждую комнату в визуализации.</p></article>
-      <article class="step rv"><span class="step-n">4</span><h3>Рабочие чертежи</h3><p>Готовим полный комплект документации для строителей и поставщиков.</p></article>
-      <article class="step rv"><span class="step-n">5</span><h3>Надзор и сдача</h3><p>Приезжаем на объект, контролируем качество и принимаем результат.</p></article>
+      <article class="step rv"><span class="step-n">1</span><h3>Бриф и расчёт</h3><p>Обсуждаем задачу, аудиторию и примеры. Ориентир по цене считаем в калькуляторе.</p></article>
+      <article class="step rv"><span class="step-n">2</span><h3>Структура</h3><p>Собираем схему страниц и путь клиента до заявки.</p></article>
+      <article class="step rv"><span class="step-n">3</span><h3>Дизайн и анимации</h3><p>Рисуем под ваш бренд и показываем живой макет, как этот.</p></article>
+      <article class="step rv"><span class="step-n">4</span><h3>Разработка</h3><p>Верстаем, подключаем форму, бота, оплату и аналитику.</p></article>
+      <article class="step rv"><span class="step-n">5</span><h3>Запуск</h3><p>Публикуем, проверяем на телефонах и остаёмся на связи.</p></article>
     </div>
   </section>
 
-  <!-- 6. Принципы -->
+  <!-- 8. Принципы -->
   <section class="section container">
-    <div class="stats">
-      <div class="stat glass rv"><b data-count="180" data-suffix="+">0</b><span>реализованных проектов</span></div>
-      <div class="stat glass rv"><b data-count="12" data-suffix=" лет">0</b><span>на рынке</span></div>
-      <div class="stat glass rv"><b data-count="97" data-suffix="%">0</b><span>клиентов рекомендуют нас</span></div>
-      <div class="stat glass rv"><b data-count="0" data-suffix=" ₽">0</b><span>доплат сверх сметы</span></div>
-    </div> <!-- DEMO: все цифры условные -->
+    <div class="stats" data-hint="Ваши факты, гарантии, достижения">
+      <div class="stat glass rv"><b data-count="3">0</b><span>формата: сайт, Mini App и бот</span></div>
+      <div class="stat glass rv"><b data-count="5">0</b><span>шагов от брифа до запуска</span></div>
+      <div class="stat glass rv"><b data-count="4">0</b><span>размера экрана проверяем: 375, 768, 1024, 1440 px</span></div>
+      <div class="stat glass rv"><b data-count="100" data-suffix="%">0</b><span>страниц удобны на телефоне</span></div>
+    </div>
   </section>
 
-  <!-- 7. Работы -->
+  <!-- 9. Работы -->
   <section class="section" id="works">
     <div class="container section-head rv">
       <p class="eyebrow">Работы</p>
-      <h2 class="h-section">До и после, <em>как есть</em></h2>
+      <h2 class="h-section">Было и <em>стало</em></h2>
+      <p class="sub">Тот же контент: слева шаблонная страница, справа продуманная структура. Потяните разделитель.</p>
     </div>
 
     <div class="container">
-      <div class="ba rv" id="ba" aria-label="Сравнение до и после">
+      <div class="ba rv" id="ba" data-hint="Ваши кейсы: до и после" aria-label="Сравнение было и стало">
         <div class="ba-layer ba-after" id="baAfter"></div>
         <div class="ba-layer ba-before" id="baBefore"></div>
-        <span class="ba-tag t-before">До</span><span class="ba-tag t-after">После</span>
+        <span class="ba-tag t-before">Было</span><span class="ba-tag t-after">Стало</span>
         <div class="ba-handle" id="baHandle"><i></i></div>
-        <input type="range" id="baRange" min="0" max="100" value="50" aria-label="Положение разделителя до и после">
+        <input type="range" id="baRange" min="0" max="100" value="50" aria-label="Положение разделителя было и стало">
       </div>
     </div>
 
-    <div class="slider rv" id="slider" aria-label="Отзывы клиентов">
-      <article class="review glass"><p>«Смета в итоге совпала с калькулятором до рубля. Для нас это было главным». </p><footer><b>Анна К.</b><span>3-комнатная квартира, 82 м²</span></footer></article>
-      <article class="review glass"><p>«Квартира стала такой, какой я её представляла, только лучше. Куратор отвечал даже вечером».</p><footer><b>Михаил Р.</b><span>Студия, 41 м²</span></footer></article>
-      <article class="review glass"><p>«Визуализации помогли отказаться от трёх лишних покупок. Сэкономили больше, чем стоил проект».</p><footer><b>Елена и Артём</b><span>Дом, 165 м²</span></footer></article>
-      <article class="review glass"><p>«Работали строго по срокам. Надзор спас нас от ошибок подрядчика в самом начале».</p><footer><b>Дмитрий С.</b><span>2-комнатная квартира, 64 м²</span></footer></article>
-      <article class="review glass"><p>«Редкий случай, когда дизайнер слушает. Всё учли, вплоть до высоты полок».</p><footer><b>Ольга В.</b><span>Пентхаус, 128 м²</span></footer></article>
-    </div> <!-- DEMO: отзывы выдуманы -->
+    <div class="slider rv" id="slider" aria-label="Наши проекты" data-hint="Ваши работы или отзывы клиентов">
+      <article class="review glass"><span class="w-tag">Сайт</span><h3>Арка: студия дизайна интерьеров</h3><p>Портфолио с фильтром, калькулятор стоимости, этапы работы и форма заявки.</p><footer><a href="https://lookatmedev.github.io/projects/arka/" target="_blank" rel="noopener">Открыть демо</a></footer></article>
+      <article class="review glass"><span class="w-tag">Сайт</span><h3>Зацеп: скалодром в Казани</h3><p>Схема трасс вместо стоковых фото, цена пробного на первом экране, запись в два касания.</p></article>
+      <article class="review glass"><span class="w-tag">Сайт</span><h3>Эмаль: стоматологическая клиника</h3><p>Интерактивный план лечения с суммой по каждому зубу и запись на осмотр.</p></article>
+      <article class="review glass"><span class="w-tag">Telegram Mini App</span><h3>SubTrack: трекер подписок</h3><p>Расходы по подпискам, календарь списаний, напоминания. Тарифы через Telegram Stars.</p><footer><a href="https://t.me/otpishis_bot/app" target="_blank" rel="noopener">Открыть в Telegram</a></footer></article>
+      <article class="review glass"><span class="w-tag">Telegram-бот</span><h3>Бот поиска вакансий</h3><p>Собирает вакансии с 8 сайтов, фильтрует и присылает новые по подписке.</p></article>
+      <article class="review glass"><span class="w-tag">Автоматизация</span><h3>Парсер организаций 2ГИС</h3><p>Собирает данные об организациях из 2ГИС для дальнейшей работы.</p></article>
+    </div>
   </section>
 
-  <!-- 8. FAQ -->
+  <!-- 10. FAQ -->
   <section class="section container" id="faq">
     <div class="section-head rv">
       <p class="eyebrow">Вопросы</p>
       <h2 class="h-section">Что обычно <em>спрашивают</em></h2>
     </div>
-    <div class="faq rv" id="faqList">
-      <div class="qa"><button class="q" aria-expanded="false"><span>Насколько точен расчёт на сайте?</span><i></i></button><div class="a"><div><p>Калькулятор даёт ориентир с погрешностью до 10%. Итоговая цена фиксируется в договоре после бесплатного замера и не меняется.</p></div></div></div>
-      <div class="qa"><button class="q" aria-expanded="false"><span>Можно заказать только проект без ремонта?</span><i></i></button><div class="a"><div><p>Да. Многие клиенты берут только проект и реализуют его своими бригадами. Мы подготовим документацию для любых подрядчиков.</p></div></div></div>
-      <div class="qa"><button class="q" aria-expanded="false"><span>Сколько занимает работа над проектом?</span><i></i></button><div class="a"><div><p>От трёх недель для эскиза до трёх месяцев для проекта под ключ. Срок в калькуляторе пересчитывается вместе с площадью.</p></div></div></div>
-      <div class="qa"><button class="q" aria-expanded="false"><span>Что, если мне не понравится результат?</span><i></i></button><div class="a"><div><p>На каждом этапе предусмотрены правки. Пока вы не утвердили концепцию, мы не переходим к чертежам.</p></div></div></div>
+    <div class="faq rv" id="faqList" data-hint="Ответы на частые вопросы ваших клиентов">
+      <div class="qa"><button class="q" aria-expanded="false"><span>Это готовый сайт или макет?</span><i></i></button><div class="a"><div><p>Макет для знакомства. Он показывает, как может выглядеть и работать ваш сайт. Под ваш бизнес мы заменяем тексты, цвета, цены и товары.</p></div></div></div>
+      <div class="qa"><button class="q" aria-expanded="false"><span>Что нужно от меня?</span><i></i></button><div class="a"><div><p>Логотип, если он есть, описание бизнеса, список товаров или услуг с ценами и контакты. Чего нет, поможем придумать вместе.</p></div></div></div>
+      <div class="qa"><button class="q" aria-expanded="false"><span>Можно ли получать заявки в Telegram?</span><i></i></button><div class="a"><div><p>Да. Форма отправляет заявку вместе с расчётом в ваш бот, чат, на почту или в CRM.</p></div></div></div>
+      <div class="qa"><button class="q" aria-expanded="false"><span>Сколько это стоит?</span><i></i></button><div class="a"><div><p>Ориентир считается в калькуляторе выше. Цены в макете демонстрационные, точную смету даём после брифа.</p></div></div></div>
+      <div class="qa"><button class="q" aria-expanded="false"><span>Что после запуска?</span><i></i></button><div class="a"><div><p>Можем остаться на связи и вносить правки. Цены и тексты вынесены в один файл настроек, их легко менять.</p></div></div></div>
     </div>
   </section>
 
-  <!-- 9. Заявка -->
+  <!-- 11. Заявка -->
   <section class="section container" id="lead">
-    <div class="lead-box glass rv">
+    <div class="lead-box glass rv" data-hint="Заявки приходят вам в Telegram, на почту или в CRM">
       <div class="lead-text">
-        <p class="eyebrow">Остался один шаг</p>
-        <h2 class="h-section">Обсудим ваш <em>проект</em></h2>
-        <p class="sub">Оставьте контакт, и куратор свяжется с вами сегодня. Расчёт из калькулятора подставится автоматически.</p>
+        <p class="eyebrow">Следующий шаг</p>
+        <h2 class="h-section">Соберём <em>ваш</em> сайт</h2>
+        <p class="sub">Оставьте контакт, и мы вернёмся с предложением. Расчёт из калькулятора подставится автоматически.</p>
         <div class="lead-summary" id="leadSummary"></div>
+        <a href="https://t.me/AXIdesign" target="_blank" rel="noopener" class="tg-link">Или напишите в Telegram @AXIdesign</a>
       </div>
       <form class="form" id="leadForm" novalidate>
         <label class="field"><span>Ваше имя</span>
@@ -279,14 +351,14 @@
         <label class="field"><span>Telegram или телефон</span>
           <input type="text" name="contact" autocomplete="tel" required placeholder="@username или +7 ...">
           <em class="err" aria-live="polite"></em></label>
-        <label class="field"><span>Комментарий <small>(необязательно)</small></span>
-          <textarea name="comment" rows="3" placeholder="Расскажите о задаче"></textarea></label>
+        <label class="field"><span>О проекте <small>(необязательно)</small></span>
+          <textarea name="comment" rows="3" placeholder="Расскажите о бизнесе и задаче"></textarea></label>
         <input type="hidden" name="calc" id="calcField">
         <button type="submit" class="btn btn-primary btn-block magnetic" id="submitBtn"><span>Отправить заявку</span></button>
         <div class="success" id="success" hidden>
           <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-7"/></svg>
           <h3>Заявка отправлена</h3>
-          <p>Куратор свяжется с вами в течение дня.</p>
+          <p>Мы свяжемся с вами в ближайшее время.</p>
         </div>
       </form>
     </div>
@@ -298,9 +370,9 @@
     <a href="#top" class="logo" data-link><span>AXI</span></a>
     <p class="muted">Красиво снаружи. Продуманно внутри.<small class="decode">Aesthetic. eXquisite. Idyllic.</small></p>
   </div>
-  <div class="foot-bottom">
-    <a href="https://t.me/AXIdesign" target="_blank" rel="noopener">Telegram @AXIdesign</a> <!-- DEMO -->
-    <span class="muted">© 2026 AXI. Aesthetic. eXquisite. Idyllic.</span>
+  <div class="foot-bottom" data-hint="Ваши контакты">
+    <a href="https://t.me/AXIdesign" target="_blank" rel="noopener">Telegram @AXIdesign</a>
+    <span class="muted">© 2026 AXI. Демонстрационный макет, цены условные.</span>
   </div>
 </footer>
 
@@ -309,6 +381,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="script.js?v=3"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>

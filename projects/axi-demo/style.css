@@ -387,3 +387,65 @@ h1, h2, h3, .total, .stat b, .pick-price b, .receipt-meta b, .pcard .meta b, .ch
 .pre-sub { margin-top: -6px; font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: var(--glow); }
 .foot-top p { display: grid; gap: 10px; }
 .foot-top .decode { font-family: var(--font); font-style: normal; font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: var(--glow); }
+
+/* ---------- Метки «что куда подставить» ---------- */
+.hint-layer { position: fixed; inset: 0; z-index: 105; pointer-events: none; opacity: 0; transition: opacity .5s; }
+.hint-layer.on { opacity: 1; }
+.hint { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 8px; max-width: calc(100vw - 24px); padding: 6px 13px 6px 10px; border-radius: 99px;
+  background: #fff; color: var(--navy); font-size: 12px; font-weight: 700; line-height: 1.2; white-space: nowrap; box-shadow: 0 10px 30px -8px rgba(0,0,0,.6), 0 0 0 4px rgba(143,180,255,.18); will-change: transform; opacity: 0; transition: opacity .25s; }
+.hint.vis { opacity: 1; }
+.hint i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: ping 1.8s infinite; }
+.hint span { overflow: hidden; text-overflow: ellipsis; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(47,91,255,.7); } 80%, 100% { box-shadow: 0 0 0 9px rgba(47,91,255,0); } }
+.hints-on [data-hint] { outline: 1px dashed rgba(143,180,255,.5); outline-offset: 8px; }
+.hint-toggle { position: fixed; left: 16px; bottom: 16px; z-index: 112; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px 0 14px; border-radius: 99px;
+  background: rgba(10,20,48,.78); border: 1px solid var(--glass-brd); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); font-size: 13px; font-weight: 600; box-shadow: 0 14px 40px -12px rgba(0,0,0,.7); transition: border-color .3s, background .3s; }
+.hint-toggle:hover { border-color: rgba(255,255,255,.4); }
+.hint-toggle i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.3); transition: background .3s, box-shadow .3s; }
+.hint-toggle[aria-pressed="true"] i { background: var(--glow); box-shadow: 0 0 12px 2px rgba(143,180,255,.8); }
+.hint-toggle .short { display: none; }
+
+/* ---------- Возможности ---------- */
+.feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; perspective: 1200px; }
+.feat { display: grid; gap: 12px; align-content: start; padding: clamp(22px, 2.6vw, 32px); min-height: 260px; }
+.feat svg { color: var(--glow); }
+.feat h3 { font-family: var(--serif); font-size: clamp(26px, 2.4vw, 32px); font-weight: 600; line-height: 1.1; }
+.feat p { color: #cfdaf0; font-size: 15px; }
+.feat .more { margin-top: auto; padding-top: 10px; font-size: 13px; font-weight: 700; color: var(--glow); }
+.feat .more::after { content: " →"; transition: margin .3s var(--ease); }
+.feat:hover .more::after { margin-left: 6px; }
+
+/* ---------- Что куда подставляется ---------- */
+.fit-btn { margin-top: 26px; }
+.fit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.fit { position: relative; padding: clamp(22px, 2.6vw, 32px); padding-top: clamp(64px, 6vw, 76px); display: grid; gap: 8px; align-content: start; }
+.fit-n { position: absolute; top: 22px; left: 24px; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: var(--navy); font-weight: 800; font-size: 14px; box-shadow: 0 0 0 5px rgba(143,180,255,.2); }
+.fit h3 { font-family: var(--serif); font-size: 28px; font-weight: 600; line-height: 1.1; }
+.fit p { color: #cfdaf0; font-size: 15px; }
+
+/* ---------- Работы ---------- */
+.w-tag { justify-self: start; padding: 5px 12px; border-radius: 99px; background: rgba(143,180,255,.14); border: 1px solid rgba(143,180,255,.3); color: var(--glow); font-size: 12px; font-weight: 700; letter-spacing: .06em; }
+.review { align-content: start; }
+.review h3 { font-family: var(--serif); font-size: 28px; font-weight: 600; line-height: 1.1; }
+.review p { font-family: var(--font); font-size: 15px; line-height: 1.5; color: #cfdaf0; }
+.review footer { align-self: end; }
+.review footer a { color: var(--glow); font-weight: 700; }
+.review footer a:hover { text-decoration: underline; }
+.tg-link { display: inline-block; margin-top: 18px; color: var(--glow); font-weight: 600; font-size: 14px; }
+.tg-link:hover { text-decoration: underline; }
+.seg-cards { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+
+@media (max-width: 1020px) {
+  .feats, .fit-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .feats, .fit-grid { grid-template-columns: 1fr; }
+  .feat { min-height: 0; }
+  .hint-toggle .full { display: none; } .hint-toggle .short { display: inline; }
+  .hint { font-size: 11px; padding: 5px 10px 5px 8px; }
+}
+@media (prefers-reduced-motion: reduce) { .hint i { animation: none; } }
+
+/* Toast: аккуратный блок на узких экранах */
+.toast { width: max-content; max-width: calc(100vw - 28px); border-radius: 22px; }
+@media (max-width: 640px) { .toast { bottom: 72px; } }
