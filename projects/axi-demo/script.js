@@ -62,18 +62,37 @@
     if (lenis) lenis.scrollTo(el, { offset: sel === '#top' ? 0 : -10, duration: 1.4 });
     else el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
   };
+  const burger = $('#burger'), mnav = $('#mnav');
+  function setMenu(open) {
+    mnav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    if (lenis) open ? lenis.stop() : lenis.start();
+    document.body.style.overflow = open ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', open);
+  }
+  burger.addEventListener('click', () => setMenu(!mnav.classList.contains('open')));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && mnav.classList.contains('open')) { setMenu(false); burger.focus(); } });
+  $$('a', mnav).forEach(a => a.addEventListener('click', () => setMenu(false)));
   $$('[data-link]').forEach(a => a.addEventListener('click', e => {
     const h = a.getAttribute('href');
     if (h && h.startsWith('#')) { e.preventDefault(); scrollToEl(h); }
   }));
 
+  // Бегущая строка: вторая копия для бесшовного цикла
+  const mq = $('#mqTrack'); if (mq) mq.innerHTML += mq.innerHTML;
+
   const header = $('#header'), progress = $('#progress');
+  let maxScroll = 1;
+  const measureScroll = () => { maxScroll = Math.max(1, document.documentElement.scrollHeight - innerHeight); };
   const onScroll = () => {
-    const y = window.scrollY, max = document.documentElement.scrollHeight - innerHeight;
+    const y = window.scrollY;
     header.classList.toggle('scrolled', y > 40);
-    progress.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+    progress.style.transform = `scaleX(${Math.min(1, y / maxScroll)})`;
   };
-  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  new ResizeObserver(() => { measureScroll(); onScroll(); }).observe(document.body);
+  addEventListener('resize', measureScroll);
+  addEventListener('scroll', onScroll, { passive: true }); measureScroll(); onScroll();
 
   /* ===================== ТОАСТ ===================== */
   const toastEl = $('#toast'); let toastTimer;
@@ -81,7 +100,7 @@
     toastEl.innerHTML = `<span></span>${linkText ? `<a href="${linkHref}" data-tl>${linkText}</a>` : ''}`;
     toastEl.firstChild.textContent = msg;
     toastEl.hidden = false;
-    if (hasGsap && !reduce) gsap.fromTo(toastEl, { y: 30, opacity: 0, xPercent: -50 }, { y: 0, opacity: 1, xPercent: -50, duration: .5, ease: 'power3.out' });
+    if (hasGsap && !reduce) gsap.fromTo(toastEl, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: 'power3.out' });
     const l = $('[data-tl]', toastEl);
     if (l) l.addEventListener('click', e => { e.preventDefault(); toastEl.hidden = true; scrollToEl(linkHref); });
     clearTimeout(toastTimer); toastTimer = setTimeout(() => { toastEl.hidden = true; }, 5200);
@@ -192,7 +211,7 @@
     cards.forEach((c, i) => {
       const d = Math.abs(wrap(i - cur));
       c.style.opacity = Math.max(.25, 1 - d * .3).toFixed(2);
-      c.style.filter = d > .5 ? `brightness(${Math.max(.55, 1 - d * .2).toFixed(2)})` : 'none';
+      c.style.setProperty('--dim', d > .5 ? Math.min(.45, d * .2).toFixed(2) : 0);
     });
   }
   function tick() {
@@ -359,29 +378,44 @@
     const b = document.createElement('div'); b.className = 'hint'; b.innerHTML = '<i></i><span></span>';
     b.lastChild.textContent = t.dataset.hint; hintLayer.appendChild(b); return b;
   });
-  let hintsOn = false, hintRaf = 0;
+  const hintInHeader = hintTargets.map(t => !!t.closest('.header'));
+  let hintsOn = false, hintRaf = 0, hintUntil = 0, hintW = [];
+  const measureHints = () => { hintW = hintBadges.map(b => b.offsetWidth); };
   function placeHints() {
-    const vh = innerHeight, top = 78;
-    hintTargets.forEach((t, i) => {
-      const r = t.getBoundingClientRect(), b = hintBadges[i], inHeader = !!t.closest('.header');
-      const show = inHeader ? scrollY < 160 : r.width > 0 && r.bottom > top + 40 && r.top < vh - 30;
-      if (!show) { b.classList.remove('vis'); return; }
+    const vh = innerHeight, vw = innerWidth, top = 78, sy = scrollY;
+    const rects = hintTargets.map(t => t.getBoundingClientRect());
+    rects.forEach((r, i) => {
+      const b = hintBadges[i], inHeader = hintInHeader[i];
+      const show = inHeader ? sy < 160 : r.width > 0 && r.bottom > top + 40 && r.top < vh - 30;
+      b.classList.toggle('vis', show);
+      if (!show) return;
       const y = inHeader ? r.bottom + 12 : Math.min(Math.max(r.top - 14, top), r.bottom - 44);
-      const x = Math.max(Math.min(r.left + 12, innerWidth - b.offsetWidth - 8), 8);
-      b.style.transform = `translate3d(${x}px,${y}px,0)`; b.classList.add('vis');
+      const x = Math.max(Math.min(r.left + 12, vw - hintW[i] - 8), 8);
+      b.style.transform = `translate3d(${x}px,${y}px,0)`;
     });
-    hintRaf = requestAnimationFrame(placeHints);
+    hintRaf = performance.now() < hintUntil ? requestAnimationFrame(placeHints) : 0;
   }
+  // Цикл крутится только пока что-то движется, а не постоянно
+  function wakeHints(ms = 1200) {
+    if (!hintsOn) return;
+    hintUntil = Math.max(hintUntil, performance.now() + ms);
+    if (!hintRaf) hintRaf = requestAnimationFrame(placeHints);
+  }
+  addEventListener('scroll', () => wakeHints(), { passive: true });
+  addEventListener('resize', () => { measureHints(); wakeHints(); });
+  addEventListener('click', () => wakeHints(900));
+  if (document.fonts) document.fonts.ready.then(measureHints);
   function setHints(on) {
     hintsOn = on;
     hintLayer.classList.toggle('on', on); document.body.classList.toggle('hints-on', on);
     hintToggle.setAttribute('aria-pressed', String(on));
-    cancelAnimationFrame(hintRaf); if (on) placeHints();
+    if (on) { measureHints(); wakeHints(1500); }
   }
   hintToggle.addEventListener('click', () => setHints(!hintsOn));
   $('#fitHints').addEventListener('click', () => { setHints(true); scrollToEl('#top'); toast('Метки включены. Пролистайте страницу сверху вниз.'); });
   // Включаем метки после вступительной анимации
-  setTimeout(() => { setHints(true); toast('Белые метки показывают, что подставится под ваш бизнес. Выключить можно кнопкой слева внизу.'); }, reduce ? 300 : 4600);
+  // ?clean открывает страницу без меток (для скриншотов и обложек)
+  if (!/[?&]clean/.test(location.search)) setTimeout(() => { setHints(true); toast('Белые метки показывают, что подставится под ваш бизнес. Выключить можно кнопкой слева внизу.'); }, reduce ? 300 : 3200);
 
   /* ===================== АНИМАЦИИ (GSAP) ===================== */
   if (!hasGsap || reduce) {
@@ -391,18 +425,13 @@
     return;
   }
 
-  // Курсор
-  const cur2 = $('#cursor');
-  if (finePointer) {
-    const qx = gsap.quickTo(cur2, 'x', { duration: .35, ease: 'power3' }), qy = gsap.quickTo(cur2, 'y', { duration: .35, ease: 'power3' });
-    addEventListener('pointermove', e => { cur2.classList.add('on'); qx(e.clientX); qy(e.clientY); cur2.classList.toggle('big', !!e.target.closest('a,button,.pcard,input,label,.ba,.slider,.q')); });
-    document.addEventListener('mouseleave', () => cur2.classList.remove('on'));
-  }
-
   // Магнитные кнопки
   if (finePointer) $$('.magnetic').forEach(b => {
-    b.addEventListener('pointermove', e => { const r = b.getBoundingClientRect(); gsap.to(b, { x: (e.clientX - r.left - r.width / 2) * .22, y: (e.clientY - r.top - r.height / 2) * .32, duration: .4, ease: 'power3.out' }); });
-    b.addEventListener('pointerleave', () => gsap.to(b, { x: 0, y: 0, duration: .8, ease: 'elastic.out(1,.45)' }));
+    const qx = gsap.quickTo(b, 'x', { duration: .4, ease: 'power3.out' }), qy = gsap.quickTo(b, 'y', { duration: .4, ease: 'power3.out' });
+    let r = null;
+    b.addEventListener('pointerenter', () => { r = b.getBoundingClientRect(); });
+    b.addEventListener('pointermove', e => { if (!r) r = b.getBoundingClientRect(); qx((e.clientX - r.left - r.width / 2) * .22); qy((e.clientY - r.top - r.height / 2) * .32); });
+    b.addEventListener('pointerleave', () => { r = null; qx(0); qy(0); });
   });
 
   // Tilt-карточки
@@ -419,8 +448,8 @@
   // Появление блоков
   ScrollTrigger.batch('.rv', {
     start: 'top 90%', once: true,
-    onEnter: els => gsap.to(els, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1, stagger: .12, ease: 'power3.out', overwrite: true,
-      onComplete: () => els.forEach(x => { x.classList.add('in'); x.style.removeProperty('transform'); x.style.removeProperty('opacity'); x.style.removeProperty('filter'); }) })
+    onEnter: els => gsap.to(els, { opacity: 1, y: 0, duration: 1, stagger: .12, ease: 'power3.out', overwrite: true,
+      onComplete: () => els.forEach(x => { x.classList.add('in'); x.style.removeProperty('transform'); x.style.removeProperty('opacity'); }) })
   });
 
   // Параллакс свечений
@@ -430,10 +459,13 @@
 
   // Hero: параллакс от мыши
   const hv = $('#heroVisual');
-  if (finePointer) hv.parentElement.addEventListener('pointermove', e => {
-    const r = hv.getBoundingClientRect(), nx = (e.clientX - r.left) / r.width - .5, ny = (e.clientY - r.top) / r.height - .5;
-    $$('.chip', hv).forEach(c => gsap.to(c, { x: -nx * +c.dataset.depth * 2, y: -ny * +c.dataset.depth * 2, duration: .9, ease: 'power3.out', overwrite: 'auto' }));
-  });
+  if (finePointer) {
+    const chips = $$('.chip', hv).map(c => ({ d: +c.dataset.depth * 2, qx: gsap.quickTo(c, 'x', { duration: .9, ease: 'power3.out' }), qy: gsap.quickTo(c, 'y', { duration: .9, ease: 'power3.out' }) }));
+    hv.parentElement.addEventListener('pointermove', e => {
+      const r = hv.getBoundingClientRect(), nx = (e.clientX - r.left) / r.width - .5, ny = (e.clientY - r.top) / r.height - .5;
+      chips.forEach(c => { c.qx(-nx * c.d); c.qy(-ny * c.d); });
+    });
+  }
 
   // Процесс: линия и шаги
   const steps = $$('.step'), mm = gsap.matchMedia();
@@ -460,10 +492,10 @@
 
   // Прелоадер и вступление hero
   const intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
-  intro.to('.pre-line span', { scaleX: 1, duration: 1.1, ease: 'power2.inOut' })
-    .to('.pre-logo', { opacity: 0, y: -10, duration: .4 }, '+=.1')
-    .to('#preloader', { yPercent: -100, duration: .9, ease: 'power4.inOut' }, '<')
-    .to('.hero .line .inner', { y: 0, duration: 1.2, stagger: .12 }, '-=.35')
+  intro.to('.pre-line span', { scaleX: 1, duration: .7, ease: 'power2.inOut' })
+    .to('.pre-logo, .pre-sub', { opacity: 0, y: -10, duration: .3 })
+    .to('#preloader', { yPercent: -100, duration: .75, ease: 'power4.inOut' }, '<')
+    .to('.hero .line .inner', { y: 0, duration: 1.1, stagger: .1 }, '-=.35')
     .to('[data-hero]', { opacity: 1, y: 0, duration: 1, stagger: .12 }, '-=.9')
     .to('.orb', { opacity: 1, duration: 1.4 }, '-=1.1')
     .fromTo('.chip', { y: 30 }, { opacity: 1, y: 0, duration: 1, stagger: .15 }, '-=1')

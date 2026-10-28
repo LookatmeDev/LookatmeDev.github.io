@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -32,7 +32,6 @@
 </div>
 
 <div class="progress" id="progress"></div>
-<div class="cursor" id="cursor" aria-hidden="true"></div>
 <div class="hint-layer" id="hintLayer" aria-hidden="true"></div>
 
 <div class="glows" aria-hidden="true">
@@ -56,9 +55,20 @@
     <span>Рассчитать проект</span>
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
   </a>
+  <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
 </header>
 
-<button class="hint-toggle" id="hintToggle" aria-pressed="true" title="Показать или скрыть метки">
+<nav class="mnav" id="mnav" aria-label="Меню">
+  <a href="#features" data-link>Возможности</a>
+  <a href="#collection" data-link>Пакеты</a>
+  <a href="#calc" data-link>Калькулятор</a>
+  <a href="#fit" data-link>Что куда подставить</a>
+  <a href="#works" data-link>Работы</a>
+  <a href="#faq" data-link>Вопросы</a>
+  <a href="https://t.me/AXIdesign" target="_blank" rel="noopener" class="mnav-tg">Telegram @AXIdesign</a>
+</nav>
+
+<button class="hint-toggle" id="hintToggle" aria-pressed="false" title="Показать или скрыть метки">
   <i></i><span class="full">Метки: что куда подставить</span><span class="short">Метки</span>
 </button>
 
@@ -98,6 +108,10 @@
 
     <a href="#features" class="scroll-hint" data-link aria-label="Прокрутить вниз"><span></span></a>
   </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="mq-track" id="mqTrack"><span>Лендинги</span><i></i><span>Сайты компаний</span><i></i><span>Каталоги и магазины</span><i></i><span>Telegram Mini App</span><i></i><span>Боты</span><i></i><span>Калькуляторы</span><i></i><span>Анимации и 3D</span><i></i><span>Интеграции и оплата</span><i></i></div>
+  </div>
 
   <!-- 2. Возможности -->
   <section class="section container" id="features">
@@ -381,6 +395,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="script.js?v=4"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>
