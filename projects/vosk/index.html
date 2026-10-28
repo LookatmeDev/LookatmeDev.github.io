@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ВОСК — свечи ручной работы из Казани</title>
+<link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8E8DE;--paper:#FFF7F1;--ink:#3A2420;--pk:#E9A48C;--cl:#C46A4C;--mut:#8B6A60;--line:#EBCDBE;--d:"Philosopher",Georgia,serif;--f:"Mulish",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}body{background:var(--bg);color:var(--ink);font:17px/1.65 var(--f);overflow-x:hidden}
+a{color:inherit;text-decoration:none}.w{max-width:1160px;margin:0 auto;padding:0 20px}
+header .w{height:80px;display:flex;align-items:center;justify-content:space-between}.lg{font:700 28px var(--d);letter-spacing:.3em}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 30px;background:var(--ink);color:#fff;font:700 15px var(--f);border-radius:999px;transition:background .2s}.btn:hover{background:var(--cl)}
+.hero{display:grid;gap:30px;padding:10px 0 70px;align-items:center}
+h1{font:400 clamp(42px,8.4vw,92px)/1 var(--d);letter-spacing:-.025em}h1 em{color:var(--cl)}
+.lead{margin:22px 0 28px;color:var(--mut);max-width:26em}
+.arch{position:relative;max-width:440px;justify-self:center;width:100%}.arch .a{border-radius:999px 999px 24px 24px;overflow:hidden;aspect-ratio:3/4;background:var(--pk)}.arch img{width:100%;height:100%;object-fit:cover;animation:g 3s ease-in-out infinite alternate}@keyframes g{to{transform:scale(1.05)}}
+.glow{position:absolute;left:50%;top:6%;width:260px;height:260px;transform:translateX(-50%);background:radial-gradient(circle,rgba(255,214,160,.7),transparent 65%);animation:gl 2.6s ease-in-out infinite alternate;pointer-events:none}@keyframes gl{from{opacity:.4}to{opacity:.95}}
+.tg{position:absolute;left:-10px;bottom:30px;background:var(--paper);border-radius:18px;padding:12px 18px;font:700 14px var(--f);box-shadow:0 14px 30px -14px rgba(58,36,32,.5)}.tg small{display:block;font-weight:500;color:var(--mut)}
+section{padding:60px 0}h2{font:400 clamp(32px,5vw,56px)/1.05 var(--d);letter-spacing:-.02em}h2 em{color:var(--cl)}
+.sub{margin-top:10px;color:var(--mut);max-width:30em}
+.sc{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}.sc button{font:700 15px var(--f);min-height:48px;padding:0 20px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}.sc button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pr{display:grid;gap:16px;margin-top:30px}.p{background:var(--paper);border-radius:200px 200px 28px 28px;padding:20px 20px 26px;text-align:center;transition:transform .3s;border:1px solid var(--line)}.p:hover{transform:translateY(-6px)}
+.p .im{aspect-ratio:1;border-radius:50%;overflow:hidden;margin-bottom:16px}.p img{width:100%;height:100%;object-fit:cover}.p h3{font:700 24px var(--d)}.p span{display:block;color:var(--mut);font-size:15px}.p b{display:block;margin-top:8px;font:700 20px var(--f);color:var(--cl)}
+.p.dim{opacity:.35}
+.mk{background:var(--ink);color:#F5DCCF;border-radius:36px;margin:0 12px;padding:44px 24px;display:grid;gap:24px}.mk h2{color:#fff}.mk p{color:#D3B8AB}
+.st{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.st b{font:400 38px var(--d);color:var(--pk);display:block;line-height:1}.st span{font-size:13px;color:#D3B8AB}
+footer{padding:30px 0;color:var(--mut);font-size:14px}
+@media(min-width:760px){.pr{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:980px){.w{padding:0 40px}.hero{grid-template-columns:1.1fr .9fr;gap:70px;padding:30px 0 100px}section{padding:100px 0}.mk{margin:0 24px;padding:80px;grid-template-columns:1.2fr 1fr;align-items:center}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="w"><a class="lg" href="#">ВОСК</a><a class="btn" href="#" style="min-height:44px;padding:0 20px;font-size:14px">Каталог</a></div></header>
+<main><div class="w hero"><div><h1>Свет, у которого <em>есть запах</em></h1><p class="lead">Свечи из соевого воска ручной заливки. Хлопковый фитиль, ароматы из пяти нот, горят до 50 часов без копоти.</p><a class="btn" href="#sc">Выбрать аромат</a></div>
+<div class="arch"><div class="a"><img src="../_img/candle-group.jpg" alt="Свечи ручной работы в стеклянных банках"></div><div class="glow"></div><div class="tg">до 50 часов<small>горения одной свечи</small></div></div></div>
+<section id="sc" style="padding-top:0"><div class="w"><h2>Найдите <em>свой аромат</em></h2><p class="sub">Выберите, что вам нравится, и подсветим подходящие свечи.</p><div class="sc" id="sc2"><button aria-pressed="true" data-k="all">Все</button><button aria-pressed="false" data-k="w">Тёплые</button><button aria-pressed="false" data-k="f">Свежие</button><button aria-pressed="false" data-k="s">Сладкие</button></div>
+<div class="pr" id="pr"></div></div></section>
+<section style="padding-top:0"><div class="mk"><div><h2>Делаем в маленьких партиях</h2><p>Каждая свеча остывает сутки и созревает неделю, чтобы аромат раскрылся полностью. Банки можно сдать обратно и получить скидку 10%.</p></div><div class="st"><div><b>50 ч</b><span>горит одна свеча</span></div><div><b>100%</b><span>соевый воск</span></div><div><b>5 нот</b><span>в каждом аромате</span></div></div></div></section></main>
+<footer><div class="w">© Мастерская свечей «Воск», демо-проект</div></footer>
+<script>var C=[["Кедр и амбра","тёплый, древесный","w","1 450 ₽","../_img/candle-wood.jpg"],["Морская соль","свежий, минеральный","f","1 350 ₽","../_img/candle-group.jpg"],["Ваниль и мёд","сладкий, уютный","s","1 390 ₽","../_img/candle-wood.jpg"]],k='all';
+function r(){document.getElementById('pr').innerHTML=C.map(function(c){return '<div class="p'+(k!='all'&&c[2]!=k?' dim':'')+'"><div class="im"><img src="'+c[4]+'" alt="Свеча '+c[0]+'" loading="lazy"></div><h3>'+c[0]+'</h3><span>'+c[1]+'</span><b>'+c[3]+'</b></div>'}).join('')}
+document.getElementById('sc2').onclick=function(e){var b=e.target.closest('button');if(!b)return;k=b.dataset.k;this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});r()};r();</script></body></html>

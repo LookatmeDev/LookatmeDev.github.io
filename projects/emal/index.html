@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Эмаль — стоматология в Екатеринбурге | Лечение по понятному плану</title>
+<meta name="description" content="Стоматология «Эмаль»: осмотр и 3D-снимок бесплатно, план лечения с фиксированной ценой до начала работ.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F6F7;--paper:#fff;--ink:#0E2A33;--ink-2:#4D6570;--line:#D7E3E6;--teal:#0B7A75;--teal-d:#085E5A;--aqua:#CFEDEA;--coral:#F07F6A;--sun:#F4B740;
+  --f:"Onest",system-ui,sans-serif;--r-lg:28px;--r-md:18px;--r-sm:12px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--f);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:999px;font:600 16px var(--f);cursor:pointer;border:1.5px solid transparent;transition:background .2s,transform .2s}
+.btn:active{transform:scale(.98)}
+.btn-main{background:var(--teal);color:#fff}.btn-main:hover{background:var(--teal-d)}
+.btn-ghost{border-color:var(--ink)}.btn-ghost:hover{background:var(--paper)}
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(242,246,247,.86);backdrop-filter:blur(12px)}
+header .wrap{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:22px}
+.logo svg{width:30px;height:30px}
+nav{display:none;gap:30px;font-size:15px;color:var(--ink-2)}nav a:hover{color:var(--ink)}
+.tel{display:none;font-weight:600}
+.head-btn{min-height:44px;padding:0 18px;font-size:15px}
+/* hero */
+.hero{padding:20px 0 64px}
+.hero-grid{display:grid;gap:28px}
+h1{font-weight:300;font-size:clamp(40px,8.6vw,74px);line-height:1.02;letter-spacing:-.035em;text-wrap:balance}
+h1 strong{font-weight:600}
+.lead{margin-top:20px;font-size:19px;color:var(--ink-2);max-width:31em}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}.cta .btn{flex:1 1 230px}
+.proof{display:flex;align-items:center;gap:14px;margin-top:28px;font-size:15px;color:var(--ink-2)}
+.faces{display:flex}.faces span{width:38px;height:38px;border-radius:50%;border:3px solid var(--bg);margin-left:-10px;background:var(--aqua) center/cover}
+.faces span:first-child{margin-left:0}
+.proof b{color:var(--ink)}
+.visual{position:relative;min-height:440px}
+.photo{position:absolute;inset:0 0 70px 40px;border-radius:var(--r-lg);overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover}
+.receipt{position:absolute;left:0;bottom:0;width:min(330px,88%);background:var(--paper);border-radius:var(--r-md);padding:18px 18px 16px;box-shadow:0 30px 60px -28px rgba(14,42,51,.45)}
+.receipt h2{font-size:16px;font-weight:600;display:flex;justify-content:space-between}
+.receipt h2 span{font-weight:400;color:var(--ink-2);font-size:13px}
+.chart{margin:12px 0 8px;background:var(--bg);border-radius:var(--r-sm);padding:10px 8px}
+.chart svg{width:100%;height:auto}
+.rows{list-style:none;padding:0;font-size:14px}
+.rows li{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.rows .free{color:var(--teal);font-weight:600}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px}
+.total b{font-size:26px;font-weight:600;letter-spacing:-.02em}
+.total span{font-size:14px;color:var(--ink-2)}
+/* steps */
+section{padding:72px 0}
+h2.t{font-weight:500;font-size:clamp(30px,5.4vw,48px);line-height:1.08;letter-spacing:-.03em;max-width:16em;text-wrap:balance}
+.sub{margin-top:14px;color:var(--ink-2);max-width:34em}
+.steps{display:grid;gap:14px;margin-top:40px;counter-reset:s}
+.step{background:var(--paper);border-radius:var(--r-md);padding:28px 26px;position:relative}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--aqua);color:var(--teal-d);font-weight:700;margin-bottom:18px}
+.step h3{font-size:21px;font-weight:600;margin-bottom:6px;letter-spacing:-.01em}
+.step p{color:var(--ink-2);font-size:16px}
+/* prices */
+.prices{background:var(--ink);color:#fff;border-radius:36px;margin:0 12px}
+.prices .sub{color:#A9BEC5}
+.ptable{margin-top:36px;display:grid;gap:0}
+.prow{display:grid;grid-template-columns:1fr auto;gap:6px 16px;padding:20px 0;border-top:1px solid #24434d}
+.prow b{font-weight:500;font-size:18px}
+.prow small{grid-column:1;color:#A9BEC5;font-size:14px}
+.prow span{grid-row:1/3;grid-column:2;align-self:center;font-weight:600;font-size:20px;color:var(--aqua);white-space:nowrap}
+.guar{margin-top:30px;display:flex;gap:14px;align-items:flex-start;background:#173943;border-radius:var(--r-md);padding:18px 20px;color:#DDEBEE;font-size:16px}
+.guar svg{flex:none;width:24px;height:24px;color:var(--aqua)}
+/* doctor */
+.doc{display:grid;gap:30px;align-items:center}
+.doc-img{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3}
+.doc-img img{width:100%;height:100%;object-fit:cover}
+.quote{font-size:clamp(22px,3.4vw,30px);line-height:1.35;font-weight:400;letter-spacing:-.015em}
+.who{margin-top:22px;display:flex;flex-direction:column;font-size:15px;color:var(--ink-2)}
+.who b{color:var(--ink);font-size:17px;font-weight:600}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.badges span{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:7px 14px;font-size:14px}
+/* reviews */
+.revs{display:grid;gap:14px;margin-top:36px}
+.rev{background:var(--paper);border-radius:var(--r-md);padding:26px}
+.stars{display:flex;gap:2px;color:var(--sun);margin-bottom:12px}.stars svg{width:17px;height:17px}
+.rev p{font-size:16px}
+.rev footer{margin-top:16px;font-size:14px;color:var(--ink-2)}
+/* form */
+.book{background:var(--aqua);border-radius:36px;margin:0 12px}
+.book-grid{display:grid;gap:30px;align-items:center}
+form{background:var(--paper);border-radius:var(--r-lg);padding:28px;display:grid;gap:14px}
+label{font-size:14px;font-weight:500;display:grid;gap:6px}
+input,select{font:400 16px var(--f);height:52px;border-radius:var(--r-sm);border:1.5px solid var(--line);padding:0 14px;background:var(--bg);color:var(--ink)}
+input:focus,select:focus{outline:none;border-color:var(--teal)}
+form small{color:var(--ink-2);font-size:13px}
+footer.site{padding:40px 0 50px;color:var(--ink-2);font-size:14px}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between}
+/* load motion */
+.in1,.in2,.in3,.in4{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.in2{animation-delay:.12s}.in3{animation-delay:.24s}.in4{animation-delay:.4s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}}
+.chart rect.hl{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.55}}
+@media (min-width:760px){
+  .steps,.revs{grid-template-columns:repeat(3,1fr)}
+  .prow{grid-template-columns:1fr 1fr auto}.prow small{grid-column:2;grid-row:1;align-self:center}.prow span{grid-row:1;grid-column:3}
+}
+@media (min-width:980px){
+  .wrap{padding:0 40px}
+  nav,.tel{display:flex}
+  .hero{padding:44px 0 80px}
+  .hero-grid{grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+  .visual{min-height:560px}
+  .cta .btn{flex:0 0 auto}
+  section{padding:104px 0}
+  .prices,.book{margin:0 24px}
+  .doc{grid-template-columns:1fr 1fr;gap:70px}
+  .book-grid{grid-template-columns:1fr 440px;gap:60px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M8 5c3 0 4.5 1.5 8 1.5S21 5 24 5c3.5 0 5 3 4.5 7-.5 4-2 6-2.5 10-.4 3-1 6-3 6-2.5 0-2.5-7-7-7s-4.5 7-7 7c-2 0-2.6-3-3-6-.5-4-2-6-2.5-10C3 8 4.5 5 8 5Z" fill="#CFEDEA" stroke="#0B7A75" stroke-width="1.8"/></svg>Эмаль</a>
+  <nav aria-label="Основное меню"><a href="#plan">Как лечим</a><a href="#prices">Цены</a><a href="#doctor">Врачи</a><a href="#book">Контакты</a></nav>
+  <a class="tel" href="#">+7 343 000-00-00</a>
+  <a class="btn btn-main head-btn" href="#book">Записаться</a>
+</div></header>
+
+<main>
+<section class="hero" style="padding-top:20px"><div class="wrap hero-grid">
+  <div>
+    <h1 class="in1">Лечим зубы по&nbsp;плану, <strong>который вы видите заранее</strong></h1>
+    <p class="lead in2">На первом приёме делаем 3D-снимок и составляем план с ценой на каждый зуб. Цена фиксируется в договоре и не растёт в процессе.</p>
+    <div class="cta in3">
+      <a class="btn btn-main" href="#book">Записаться на бесплатный осмотр</a>
+      <a class="btn btn-ghost" href="#prices">Посмотреть цены</a>
+    </div>
+    <div class="proof in3">
+      <div class="faces" aria-hidden="true"><span style="background:#F6C9B9"></span><span style="background:#BFD9F2"></span><span style="background:#CFEDEA"></span></div>
+      <span><b>4,9 на Яндекс Картах</b><br>1 240 отзывов пациентов</span>
+    </div>
+  </div>
+  <div class="visual in2">
+    <div class="photo"><img src="../_img/dental-room.jpg" alt="Кабинет стоматологии «Эмаль»"></div>
+    <article class="receipt in4" aria-label="Пример плана лечения">
+      <h2>План лечения <span>Ирина, 34 года</span></h2>
+      <div class="chart" id="chart"></div>
+      <ul class="rows">
+        <li><span>Осмотр и 3D-снимок</span><span class="free">0 ₽</span></li>
+        <li><span>Профгигиена</span><span>6 500 ₽</span></li>
+        <li><span>Кариес, зубы 26 и 36</span><span>11 800 ₽</span></li>
+      </ul>
+      <div class="total"><span>Итого по договору</span><b>18 300 ₽</b></div>
+    </article>
+  </div>
+</div></section>
+
+<section id="plan"><div class="wrap">
+  <h2 class="t">Три визита от первого звонка до здоровых зубов</h2>
+  <p class="sub">Вы заранее знаете, что будем делать, сколько это стоит и сколько раз придётся прийти.</p>
+  <div class="steps">
+    <div class="step"><h3>Осмотр и 3D-снимок</h3><p>40 минут, бесплатно. Врач показывает снимок на экране и объясняет, что видит.</p></div>
+    <div class="step"><h3>План с ценой</h3><p>Получаете план лечения по зубам. Можно разбить на этапы и начать с самого срочного.</p></div>
+    <div class="step"><h3>Лечение без боли</h3><p>Компьютерная анестезия, а если очень страшно, лечение во сне под наблюдением анестезиолога.</p></div>
+  </div>
+</div></section>
+
+<section class="prices" id="prices"><div class="wrap">
+  <h2 class="t">Цены, которые не меняются после осмотра</h2>
+  <p class="sub">Указываем стоимость с материалами и анестезией. Итоговую сумму фиксируем в договоре.</p>
+  <div class="ptable">
+    <div class="prow"><b>Профессиональная гигиена</b><small>ультразвук, Air Flow, полировка</small><span>6 500 ₽</span></div>
+    <div class="prow"><b>Лечение кариеса</b><small>с фотополимерной пломбой</small><span>от 5 900 ₽</span></div>
+    <div class="prow"><b>Лечение каналов</b><small>под микроскопом, 1 канал</small><span>от 8 400 ₽</span></div>
+    <div class="prow"><b>Имплант под ключ</b><small>имплант, абатмент, коронка</small><span>от 52 000 ₽</span></div>
+  </div>
+  <div class="guar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span>Гарантия до 5 лет на пломбы, коронки и импланты. Если пломба выпадет по нашей вине, переделаем бесплатно.</span></div>
+</div></section>
+
+<section id="doctor"><div class="wrap doc">
+  <div class="doc-img"><img src="../_img/dentist-xray.jpg" alt="Главный врач изучает снимок пациента" loading="lazy"></div>
+  <div>
+    <p class="quote">«Я не начинаю лечение, пока пациент сам не понял, что и зачем мы будем делать. Это экономит и нервы, и деньги».</p>
+    <div class="who"><b>Андрей Соколов</b>главный врач, стоматолог-терапевт, стаж 16 лет</div>
+    <div class="badges"><span>Лечение под микроскопом</span><span>Эндодонтия</span><span>Детский приём</span></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2 class="t">Пациенты о нас</h2>
+  <div class="revs" id="revs"></div>
+</div></section>
+
+<section class="book" id="book"><div class="wrap book-grid">
+  <div>
+    <h2 class="t">Запишитесь на бесплатный осмотр</h2>
+    <p class="sub" style="color:var(--ink)">Перезвоним в течение 15 минут и подберём удобное время. Ул. Малышева, 51, две минуты от метро «Геологическая». Открыты до 21:00.</p>
+  </div>
+  <form onsubmit="return false">
+    <label>Как к вам обращаться<input autocomplete="name" placeholder="Ирина"></label>
+    <label>Телефон<input type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
+    <label>Что беспокоит<select><option>Плановый осмотр</option><option>Болит зуб</option><option>Чистка</option><option>Имплантация</option></select></label>
+    <button class="btn btn-main" type="submit">Записаться на осмотр</button>
+    <small>Нажимая кнопку, вы соглашаетесь с политикой обработки данных</small>
+  </form>
+</div></section>
+</main>
+<footer class="site"><div class="wrap"><span>© Стоматология «Эмаль», демо-проект</span><span>Лицензия № Л041-00000-66/00000000</span><span>Екатеринбург, ул. Малышева, 51</span></div></footer>
+
+<script>
+(function(){
+  var W=440,H=150,s='<svg viewBox="0 0 '+W+' '+H+'" aria-hidden="true">';
+  var treat={'26':1,'36':1}, clean={'11':1,'21':1,'31':1,'41':1,'12':1,'22':1,'32':1,'42':1};
+  function num(row,i){var q=row?(i<8?4:3):(i<8?1:2);var n=i<8?8-i:i-7;return ''+q+n}
+  for(var row=0;row<2;row++)for(var i=0;i<16;i++){
+    var t=(i-7.5)/7.5,x=W/2+t*196,y=row?H-46-Math.pow(Math.abs(t),2)*26:20+Math.pow(Math.abs(t),2)*26;
+    var w=Math.abs(t)>.6?24:Math.abs(t)>.3?21:19,h=row?28:30,id=num(row,i);
+    var fill=treat[id]?'#F07F6A':clean[id]?'#8ED8CC':'#FFFFFF';
+    s+='<rect'+(treat[id]?' class="hl"':'')+' x="'+(x-w/2)+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8" fill="'+fill+'" stroke="#C5D6DB" stroke-width="1.2"/>';
+  }
+  document.getElementById('chart').innerHTML=s+'</svg>';
+  var star='<svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.8z"/></svg>';
+  var R=[["Боялась стоматологов с детства. Здесь впервые всё объяснили по снимку и не торопили. Лечила два зуба, не почувствовала ничего.","Марина, Яндекс Карты"],["Понравилось, что цену назвали сразу и она не поменялась. В другой клинике за то же насчитали в полтора раза больше.","Олег, 2ГИС"],["Водим сюда детей. Врач сначала знакомится и показывает инструменты, сын теперь идёт на приём спокойно.","Анна, Яндекс Карты"]];
+  document.getElementById('revs').innerHTML=R.map(function(r){return '<article class="rev"><div class="stars" aria-label="5 из 5">'+star+star+star+star+star+'</div><p>'+r[0]+'</p><footer>'+r[1]+'</footer></article>'}).join('');
+})();
+</script>
+</body>
+</html>

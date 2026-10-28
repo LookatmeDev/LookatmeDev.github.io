@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><rect width="800" height="500" fill="#0F1B3D"/>
-<rect x="240" y="40" width="320" height="460" rx="28" fill="#0F1B3D" stroke="#1F2937" stroke-width="2"/>
-<rect x="240" y="40" width="320" height="64" rx="28" fill="#0F1B3D"/><circle cx="282" cy="72" r="16" fill="#FFFFFF" fill-opacity="0.8"/><rect x="308" y="62" width="120" height="10" rx="5" fill="#F8FAFC"/><rect x="308" y="78" width="70" height="8" rx="4" fill="#94A3B8"/>
-<g font-family="Segoe UI, Arial, sans-serif" font-size="14">
-<rect x="262" y="124" width="250" height="96" rx="14" fill="#0F1B3D" stroke="#1F2937"/><text x="278" y="150" fill="#F8FAFC" font-weight="700">Python-разработчик</text><text x="278" y="172" fill="#FFFFFF">от 180 000 ₽ · удалённо</text><text x="278" y="196" fill="#94A3B8">Habr Career · 2 ч назад</text>
-<rect x="262" y="232" width="78" height="30" rx="8" fill="#1F2937"/><path d="M301 238l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" fill="#FFFFFF"/><rect x="348" y="232" width="78" height="30" rx="8" fill="#1F2937"/><path d="M377 247h18M386 238v18" stroke="#94A3B8" stroke-width="2" transform="rotate(45 386 247)"/><rect x="434" y="232" width="78" height="30" rx="8" fill="#1F2937"/><circle cx="473" cy="247" r="8" fill="none" stroke="#94A3B8" stroke-width="2"/><path d="M467 241l12 12" stroke="#94A3B8" stroke-width="2"/>
-<rect x="262" y="280" width="250" height="96" rx="14" fill="#0F1B3D" stroke="#1F2937"/><text x="278" y="306" fill="#F8FAFC" font-weight="700">Go Backend Engineer</text><text x="278" y="328" fill="#FFFFFF">от 250 000 ₽ · гибрид</text><text x="278" y="352" fill="#94A3B8">hh.ru · 5 ч назад</text>
-<rect x="262" y="392" width="250" height="40" rx="12" fill="#FFFFFF"/><text x="332" y="417" fill="#0F1B3D" font-weight="700">Показать ещё</text>
-</g></svg>

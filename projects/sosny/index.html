@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Сосны — участки в сосновом бору под Тюменью | Газ, свет, асфальт</title>
+<meta name="description" content="Посёлок «Сосны»: участки от 8 соток в сосновом бору, 25 минут от Тюмени. Газ, свет и асфальт уже подведены.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF2EC;--paper:#FAFBF8;--ink:#1A2E24;--ink-2:#58685E;--line:#D3DDD4;--forest:#1F3B2D;--moss:#6C8A4E;--sun:#E9B949;--sold:#C9CFC9;--book:#E9B949;--free:#7FB069;
+  --d:"Prata",Georgia,serif;--f:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--f);overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 28px;border-radius:999px;font:700 16px var(--f);cursor:pointer;border:0;transition:background .2s}
+.btn-sun{background:var(--sun);color:var(--ink)}.btn-sun:hover{background:#F2C863}
+.btn-f{background:var(--forest);color:#fff}
+.hero{position:relative;min-height:min(94vh,860px);color:#fff;display:flex;flex-direction:column;overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:zoom 2.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes zoom{from{transform:scale(1.1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,26,18,.55),rgba(12,26,18,.2) 40%,rgba(12,26,18,.75))}
+header,.hero-in{position:relative;z-index:1}
+header .wrap{height:80px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:400 26px var(--d)}
+nav{display:none;gap:30px;font-weight:600;font-size:15px}
+.hero-in{margin-top:auto;padding-bottom:40px}
+h1{font:400 clamp(40px,8vw,88px)/1.02 var(--d);max-width:12em;text-wrap:balance;animation:rise 1.1s .2s cubic-bezier(.2,.7,.2,1) both}
+.hero p{margin-top:18px;font-size:19px;max-width:30em;opacity:.92;animation:rise 1.1s .35s cubic-bezier(.2,.7,.2,1) both}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;animation:rise 1.1s .45s cubic-bezier(.2,.7,.2,1) both}
+.chips span{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:8px 16px;font-weight:600;font-size:15px}
+.chips svg{width:18px;height:18px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;animation:rise 1.1s .55s cubic-bezier(.2,.7,.2,1) both}
+.hero .cta .btn{flex:1 1 220px}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+section{padding:90px 0}
+h2{font:400 clamp(32px,5.6vw,56px)/1.06 var(--d);text-wrap:balance;max-width:15em}
+.sub{margin-top:12px;color:var(--ink-2);max-width:34em}
+.pros{display:grid;gap:14px;margin-top:36px}
+.pro{background:var(--paper);border-radius:24px;padding:26px}
+.pro b{display:block;font:400 26px var(--d);margin-bottom:6px}
+.pro span{color:var(--ink-2);font-size:16px}
+/* map */
+.mapbox{display:grid;gap:18px;margin-top:36px}
+.map{background:#DCE6D6;border-radius:28px;padding:14px;position:relative}
+.map svg{width:100%;height:auto;display:block}
+.lot{cursor:pointer;transition:filter .2s}
+.lot:hover{filter:brightness(1.08)}
+.lot.sel rect{stroke:var(--ink);stroke-width:3}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;color:var(--ink-2);margin-top:12px;padding:0 6px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px}
+.info{background:var(--forest);color:#fff;border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.info small{color:#A9C2B0;font-size:14px}
+.info h3{font:400 34px var(--d)}
+.info dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:8px 0 14px;font-size:16px}
+.info dt{color:#A9C2B0}.info dd{margin:0;font-weight:600}
+.info .st{align-self:flex-start;border-radius:999px;padding:4px 12px;font-weight:700;font-size:13px;color:var(--ink)}
+.info .btn{margin-top:auto}
+/* calc */
+.calc{background:var(--paper);border-radius:32px;padding:28px 22px;display:grid;gap:26px;margin-top:36px}
+.calc label{display:grid;gap:10px;font-weight:600;font-size:15px}
+.calc label span{display:flex;justify-content:space-between}
+.calc output{font-weight:700}
+input[type=range]{width:100%;accent-color:var(--moss);height:28px}
+.pay{background:var(--bg);border-radius:22px;padding:22px;display:grid;gap:6px}
+.pay small{color:var(--ink-2)}
+.pay b{font:400 46px var(--d);line-height:1.1}
+.photo-band{position:relative;margin:0 12px;border-radius:36px;overflow:hidden;min-height:420px;display:flex;align-items:flex-end;color:#fff}
+.photo-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(12,26,18,.8))}
+.photo-band .wrap{position:relative;z-index:1;width:100%;padding-bottom:40px}
+footer{padding:40px 0 50px;color:var(--ink-2);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between}
+@media (min-width:760px){.pros{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:980px){.wrap{padding:0 40px}nav{display:flex}.hero-in{padding-bottom:70px}.hero .cta .btn{flex:0 0 auto}section{padding:120px 0}.mapbox{grid-template-columns:1.6fr 1fr}.calc{grid-template-columns:1.2fr 1fr;padding:44px;gap:44px;align-items:center}.photo-band{margin:0 24px;min-height:520px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="hero"><img src="../_img/forest.jpg" alt="Сосновый бор на территории посёлка">
+  <header><div class="wrap"><a class="logo" href="#">Сосны</a><nav aria-label="Основное меню"><a href="#plan">Генплан</a><a href="#calc">Рассрочка</a><a href="#">Как добраться</a></nav></div></header>
+  <div class="wrap hero-in">
+    <h1>Участки в сосновом бору в 25 минутах от Тюмени</h1>
+    <p>Коммуникации уже на участке, а не «в планах». Можно начинать стройку этим летом.</p>
+    <div class="chips">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3c3 4 5 6.5 5 10a5 5 0 0 1-10 0c0-3.5 2-6 5-10z"/></svg>Газ</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>15 кВт</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 21 9 3M19 21 15 3M12 6v2M12 11v2M12 16v2"/></svg>Асфальт до участка</span>
+    </div>
+    <div class="cta"><a class="btn btn-sun" href="#plan">Выбрать участок на генплане</a></div>
+  </div>
+</div>
+<main>
+<section><div class="wrap">
+  <h2>Почему здесь хочется построить дом</h2>
+  <div class="pros">
+    <div class="pro"><b>Сосны остаются</b><span>Деревья на участках не вырубаем. Строить можно на расчищенном пятне до 40%.</span></div>
+    <div class="pro"><b>Школа рядом</b><span>Школа и детский сад в соседнем селе, 7 минут на машине или школьный автобус.</span></div>
+    <div class="pro"><b>Озеро в 900 м</b><span>Чистое озеро с песчаным пляжем, зимой лыжня от посёлка.</span></div>
+  </div>
+</div></section>
+
+<section id="plan" style="padding-top:0"><div class="wrap">
+  <h2>Генплан посёлка</h2>
+  <p class="sub">Нажмите на участок, чтобы увидеть площадь, цену и статус.</p>
+  <div class="mapbox">
+    <div class="map"><svg id="map" viewBox="0 0 600 380" role="img" aria-label="Генплан посёлка"></svg>
+      <div class="legend"><span><i style="background:var(--free)"></i>свободен</span><span><i style="background:var(--book)"></i>забронирован</span><span><i style="background:var(--sold)"></i>продан</span></div></div>
+    <div class="info" id="info" aria-live="polite"></div>
+  </div>
+</div></section>
+
+<section id="calc" style="padding-top:0"><div class="wrap">
+  <h2>Рассрочка без банка и процентов</h2>
+  <div class="calc">
+    <div style="display:grid;gap:24px">
+      <label><span>Стоимость участка <output id="ov">1 200 000 ₽</output></span><input type="range" id="v" min="800000" max="2000000" step="50000" value="1200000"></label>
+      <label><span>Первый взнос <output id="od">30%</output></span><input type="range" id="dp" min="20" max="70" step="5" value="30"></label>
+      <label><span>Срок <output id="om">24 мес</output></span><input type="range" id="m" min="6" max="36" step="6" value="24"></label>
+    </div>
+    <div class="pay"><small>Ежемесячный платёж</small><b id="pay">35 000 ₽</b><small>Без переплаты, договор с застройщиком</small><a class="btn btn-f" href="#" style="margin-top:14px">Получить расчёт и документы</a></div>
+  </div>
+</div></section>
+
+<section class="photo-band"><img src="../_img/field-sunset.jpg" alt="Поле на закате рядом с посёлком" loading="lazy"><div class="wrap">
+  <h2 style="color:#fff">Приезжайте на просмотр в выходные</h2><p class="sub" style="color:#E3EBE5">Встретим на въезде, покажем участки и ответим на вопросы. Просмотр бесплатный.</p>
+  <a class="btn btn-sun" href="#" style="margin-top:22px">Записаться на просмотр</a>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© Посёлок «Сосны», демо-проект</span><span>Тюменская обл., Тюменский р-н</span></div></footer>
+<script>
+var st={f:['#7FB069','свободен'],b:['#E9B949','забронирован'],s:['#C9CFC9','продан']};
+var pat='fsfbffsfsbfffsfbffsf'.split(''),lots=[],svg='<path d="M0 190h600" stroke="#B9C7B5" stroke-width="26"/><path d="M300 0v380" stroke="#B9C7B5" stroke-width="22"/>';
+for(var i=0;i<20;i++){var c=i%10,r=Math.floor(i/10),x=14+(c<5?c*56:16+c*56),y=r?212:14,w=50,h=152,a=8+((i*7)%5),p=Math.round((a*92000+(c%5)*35000)/50000)*50000;
+  lots.push({n:i+1,a:a,p:p,s:pat[i]});
+  svg+='<g class="lot" tabindex="0" data-i="'+i+'"><rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8" fill="'+st[pat[i]][0]+'"/><text x="'+(x+w/2)+'" y="'+(y+h/2+5)+'" text-anchor="middle" font-family="Manrope" font-weight="700" font-size="15" fill="#1A2E24">'+(i+1)+'</text></g>'}
+svg+='<g fill="#4F7A4A" opacity=".55">'+[[300,190],[40,190],[560,190],[300,30],[300,350]].map(function(t){return '<circle cx="'+t[0]+'" cy="'+t[1]+'" r="9"/>'}).join('')+'</g>';
+var map=document.getElementById('map');map.innerHTML=svg;
+function pick(i){var l=lots[i];map.querySelectorAll('.lot').forEach(function(g){g.classList.toggle('sel',+g.dataset.i==i)});
+  document.getElementById('info').innerHTML='<small>Участок</small><h3>№ '+l.n+'</h3><span class="st" style="background:'+st[l.s][0]+'">'+st[l.s][1]+'</span><dl><dt>Площадь</dt><dd>'+l.a+' соток</dd><dt>Цена</dt><dd>'+l.p.toLocaleString('ru-RU')+' ₽</dd><dt>Коммуникации</dt><dd>газ, свет 15 кВт</dd></dl>'+(l.s=='s'?'<span style="color:#A9C2B0">Этот участок уже продан. Посмотрите соседние зелёные.</span>':'<a class="btn btn-sun" href="#">Забронировать участок</a>')}
+map.addEventListener('click',function(e){var g=e.target.closest('.lot');if(g)pick(+g.dataset.i)});
+map.addEventListener('keydown',function(e){var g=e.target.closest('.lot');if(g&&(e.key=='Enter'||e.key==' ')){e.preventDefault();pick(+g.dataset.i)}});
+pick(2);
+var v=document.getElementById('v'),dp=document.getElementById('dp'),m=document.getElementById('m');
+function calc(){var rest=v.value*(1-dp.value/100);document.getElementById('ov').textContent=(+v.value).toLocaleString('ru-RU')+' ₽';document.getElementById('od').textContent=dp.value+'%';document.getElementById('om').textContent=m.value+' мес';document.getElementById('pay').textContent=(Math.round(rest/m.value/100)*100).toLocaleString('ru-RU')+' ₽'}
+[v,dp,m].forEach(function(x){x.oninput=calc});calc();
+</script>
+</body>
+</html>

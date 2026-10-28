@@ -31,73 +31,157 @@
     }
   },
   {
-    "title": "Зацеп: скалодром в Казани",
-    "description": "Яркий сайт скалодрома: схема трасс вместо стоковых фото, цена пробного занятия на первом экране, расписание групп и запись в два касания с телефона.",
+    "title": "Берег: коттеджи у озера",
+    "description": "Атмосферный лендинг загородного отдыха в Карелии: фото на весь экран, поиск свободных дат прямо в первом экране и карточки домиков.",
     "stack": [
       "Веб-дизайн",
-      "Иллюстрация",
-      "Запись онлайн",
-      "Mobile first"
+      "Бронирование",
+      "Фото-сторителлинг"
     ],
-    "category": "Сайты",
-    "image": "assets/work-zatsep.webp",
-    "gallery": true,
-    "links": {}
-  },
-  {
-    "title": "Эмаль: стоматологическая клиника",
-    "description": "Сайт клиники, который снимает страх перед ценой: интерактивный план лечения с суммой по каждому зубу, рейтинг с Яндекс Карт и запись на бесплатный осмотр.",
-    "stack": [
-      "Веб-дизайн",
-      "UX",
-      "Интерактивный план",
-      "Адаптив"
-    ],
-    "category": "Сайты",
-    "image": "assets/work-emal.webp",
-    "gallery": true,
-    "links": {}
-  },
-  {
-    "title": "SubTrack: трекер подписок",
-    "description": "Telegram Mini App для учёта платных подписок: расходы в месяц и год, календарь списаний и напоминание за день до оплаты. Платные тарифы через Telegram Stars.",
-    "stack": [
-      "React",
-      "TypeScript",
-      "Fastify",
-      "PostgreSQL",
-      "Telegram Stars"
-    ],
-    "category": "Веб-приложения",
-    "image": "assets/project-subtrack.webp",
+    "category": "Лендинги",
+    "image": "assets/work-bereg.webp",
     "links": {
-      "demo": "https://t.me/otpishis_bot/app"
+      "demo": "https://lookatmedev.github.io/projects/bereg/"
     }
   },
   {
-    "title": "Бот поиска вакансий",
-    "description": "Telegram-бот собирает вакансии с 8 сайтов, фильтрует их по критериям пользователя и присылает новые по подписке без повторов.",
+    "title": "Высота: жилой комплекс",
+    "description": "Премиальный лендинг ЖК: тёмная тема, крупная типографика, цены и сроки сдачи на первом экране, подбор планировки.",
     "stack": [
-      "Go",
-      "Python",
-      "PostgreSQL",
-      "Redis",
-      "Docker"
+      "Веб-дизайн",
+      "Недвижимость",
+      "Планировки"
     ],
-    "category": "Автоматизация",
-    "image": "assets/project-jobs-bot.svg",
-    "links": {}
+    "category": "Лендинги",
+    "image": "assets/work-vysota.webp",
+    "links": {
+      "demo": "https://lookatmedev.github.io/projects/vysota/"
+    }
   },
   {
-    "title": "Парсер организаций 2ГИС",
-    "description": "Выгружает организации по городу и рубрике: названия, адреса, телефоны и сайты. Результат сохраняется в CSV и XLSX для обзвона и аналитики.",
+    "title": "Зацеп: скалодром",
+    "description": "Яркий сайт скалодрома: цена пробного занятия на первом экране, расписание групп и запись в два касания с телефона.",
     "stack": [
-      "Python",
-      "Selenium",
-      "Pandas"
+      "Веб-дизайн",
+      "Запись онлайн",
+      "Mobile first"
     ],
-    "category": "Автоматизация",
-    "image": "assets/project-parser-2gis.svg",
-    "links": {}
+    "category": "Лендинги",
+    "image": "assets/work-zatsep.webp",
+    "links": {
+      "demo": "https://lookatmedev.github.io/projects/zacep/"
+    }
+  },
+  {
+    "title": "Эмаль: стоматология",
+    "description": "Сайт клиники, который снимает страх перед ценой: план лечения с суммой по каждому зубу, рейтинг и запись на бесплатный осмотр.",
+    "stack": [
+      "Веб-дизайн",
+      "UX",
+      "Интерактивный план"
+    ],
+    "category": "Лендинги",
+    "image": "assets/work-emal.webp",
+    "links": {
+      "demo": "https://lookatmedev.github.io/projects/emal/"
+    }
+  },
+  {
+    "title": "Воск: свечи ручной работы",
+    "description": "Нежный лендинг-магазин: тёплая палитра, подбор аромата и каталог свечей с ценами.",
+    "stack": [
+      "Веб-дизайн",
+      "Магазин",
+      "Каталог"
+    ],
+    "category": "Лендинги",
+    "image": "assets/work-vosk.webp",
+    "links": {
+      "demo": "https://lookatmedev.github.io/projects/vosk/"
+    }
+  },
+  {
+    "title": "Кресло: барбершоп",
+    "description": "Брутальный лендинг барбершопа: тёмная тема с золотом, прайс на виду и онлайн-запись к мастеру.",
+    "stack": [
+      "Веб-дизайн",
+      "Онлайн-запись",
+      "Прайс"
+    ],
+    "category": "Лендинги",
+    "image": "assets/work-kreslo.webp",
+    "links": {
+      "demo": "https://lookatmedev.github.io/projects/kreslo/"
+    }
+  },
+  {
+    "title": "Зерно: кофейня",
+    "description": "Лендинг кофейни со своей обжаркой: меню с вкладками, история зерна и заказ с собой.",
+    "stack": [
+      "Веб-дизайн",
+      "Меню",
+      "Редакционный стиль"
+    ],
+    "category": "Лендинги",
+    "image": "assets/work-zerno.webp",
+    "links": {
+      "demo": "https://lookatmedev.github.io/projects/zerno/"
+    }
+  },
+  {
+    "title": "Пион: цветочная мастерская",
+    "description": "Лендинг флористов с конструктором букета: выбор размера и оттенка, готовые букеты и доставка.",
+    "stack": [
+      "Веб-дизайн",
+      "Конструктор",
+      "Доставка"
+    ],
+    "category": "Лендинги",
+    "image": "assets/work-pion.webp",
+    "links": {
+      "demo": "https://lookatmedev.github.io/projects/pion/"
+    }
+  },
+  {
+    "title": "Сосны: загородные участки",
+    "description": "Лендинг продажи участков в сосновом бору: коммуникации, расстояние до города и выбор участка на генплане.",
+    "stack": [
+      "Веб-дизайн",
+      "Недвижимость",
+      "Генплан"
+    ],
+    "category": "Лендинги",
+    "image": "assets/work-sosny.webp",
+    "links": {
+      "demo": "https://lookatmedev.github.io/projects/sosny/"
+    }
+  },
+  {
+    "title": "Кода: музыкальная школа",
+    "description": "Выразительный лендинг музыкальной школы: чёрно-белая фотография, направления обучения и запись на пробный урок.",
+    "stack": [
+      "Веб-дизайн",
+      "Образование",
+      "Запись"
+    ],
+    "category": "Лендинги",
+    "image": "assets/work-koda.webp",
+    "links": {
+      "demo": "https://lookatmedev.github.io/projects/koda/"
+    }
+  },
+  {
+    "title": "Ритм: фитнес-клуб",
+    "description": "Энергичный лендинг фитнес-клуба: контрастная типографика, бегущая строка направлений и пробная тренировка.",
+    "stack": [
+      "Веб-дизайн",
+      "Спорт",
+      "Акции"
+    ],
+    "category": "Лендинги",
+    "image": "assets/work-ritm.webp",
+    "links": {
+      "demo": "https://lookatmedev.github.io/projects/ritm/"
+    }
   }
 ]

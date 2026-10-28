@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Кода — музыкальная школа в Нижнем Новгороде</title>
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--k:#0C0C0C;--w:#F7F5F0;--r:#C8202F;--mut:#777;--line:#D8D4CA;--s:"Old Standard TT",Georgia,serif;--f:"Jost",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}body{background:var(--w);color:var(--k);font:18px/1.6 var(--f);overflow-x:hidden}
+a{color:inherit;text-decoration:none}.w{max-width:1240px;margin:0 auto;padding:0 20px}
+.hero{position:relative;background:var(--k);color:var(--w);min-height:min(92vh,820px);display:grid;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6;filter:grayscale(1) contrast(1.15)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,12,12,.9),rgba(12,12,12,.1) 75%)}
+header,.hc{position:relative;z-index:1}header .w{height:84px;display:flex;align-items:center;justify-content:space-between}
+.lg{font:700 30px var(--s);letter-spacing:.14em;text-transform:uppercase}.lg i{color:var(--r);font-style:normal}
+nav{display:none;gap:32px;font:500 14px var(--f);letter-spacing:.14em;text-transform:uppercase}
+.hc{align-self:end;padding-bottom:54px}.hc .w{display:block}
+h1{font:400 clamp(50px,10vw,128px)/.92 var(--s);letter-spacing:-.025em;max-width:9em}h1 em{color:var(--r)}
+.hc p{margin:22px 0 30px;max-width:26em;font-size:20px;color:#DDD8CC}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 34px;background:var(--r);color:#fff;font:500 14px var(--f);letter-spacing:.16em;text-transform:uppercase;transition:background .25s}.btn:hover{background:#fff;color:var(--k)}
+section{padding:80px 0}h2{font:400 clamp(32px,5.4vw,58px)/1.05 var(--s);letter-spacing:-.02em}
+.ins{margin-top:34px;border-top:1px solid var(--k)}.in{display:grid;grid-template-columns:60px 1fr auto;gap:6px 16px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);transition:background .2s,padding .2s}.in:hover{background:#fff;padding-left:14px;padding-right:14px}
+.in i{font:italic 400 22px var(--s);color:var(--r)}.in b{font:400 28px var(--s)}.in span{color:var(--mut);font-size:15px;display:block;font-family:var(--f)}.in em{font-style:normal;font-size:15px;color:var(--mut);text-align:right}
+.cn{background:var(--k);color:var(--w)}.cn .w{display:grid;gap:30px}.cn p{color:#B9B5AA;margin-top:12px;max-width:26em}
+.sl{display:grid;gap:10px}.sl div{display:flex;justify-content:space-between;border-bottom:1px solid #333;padding:16px 0}.sl b{font:400 24px var(--s)}.sl span{color:#B9B5AA;align-self:center}
+footer{padding:28px 0;color:var(--mut);font-size:14px}
+.a{animation:r 1.2s cubic-bezier(.2,.7,.2,1) both}.a2{animation-delay:.25s}@keyframes r{from{opacity:0;transform:translateY(30px)}}
+@media(min-width:980px){.w{padding:0 48px}nav{display:flex}section{padding:120px 0}.cn .w{grid-template-columns:1fr 1fr;gap:100px;align-items:center}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div class="hero"><img src="../_img/piano-kids.jpg" alt="Урок фортепиано в школе «Кода»"><header><div class="w"><a class="lg" href="#">Кода<i>.</i></a><nav><a href="#">Инструменты</a><a href="#">Педагоги</a><a href="#">Концерты</a></nav><a class="btn" href="#" style="min-height:44px;padding:0 20px;font-size:12px">Записаться</a></div></header>
+<div class="hc"><div class="w"><h1 class="a">Научим слышать <em>и играть</em></h1><p class="a a2">Музыкальная школа для детей от 5 лет и взрослых. Первый урок бесплатно, инструмент на занятиях предоставляем.</p><a class="btn a a2" href="#">Записаться на пробный урок</a></div></div></div>
+<main><section><div class="w"><h2>Инструменты</h2><div class="ins">
+<a class="in" href="#"><i>01</i><div><b>Фортепиано</b><span>с 5 лет · классика, джаз, эстрада</span></div><em>от 1 800 ₽</em></a>
+<a class="in" href="#"><i>02</i><div><b>Гитара</b><span>с 7 лет · акустика, электро, бас</span></div><em>от 1 600 ₽</em></a>
+<a class="in" href="#"><i>03</i><div><b>Вокал</b><span>с 6 лет · эстрадный, академический</span></div><em>от 1 700 ₽</em></a>
+<a class="in" href="#"><i>04</i><div><b>Скрипка</b><span>с 5 лет · классическая школа</span></div><em>от 1 900 ₽</em></a></div></div></section>
+<section class="cn"><div class="w"><div><h2>Весенний концерт для всех учеников</h2><p>Дважды в год ученики выходят на сцену камерного зала. Родители и друзья приходят бесплатно.</p></div><div class="sl"><div><b>14 апреля</b><span>концерт младших классов</span></div><div><b>21 апреля</b><span>вечер джаза</span></div><div><b>28 апреля</b><span>выпускной вечер</span></div></div></div></section></main>
+<footer><div class="w">© Музыкальная школа «Кода», демо-проект</div></footer></body></html>

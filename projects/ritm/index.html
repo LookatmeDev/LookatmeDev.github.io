@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>РИТМ — фитнес-клуб в Уфе</title>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0D;--p:#151518;--ink:#F3F3EE;--mut:#9B9BA3;--lime:#D4FF3A;--line:#2A2A30;--d:"Russo One",Impact,sans-serif;--f:"Golos Text",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--f);overflow-x:hidden}
+a{color:inherit;text-decoration:none}.w{max-width:1280px;margin:0 auto;padding:0 20px}
+header .w{height:76px;display:flex;align-items:center;justify-content:space-between}.lg{font:400 26px var(--d);letter-spacing:.08em}.lg i{color:var(--lime);font-style:normal}
+nav{display:none;gap:30px;font-size:15px;color:var(--mut)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 30px;background:var(--lime);color:#0B0B0D;font:400 16px var(--d);letter-spacing:.04em;text-transform:uppercase;transition:box-shadow .2s,transform .2s}.btn:hover{box-shadow:6px 6px 0 #fff;transform:translate(-3px,-3px)}
+.hero{position:relative;min-height:min(88vh,800px);display:flex;align-items:flex-end;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1) brightness(.55)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg),transparent 55%)}
+.hero .w{position:relative;z-index:1;padding-bottom:46px;width:100%}
+h1{font:400 clamp(46px,11vw,150px)/.92 var(--d);text-transform:uppercase;letter-spacing:-.01em}h1 b{color:var(--lime);font-weight:400}
+.hero p{margin:20px 0 28px;max-width:28em;font-size:19px;color:#D9D9D2}
+.mq{overflow:hidden;border-block:1px solid var(--line);background:var(--p);white-space:nowrap}.mq div{display:inline-block;padding:16px 0;font:400 18px var(--d);text-transform:uppercase;letter-spacing:.06em;color:var(--lime);animation:m 26s linear infinite}.mq span{margin:0 30px}@keyframes m{to{transform:translateX(-50%)}}
+section{padding:80px 0}h2{font:400 clamp(32px,6vw,64px)/1 var(--d);text-transform:uppercase}
+.tt{display:grid;gap:1px;background:var(--line);margin-top:34px;border:1px solid var(--line)}
+.t{background:var(--p);padding:20px;display:grid;grid-template-columns:70px 1fr auto;gap:12px;align-items:center}.t b{font:400 22px var(--d);color:var(--lime)}.t span{font-size:16px}.t small{color:var(--mut);font-size:14px}
+.tabs{display:flex;gap:6px;margin-top:26px;flex-wrap:wrap}.tabs button{font:400 14px var(--d);text-transform:uppercase;letter-spacing:.04em;min-height:46px;padding:0 18px;background:transparent;color:var(--ink);border:1px solid var(--line);cursor:pointer}.tabs button[aria-selected=true]{background:var(--lime);color:#0B0B0D;border-color:var(--lime)}
+.pr{display:grid;gap:14px;margin-top:34px}.p{border:1px solid var(--line);padding:30px;background:var(--p)}.p.h{border-color:var(--lime)}.p h3{font:400 18px var(--d);text-transform:uppercase;color:var(--mut)}.p b{font:400 52px/1 var(--d);display:block;margin:14px 0 6px}.p span{font-size:15px;color:var(--mut)}
+footer{padding:30px 0;color:var(--mut);font-size:14px}
+@media(min-width:760px){.pr{grid-template-columns:repeat(3,1fr)}.t{grid-template-columns:90px 1fr 220px}}
+@media(min-width:980px){.w{padding:0 48px}nav{display:flex}section{padding:110px 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body>
+<div class="hero"><img src="../_img/gym-room.jpg" alt="Тренажёрный зал клуба «Ритм»"><div style="position:absolute;inset:0 0 auto;z-index:2"><header><div class="w"><a class="lg" href="#">РИТМ<i>/</i></a><nav><a href="#">Расписание</a><a href="#">Тренеры</a><a href="#">Цены</a></nav><a class="btn" href="#" style="min-height:44px;padding:0 20px;font-size:13px">Пробная</a></div></header></div>
+<div class="w"><h1>Тело<br>в <b>ритме</b><br>без пауз</h1><p>Зал 1 200 м², 40 групповых занятий в неделю и тренеры, которые помнят ваше имя. Первая тренировка бесплатно.</p><a class="btn" href="#">Записаться на пробную</a></div></div>
+<div class="mq"><div><span>Силовые</span><span>Кроссфит</span><span>Йога</span><span>Бокс</span><span>Функционал</span><span>Растяжка</span><span>Силовые</span><span>Кроссфит</span><span>Йога</span><span>Бокс</span><span>Функционал</span><span>Растяжка</span></div></div>
+<section><div class="w"><h2>Расписание на сегодня</h2><div class="tabs" id="tb" role="tablist"><button aria-selected="true" data-i="0">Пн</button><button aria-selected="false" data-i="1">Вт</button><button aria-selected="false" data-i="2">Ср</button></div><div class="tt" id="tt"></div></div></section>
+<section style="padding-top:0"><div class="w"><h2>Абонементы</h2><div class="pr"><div class="p"><h3>Утро</h3><b>2 900</b><span>₽ / месяц, до 16:00</span></div><div class="p h"><h3>Безлимит</h3><b>4 600</b><span>₽ / месяц, все занятия</span></div><div class="p"><h3>Год</h3><b>3 400</b><span>₽ / месяц при оплате за год</span></div></div></div></section>
+<footer><div class="w">© Фитнес-клуб «Ритм», демо-проект</div></footer>
+<script>var D=[[["07:30","Силовая","Ольга · зал 1"],["12:00","Йога","Марат · зал 2"],["19:00","Кроссфит","Артём · зал 1"],["20:30","Бокс","Игорь · ринг"]],[["08:00","Функционал","Артём · зал 1"],["18:00","Растяжка","Ольга · зал 2"],["19:30","Силовая","Марат · зал 1"]],[["07:30","Кроссфит","Игорь · зал 1"],["13:00","Йога","Марат · зал 2"],["20:00","Бокс","Игорь · ринг"]]];
+function s(i){document.getElementById('tt').innerHTML=D[i].map(function(r){return '<div class="t"><b>'+r[0]+'</b><span>'+r[1]+'</span><small>'+r[2]+'</small></div>'}).join('');document.querySelectorAll('#tb button').forEach(function(b,j){b.setAttribute('aria-selected',j==i)})}
+document.getElementById('tb').onclick=function(e){var b=e.target.closest('button');if(b)s(+b.dataset.i)};s(0);</script></body></html>

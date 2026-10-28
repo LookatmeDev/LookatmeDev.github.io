@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Зацеп — скалодром в Казани | Пробное занятие с инструктором</title>
+<meta name="description" content="Скалодром «Зацеп»: 180 трасс, пробное занятие с инструктором за 590 ₽, детские группы.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F5FB;--paper:#fff;--ink:#12142B;--ink-2:#565A78;--line:#DFE1EE;--blue:#2433C9;--blue-d:#1A27A3;--yellow:#FFC93C;--pink:#FF5C8A;--mint:#3DD6A3;
+  --d:"Unbounded",system-ui,sans-serif;--f:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--f);overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 28px;border-radius:16px;font:700 16px var(--f);cursor:pointer;border:0;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn-y{background:var(--yellow);color:var(--ink)}
+.btn-w{background:rgba(255,255,255,.14);color:#fff}
+.top{background:var(--blue);color:#fff;border-radius:0 0 40px 40px;overflow:hidden;position:relative}
+header .wrap{height:78px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:800 22px var(--d);display:flex;align-items:center;gap:10px}
+.logo i{width:20px;height:20px;border-radius:7px 10px 6px 12px;background:var(--yellow);display:block;transform:rotate(-12deg)}
+nav{display:none;gap:28px;font-weight:600;font-size:15px;color:#C9CEFF}
+.hero{padding:20px 0 0;display:grid;gap:30px}
+h1{font:800 clamp(38px,8.6vw,84px)/1 var(--d);letter-spacing:-.03em;text-wrap:balance}
+.lead{margin-top:20px;font-size:19px;color:#D3D7FF;max-width:28em}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.cta .btn{flex:1 1 220px}
+.photo{position:relative;border-radius:30px 30px 0 0;overflow:hidden;min-height:340px}
+.photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.offer{position:absolute;left:18px;bottom:18px;background:var(--paper);color:var(--ink);border-radius:20px;padding:16px 18px;max-width:250px;box-shadow:0 20px 40px -20px rgba(0,0,0,.5);animation:in 1s .4s cubic-bezier(.2,.8,.2,1.1) both}
+.offer b{font:800 30px var(--d);display:block}
+.offer span{font-size:14px;color:var(--ink-2);line-height:1.35;display:block}
+@keyframes in{from{opacity:0;transform:translateY(30px) rotate(-3deg)}}
+.holds circle{animation:blink 3s ease-in-out infinite}
+@keyframes blink{50%{opacity:.4}}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:28px 0 34px}
+.nums b{font:800 clamp(24px,4vw,40px) var(--d);color:var(--yellow);display:block}
+.nums span{font-size:14px;color:#C9CEFF;line-height:1.3;display:block}
+section{padding:80px 0}
+h2{font:800 clamp(28px,5.2vw,50px)/1.05 var(--d);letter-spacing:-.03em;text-wrap:balance;max-width:16em}
+.sub{margin-top:12px;color:var(--ink-2);max-width:34em}
+.levels{display:grid;gap:14px;margin-top:36px}
+.lv{border-radius:26px;padding:26px;color:var(--ink);min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+.lv h3{font:700 22px var(--d);letter-spacing:-.02em}
+.lv p{font-size:16px;margin-top:8px}
+.lv .g{font:800 46px var(--d);opacity:.9}
+.sched{margin-top:30px;background:var(--paper);border-radius:28px;padding:22px;overflow:hidden}
+.days{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px}
+.days button{flex:none;font:700 15px var(--f);min-width:56px;min-height:56px;border-radius:16px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.days button[aria-selected=true]{background:var(--blue);color:#fff;border-color:var(--blue)}
+.slots{margin-top:16px;display:grid;gap:8px}
+.slot{display:grid;grid-template-columns:70px 1fr auto;gap:14px;align-items:center;padding:14px 16px;border-radius:16px;background:var(--bg)}
+.slot b{font:700 18px var(--d)}
+.slot small{display:block;color:var(--ink-2);font-size:14px}
+.slot em{font-style:normal;font-weight:700;font-size:13px;padding:5px 10px;border-radius:999px;white-space:nowrap}
+.price{display:grid;gap:14px;margin-top:36px}
+.pc{background:var(--paper);border-radius:26px;padding:28px;border:1.5px solid var(--line)}
+.pc.hot{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pc h3{font-weight:700;font-size:18px}
+.pc b{font:800 40px var(--d);display:block;margin:12px 0 6px;letter-spacing:-.03em}
+.pc p{color:var(--ink-2);font-size:15px}.pc.hot p{color:#B9BCD8}
+.out{position:relative;border-radius:36px;overflow:hidden;margin:0 12px;min-height:420px;display:flex;align-items:flex-end;color:#fff}
+.out img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.out::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(18,20,43,.85))}
+.out .wrap{position:relative;z-index:1;padding-bottom:40px;width:100%}
+.out .sub{color:#E3E5F5}
+footer{padding:40px 0 50px;color:var(--ink-2);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between}
+.a1,.a2,.a3{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}.a2{animation-delay:.12s}.a3{animation-delay:.24s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+@media (min-width:760px){.levels,.price{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:980px){.wrap{padding:0 40px}nav{display:flex}.hero{grid-template-columns:1fr 1fr;gap:50px;align-items:end;padding-top:30px}.hero>div:first-child{padding-bottom:60px}.photo{min-height:560px}.cta .btn{flex:0 0 auto}section{padding:110px 0}.out{margin:0 24px;min-height:520px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="top">
+<header><div class="wrap">
+  <a class="logo" href="#"><i></i>ЗАЦЕП</a>
+  <nav aria-label="Основное меню"><a href="#levels">Новичкам</a><a href="#schedule">Расписание</a><a href="#prices">Цены</a><a href="#">Детям</a></nav>
+</div></header>
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <h1 class="a1">Первая трасса уже сегодня</h1>
+      <p class="lead a2">Скалодром на 1 400 м² в центре Казани. Инструктор покажет страховку и технику, обувь и магнезия входят в цену.</p>
+      <div class="cta a3"><a class="btn btn-y" href="#schedule">Записаться на пробное</a><a class="btn btn-w" href="#schedule">Расписание групп</a></div>
+    </div>
+    <div class="photo a2"><img src="../_img/climb-gym.jpg" alt="Девушка проходит трассу на скалодроме «Зацеп»">
+      <div class="offer"><b>590 ₽</b><span>пробное занятие с инструктором, 90 минут</span></div>
+    </div>
+  </div>
+  <div class="nums"><div><b>180</b><span>трасс, обновляем каждую неделю</span></div><div><b>16 м</b><span>высота стены трудности</span></div><div><b>с 5 лет</b><span>детские группы по выходным</span></div></div>
+</div>
+</div>
+<main>
+<section id="levels"><div class="wrap">
+  <h2>Трасса найдётся для любого уровня</h2>
+  <p class="sub">Сложность отмечена цветом зацепов, поэтому вы сразу видите, где ваша.</p>
+  <div class="levels">
+    <div class="lv" style="background:#D6F6EA"><div><h3>Первый раз</h3><p>Зелёные трассы с крупными зацепами, пройдёт любой без подготовки.</p></div><span class="g">4–5</span></div>
+    <div class="lv" style="background:#FFEDBB"><div><h3>Занимаюсь месяц</h3><p>Жёлтые и синие трассы на технику ног и баланс.</p></div><span class="g">6a–6c</span></div>
+    <div class="lv" style="background:#FFD3DF"><div><h3>Опытный</h3><p>Красные и чёрные трассы, нависания и боулдеринг.</p></div><span class="g">7a+</span></div>
+  </div>
+</div></section>
+
+<section id="schedule" style="padding-top:0"><div class="wrap">
+  <h2>Групповые занятия</h2>
+  <div class="sched">
+    <div class="days" role="tablist" id="days"></div>
+    <div class="slots" id="slots" role="tabpanel"></div>
+  </div>
+</div></section>
+
+<section id="prices" style="padding-top:0"><div class="wrap">
+  <h2>Цены</h2>
+  <div class="price">
+    <div class="pc"><h3>Разовое посещение</h3><b>700 ₽</b><p>Свободное лазание без инструктора, весь день.</p></div>
+    <div class="pc hot"><h3>Абонемент на месяц</h3><b>4 900 ₽</b><p>Безлимит и 4 групповых занятия. Заморозка до 14 дней.</p></div>
+    <div class="pc"><h3>Детская группа</h3><b>3 600 ₽</b><p>8 занятий в месяц, от 5 до 14 лет, тренер с детским опытом.</p></div>
+  </div>
+</div></section>
+
+<section class="out"><img src="../_img/climb-rock.jpg" alt="Скалолаз на естественном рельефе" loading="lazy"><div class="wrap">
+  <h2 style="color:#fff">Летом едем на настоящие скалы</h2>
+  <p class="sub">Выезды на выходные для тех, кто занимается у нас от трёх месяцев. Снаряжение и трансфер включены.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© Скалодром «Зацеп», демо-проект</span><span>Казань, ул. Спартаковская, 2</span><span>Ежедневно 9:00–23:00</span></div></footer>
+<script>
+var D=['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+var S=[[["18:00","Пробное занятие","новички","#D6F6EA","есть места"],["19:30","Техника для начинающих","4–6a","#FFEDBB","2 места"],["21:00","Боулдеринг","6c+","#FFD3DF","есть места"]],[["10:00","Детская группа","5–9 лет","#D6F6EA","есть места"],["18:30","Пробное занятие","новички","#D6F6EA","3 места"],["20:00","Трудность","6a–7a","#FFEDBB","есть места"]]];
+var dEl=document.getElementById('days');
+dEl.innerHTML=D.map(function(d,i){return '<button role="tab" aria-selected="'+(i==0)+'" data-i="'+i+'">'+d+'<br><small style="font-weight:500">'+(27+i>31?27+i-31:27+i)+'</small></button>'}).join('');
+function show(i){document.getElementById('slots').innerHTML=S[i%2].map(function(s){return '<div class="slot"><b>'+s[0]+'</b><span>'+s[1]+'<small>'+s[2]+'</small></span><em style="background:'+s[3]+'">'+s[4]+'</em></div>'}).join('');dEl.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-selected',j==i)})}
+dEl.onclick=function(e){var b=e.target.closest('button');if(b)show(+b.dataset.i)};show(0);
+</script>
+</body>
+</html>

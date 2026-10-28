@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Зерно — кофейня в Казани | Своя обжарка каждую неделю</title>
+<meta name="description" content="Кофейня «Зерно»: свой обжарщик, десерты каждое утро, заказ с собой без очереди.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EFE7DA;--paper:#F8F3EB;--ink:#2E1D14;--ink-2:#6E5A4C;--line:#D9CCB9;--pist:#6F8B4C;--pist-l:#DDE6C8;--crema:#C9A27A;--dark:#2E1D14;
+  --d:"Playfair Display",Georgia,serif;--f:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--f);overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--pist);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 28px;border-radius:999px;font:700 16px var(--f);cursor:pointer;border:1.5px solid var(--ink);transition:background .25s,color .25s}
+.btn-main{background:var(--ink);color:var(--paper)}.btn-main:hover{background:transparent;color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+header .wrap{height:80px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:italic 500 32px var(--d);letter-spacing:-.01em}
+nav{display:none;gap:30px;font-weight:600;font-size:15px}
+.hours{display:none;font-size:15px;color:var(--ink-2)}
+.hero{padding:10px 0 70px}
+.hero-grid{display:grid;gap:36px}
+h1{font:500 clamp(46px,10vw,96px)/.98 var(--d);letter-spacing:-.025em;text-wrap:balance}
+.lead{margin-top:22px;font-size:19px;color:var(--ink-2);max-width:28em}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}.cta .btn{flex:1 1 200px}
+.collage{position:relative;min-height:440px}
+.c1{position:absolute;right:0;top:0;width:72%;height:88%;border-radius:200px 200px 24px 24px;overflow:hidden}
+.c2{position:absolute;left:0;bottom:0;width:46%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid var(--bg)}
+.c1 img,.c2 img{width:100%;height:100%;object-fit:cover}
+.roast{position:absolute;left:6%;top:12%;background:var(--paper);border-radius:18px;padding:14px 18px;font-size:14px;line-height:1.35;box-shadow:0 20px 40px -24px rgba(46,29,20,.5)}
+.roast b{display:block;font:500 22px var(--d)}
+section{padding:80px 0}
+h2{font:500 clamp(34px,6vw,58px)/1.04 var(--d);letter-spacing:-.02em;text-wrap:balance}
+.sub{margin-top:12px;color:var(--ink-2);max-width:32em}
+.menu-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px}
+.tabs{display:flex;gap:6px;background:var(--paper);padding:6px;border-radius:999px}
+.tabs button{font:700 15px var(--f);min-height:44px;padding:0 18px;border-radius:999px;border:0;background:none;color:var(--ink-2);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--ink);color:var(--paper)}
+.menu{margin-top:34px;display:grid;gap:0 60px}
+.item{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:20px 0;border-top:1px solid var(--line)}
+.item b{font:500 23px var(--d)}
+.item span{font-weight:700;font-size:17px;align-self:center;grid-row:1/3;grid-column:2}
+.item small{color:var(--ink-2);font-size:15px}
+.item em{font-style:normal;font-size:12px;font-weight:700;color:var(--pist);background:var(--pist-l);border-radius:999px;padding:2px 10px;margin-left:8px;vertical-align:4px;font-family:var(--f)}
+.place{background:var(--dark);color:var(--paper);border-radius:36px;margin:0 12px;overflow:hidden;display:grid}
+.place-img{min-height:300px;position:relative}.place-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.place-txt{padding:40px 26px}
+.place-txt .sub{color:#CDBBA8}
+.addr{margin-top:28px;display:grid;gap:16px}
+.addr div{display:flex;gap:14px;align-items:flex-start}
+.addr svg{flex:none;width:22px;height:22px;color:var(--crema);margin-top:3px}
+.loyal{display:grid;gap:30px;align-items:center}
+.card{aspect-ratio:1.6;max-width:420px;width:100%;justify-self:center;border-radius:24px;background:var(--pist);color:#F6F9EE;padding:26px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 60px -30px rgba(46,29,20,.55);transform:rotate(-4deg)}
+.card .logo{font-size:28px}
+.cups{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.cups i{aspect-ratio:1;border-radius:50%;border:2px solid #F6F9EE;display:block}
+.cups i.f{background:#F6F9EE}
+footer{padding:40px 0 50px;color:var(--ink-2);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between}
+.a1,.a2,.a3{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}.a2{animation-delay:.15s}.a3{animation-delay:.3s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+.c1 img{animation:zoom 1.6s cubic-bezier(.2,.7,.2,1) both}@keyframes zoom{from{transform:scale(1.12)}}
+@media (min-width:760px){.menu{grid-template-columns:1fr 1fr}}
+@media (min-width:980px){.wrap{padding:0 40px}nav,.hours{display:flex}.hero-grid{grid-template-columns:1fr 1fr;gap:60px;align-items:center}.collage{min-height:600px}.cta .btn{flex:0 0 auto}section{padding:110px 0}.place{margin:0 24px;grid-template-columns:1.1fr 1fr}.place-txt{padding:64px 56px}.loyal{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#">Зерно</a>
+  <nav aria-label="Основное меню"><a href="#menu">Меню</a><a href="#place">Как найти</a><a href="#card">Карта гостя</a></nav>
+  <span class="hours">Каждый день 8:00–22:00</span>
+</div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <h1 class="a1">Кофе, который обжарили на этой неделе</h1>
+    <p class="lead a2">Сами обжариваем зерно в двух шагах от кофейни, поэтому на каждом пакете стоит дата. Десерты привозят к открытию, к восьми утра.</p>
+    <div class="cta a3"><a class="btn btn-main" href="#menu">Смотреть меню</a><a class="btn btn-line" href="#menu">Заказать с собой</a></div>
+  </div>
+  <div class="collage a2">
+    <div class="c1"><img src="../_img/coffee-pour.jpg" alt="Бариста готовит кофе в воронке"></div>
+    <div class="c2"><img src="../_img/coffee-latte.jpg" alt="Капучино с латте-артом"></div>
+    <div class="roast"><b>Эфиопия Иргачеффе</b>обжарка 24 октября</div>
+  </div>
+</div></section>
+
+<section id="menu" style="padding-top:20px"><div class="wrap">
+  <div class="menu-head"><h2>Меню</h2>
+    <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="0">Кофе</button><button role="tab" aria-selected="false" data-t="1">Не кофе</button><button role="tab" aria-selected="false" data-t="2">Десерты</button></div>
+  </div>
+  <div class="menu" id="m" role="tabpanel"></div>
+</div></section>
+
+<section class="place" id="place"><div class="place-img"><img src="../_img/cafe-interior.jpg" alt="Зал кофейни «Зерно»" loading="lazy"></div>
+  <div class="place-txt"><h2>Заходите посидеть или заберите с собой</h2><p class="sub">Тридцать мест, розетки у каждого стола, тихая музыка по утрам. Заказ через сайт готов к вашему приходу.</p>
+    <div class="addr">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Казань, ул. Баумана, 44<br>5 минут от метро «Кремлёвская»</span></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Ежедневно с 8:00 до 22:00</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="card"><div class="wrap loyal">
+  <div><h2>Каждый десятый кофе за наш счёт</h2><p class="sub">Карта гостя живёт в телефоне. Покажите QR-код на кассе, и чашка отметится сама.</p></div>
+  <div class="card" aria-label="Пример карты гостя: 7 из 10"><span class="logo">Зерно</span><div class="cups"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i><i></i></div></div>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© Кофейня «Зерно», демо-проект</span><span>Казань, ул. Баумана, 44</span></div></footer>
+<script>
+var M=[[["Эспрессо","двойной, 36 г на выходе","160 ₽"],["Флэт уайт","двойной эспрессо и бархатное молоко","260 ₽"],["Капучино","классика на нашей смеси","240 ₽"],["Воронка V60","зерно недели, 300 мл","290 ₽","новинка"],["Раф с лавандой","сливки, ваниль, лаванда","320 ₽"],["Колд брю","настаиваем 18 часов","280 ₽"]],[["Матча латте","японская матча, молоко на выбор","310 ₽"],["Какао","бельгийский шоколад","250 ₽"],["Чай листовой","улун, сенча, ассам","220 ₽"],["Лимонад","облепиха и розмарин","270 ₽","сезон"]],[["Чизкейк «Нью-Йорк»","каждое утро свежий","290 ₽"],["Морковный торт","с крем-чизом и пеканом","310 ₽"],["Круассан","на сливочном масле","170 ₽"],["Баскский чизкейк","с жжёной корочкой","330 ₽","новинка"]]];
+var tabs=document.querySelectorAll('.tabs button');
+function show(i){document.getElementById('m').innerHTML=M[i].map(function(r){return '<div class="item"><b>'+r[0]+(r[3]?'<em>'+r[3]+'</em>':'')+'</b><span>'+r[2]+'</span><small>'+r[1]+'</small></div>'}).join('');tabs.forEach(function(b,j){b.setAttribute('aria-selected',j==i)})}
+tabs.forEach(function(b){b.onclick=function(){show(+b.dataset.t)}});show(0);
+</script>
+</body>
+</html>

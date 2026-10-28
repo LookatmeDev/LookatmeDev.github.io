@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ВЫСОТА — жилой комплекс в Красноярске</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--a:#0E1330;--b:#2A2F6B;--pk:#FF9E7D;--w:#fff;--mut:#A9AED2;--f:"Montserrat",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}body{background:#0A0D24;color:var(--w);font:17px/1.6 var(--f);overflow-x:hidden}
+a{color:inherit;text-decoration:none}.w{max-width:1240px;margin:0 auto;padding:0 20px}
+.hero{position:relative;min-height:min(96vh,900px);display:grid;align-items:end;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;animation:z 2.6s cubic-bezier(.2,.7,.2,1) both}@keyframes z{from{transform:scale(1.12)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,13,36,.5),rgba(10,13,36,.1) 35%,rgba(10,13,36,.95))}
+header{position:absolute;inset:0 0 auto;z-index:2}header .w{height:80px;display:flex;align-items:center;justify-content:space-between}.lg{font:800 22px var(--f);letter-spacing:.34em}nav{display:none;gap:30px;font-size:14px;letter-spacing:.06em}
+.hc{position:relative;z-index:1;padding-bottom:50px}
+h1{font:300 clamp(44px,10vw,132px)/.95 var(--f);letter-spacing:-.04em}h1 b{font-weight:800;background:linear-gradient(90deg,#FF9E7D,#FFD1A6);-webkit-background-clip:text;color:transparent}
+.hc p{margin:20px 0 28px;max-width:28em;color:#DCDFF5;font-size:19px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 32px;border-radius:999px;background:var(--pk);color:#2A1208;font:700 15px var(--f);transition:transform .2s}.btn:hover{transform:translateY(-3px)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.25)}.nums b{display:block;font:300 clamp(24px,4vw,44px)/1 var(--f)}.nums span{font-size:12px;color:var(--mut)}
+section{padding:80px 0}h2{font:300 clamp(30px,5vw,56px)/1.05 var(--f);letter-spacing:-.03em}h2 b{font-weight:800}
+.sub{color:var(--mut);margin-top:10px;max-width:32em}
+.tabs{display:flex;gap:8px;margin-top:30px;flex-wrap:wrap}.tabs button{font:600 15px var(--f);min-height:50px;padding:0 24px;border-radius:999px;border:1px solid #3a4080;background:transparent;color:#fff;cursor:pointer}.tabs button[aria-selected=true]{background:#fff;color:var(--a);border-color:#fff}
+.fl{display:grid;gap:20px;margin-top:26px;background:linear-gradient(135deg,#171C4A,#10143a);border:1px solid #2c3277;border-radius:28px;padding:24px}
+.fl svg{width:100%;height:auto;max-height:300px}.fl .t{display:grid;gap:14px;align-content:center}.fl .t div{display:flex;justify-content:space-between;border-bottom:1px solid #2c3277;padding-bottom:10px}.fl .t span{color:var(--mut)}.fl .t b{font-weight:700}
+.fl .pr{font:300 46px/1 var(--f);letter-spacing:-.03em}.fl .pr small{font-size:15px;color:var(--mut);letter-spacing:0}
+.fe{display:grid;gap:12px;margin-top:34px}.f{border:1px solid #2c3277;border-radius:22px;padding:24px}.f b{font:700 18px var(--f);display:block;margin-bottom:4px}.f span{color:var(--mut);font-size:15px}
+.cta{background:linear-gradient(135deg,#FF9E7D,#FFB38F);color:#2A1208;border-radius:32px;margin:0 12px;padding:44px 24px}.cta h2{max-width:14em}.cta .btn{background:#2A1208;color:#fff;margin-top:22px}
+footer{padding:30px 0;color:var(--mut);font-size:14px}
+@media(min-width:760px){.fe{grid-template-columns:repeat(3,1fr)}.fl{grid-template-columns:1.1fr 1fr;padding:34px;gap:40px}}
+@media(min-width:980px){.w{padding:0 48px}nav{display:flex}section{padding:120px 0}.cta{margin:0 24px;padding:80px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body>
+<div class="hero"><img src="../_img/apt-glass.jpg" alt="Жилой комплекс «Высота»"><header><div class="w"><a class="lg" href="#">ВЫСОТА</a><nav><a href="#">Планировки</a><a href="#">Ход строительства</a><a href="#">Ипотека</a></nav><a class="btn" href="#" style="min-height:44px;padding:0 22px;font-size:13px">Выбрать квартиру</a></div></header>
+<div class="hc"><div class="w"><h1>Дом, <b>с которого видно всё</b></h1><p>Жилой комплекс на 24 этажа в 10 минутах от центра. Окна в пол, двор без машин и подземный паркинг.</p><a class="btn" href="#fl">Подобрать планировку</a>
+<div class="nums"><div><b>от 5,9 млн</b><span>студии 24 м²</span></div><div><b>Q3 2027</b><span>сдача корпуса</span></div><div><b>6,2%</b><span>ипотека на весь срок</span></div></div></div></div></div>
+<main><section id="fl"><div class="w"><h2>Квартиры <b>на любой вкус</b></h2><p class="sub">Выберите формат, и мы покажем доступные планировки и цены.</p>
+<div class="tabs" id="tb" role="tablist"><button aria-selected="true" data-i="0">Студия</button><button aria-selected="false" data-i="1">1 комната</button><button aria-selected="false" data-i="2">2 комнаты</button><button aria-selected="false" data-i="3">3 комнаты</button></div>
+<div class="fl"><svg id="pl" viewBox="0 0 320 220" fill="none" stroke="#FF9E7D" stroke-width="3"></svg><div class="t" id="t"></div></div></div></section>
+<section style="padding-top:0"><div class="w"><h2>Всё <b>для жизни</b> внутри двора</h2><div class="fe"><div class="f"><b>Двор без машин</b><span>парковка под землёй на 480 мест</span></div><div class="f"><b>Школа и сад</b><span>в доме на первых этажах</span></div><div class="f"><b>Кладовые</b><span>индивидуальные боксы на подземном уровне</span></div></div></div></section>
+<section style="padding-top:0"><div class="cta"><h2 style="color:#2A1208">Забронируйте квартиру на 7 дней бесплатно</h2><a class="btn" href="#">Оставить заявку</a></div></section></main>
+<footer><div class="w">© ЖК «Высота», демо-проект. Не является публичной офертой</div></footer>
+<script>var P=[{a:'24–29 м²',f:'3–22',p:'5,9 млн',m:'от 31 000 ₽',s:'M20 20h280v180H20zM20 120h110M130 20v100'},{a:'36–42 м²',f:'3–22',p:'7,4 млн',m:'от 39 000 ₽',s:'M20 20h280v180H20zM20 110h120M140 20v90M140 150h160'},{a:'55–63 м²',f:'5–24',p:'10,2 млн',m:'от 54 000 ₽',s:'M20 20h280v180H20zM20 100h100M120 20v80M180 100h120M180 100v100M120 100v60'},{a:'78–92 м²',f:'8–24',p:'14,8 млн',m:'от 78 000 ₽',s:'M20 20h280v180H20zM20 90h90M110 20v70M190 20v110M190 130h110M110 130h80M110 130v70'}];
+function s(i){var q=P[i];document.getElementById('pl').innerHTML='<path d="'+q.s+'"/>';document.getElementById('t').innerHTML='<div><span>Площадь</span><b>'+q.a+'</b></div><div><span>Этажи</span><b>'+q.f+'</b></div><div><span>Ипотека</span><b>'+q.m+'</b></div><div class="pr"><small>от </small>'+q.p+' <small>₽</small></div>';document.querySelectorAll('#tb button').forEach(function(b,j){b.setAttribute('aria-selected',j==i)})}
+document.getElementById('tb').onclick=function(e){var b=e.target.closest('button');if(b)s(+b.dataset.i)};s(1);</script></body></html>

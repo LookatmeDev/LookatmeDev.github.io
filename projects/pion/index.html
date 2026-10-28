@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Пион — цветочная мастерская в Самаре | Соберите букет сами</title>
+<meta name="description" content="Цветочная мастерская «Пион»: соберите букет на сайте, доставка по Самаре за 90 минут.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF7F5;--paper:#fff;--ink:#2A1B22;--ink-2:#6F5A63;--line:#F0DCE0;--rose:#C93765;--rose-d:#A82652;--blush:#F9DDE3;--leaf:#2F5A3E;--leaf-l:#DCE9DE;
+  --d:"Cormorant",Georgia,serif;--f:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--f);overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 28px;border-radius:999px;font:700 16px var(--f);cursor:pointer;border:1.5px solid transparent;transition:background .2s}
+.btn-main{background:var(--rose);color:#fff}.btn-main:hover{background:var(--rose-d)}
+.btn-line{border-color:var(--ink)}.btn-line:hover{background:var(--paper)}
+header .wrap{height:78px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:600 34px var(--d);letter-spacing:.01em}
+nav{display:none;gap:30px;font-weight:600;font-size:15px}
+.deliv{display:none;font-size:15px;color:var(--ink-2)}
+.hero{padding:6px 0 60px}
+.hero-grid{display:grid;gap:30px}
+h1{font:500 clamp(50px,11vw,108px)/.92 var(--d);letter-spacing:-.02em;text-wrap:balance}
+.lead{margin-top:22px;font-size:19px;color:var(--ink-2);max-width:28em}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}.cta .btn{flex:1 1 210px}
+.arch{border-radius:999px 999px 28px 28px;overflow:hidden;aspect-ratio:4/5;max-width:500px;width:100%;justify-self:center}
+.arch img{width:100%;height:100%;object-fit:cover;animation:zoom 1.6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes zoom{from{transform:scale(1.1)}}
+section{padding:80px 0}
+h2{font:500 clamp(38px,6.6vw,64px)/1 var(--d);letter-spacing:-.015em;text-wrap:balance}
+.sub{margin-top:12px;color:var(--ink-2);max-width:32em}
+/* builder */
+.builder{background:var(--paper);border-radius:36px;padding:28px 22px;display:grid;gap:30px;margin-top:36px;box-shadow:0 40px 80px -60px rgba(42,27,34,.5)}
+.opt h3{font-weight:700;font-size:15px;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{font:600 15px var(--f);min-height:46px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.chips button[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:#fff}
+.chips i{width:16px;height:16px;border-radius:50%;display:inline-block}
+.opts{display:grid;gap:24px}
+.preview{background:var(--blush);border-radius:26px;display:grid;place-items:center;min-height:280px;position:relative;overflow:hidden}
+.preview svg{width:68%;max-width:280px;transition:transform .5s cubic-bezier(.2,.8,.2,1.2)}
+.sum{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px}
+.sum b{font:600 44px var(--d)}
+.sum small{display:block;color:var(--ink-2);font-size:14px}
+/* catalog */
+.cat{display:grid;gap:16px;margin-top:36px}
+.prod .img{border-radius:24px;overflow:hidden;aspect-ratio:4/5;background:var(--blush)}
+.prod img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.prod:hover img{transform:scale(1.04)}
+.prod h3{font:600 26px var(--d);margin-top:14px}
+.prod p{display:flex;justify-content:space-between;color:var(--ink-2);font-size:15px}
+.prod p b{color:var(--ink)}
+.how{display:grid;gap:14px;margin-top:36px}
+.how div{border-top:1.5px solid var(--ink);padding-top:18px}
+.how b{font:600 28px var(--d);display:block;margin-bottom:6px}
+.how p{color:var(--ink-2);font-size:16px}
+.band{background:var(--leaf);color:#F1F6F1;border-radius:36px;margin:0 12px}
+.band .sub{color:#C7D9CB}
+.band .btn-main{background:#fff;color:var(--leaf)}
+footer{padding:40px 0 50px;color:var(--ink-2);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between}
+.a1,.a2,.a3{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}.a2{animation-delay:.15s}.a3{animation-delay:.3s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+@media (min-width:640px){.cat{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:760px){.how{grid-template-columns:repeat(3,1fr);gap:30px}}
+@media (min-width:980px){.wrap{padding:0 40px}nav,.deliv{display:flex}.hero-grid{grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}.cta .btn{flex:0 0 auto}section{padding:110px 0}.cat{grid-template-columns:repeat(4,1fr)}.builder{grid-template-columns:1fr 1fr;padding:44px;gap:44px}.band{margin:0 24px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#">Пион</a>
+  <nav aria-label="Основное меню"><a href="#build">Собрать букет</a><a href="#catalog">Готовые букеты</a><a href="#delivery">Доставка</a></nav>
+  <span class="deliv">Доставка по Самаре за 90 минут</span>
+</div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <h1 class="a1">Букет, в котором каждый цветок выбрали вы</h1>
+    <p class="lead a2">Выберите размер и оттенки, а флорист соберёт букет из сегодняшней поставки и пришлёт фото перед отправкой.</p>
+    <div class="cta a3"><a class="btn btn-main" href="#build">Собрать свой букет</a><a class="btn btn-line" href="#catalog">Готовые букеты</a></div>
+  </div>
+  <div class="arch a2"><img src="../_img/flower-shop.jpg" alt="Витрина цветочной мастерской «Пион»"></div>
+</div></section>
+
+<section id="build" style="padding-top:30px"><div class="wrap">
+  <h2>Соберите букет</h2>
+  <p class="sub">Цена считается сразу. Если каких-то цветов нет, флорист предложит замену того же оттенка.</p>
+  <div class="builder">
+    <div class="opts">
+      <div class="opt"><h3>Размер</h3><div class="chips" data-g="size"><button aria-pressed="false" data-v="2900" data-s=".8">S · 15 цветов</button><button aria-pressed="true" data-v="4900" data-s="1">M · 25 цветов</button><button aria-pressed="false" data-v="7900" data-s="1.15">L · 41 цветок</button></div></div>
+      <div class="opt"><h3>Оттенок</h3><div class="chips" data-g="tone"><button aria-pressed="true" data-c="#E9809C,#F6B9C8,#C93765"><i style="background:#E9809C"></i>Розовый</button><button aria-pressed="false" data-c="#FFF4E6,#F3E3C8,#E6D3B3"><i style="background:#F3E3C8"></i>Молочный</button><button aria-pressed="false" data-c="#F7A440,#F9C76A,#E8642C"><i style="background:#F7A440"></i>Солнечный</button><button aria-pressed="false" data-c="#9B6BC9,#C7A6E6,#6B3FA0"><i style="background:#9B6BC9"></i>Сиреневый</button></div></div>
+      <div class="opt"><h3>Упаковка</h3><div class="chips" data-g="pack"><button aria-pressed="true" data-v="0">Крафт</button><button aria-pressed="false" data-v="400">Плёнка-тишью</button><button aria-pressed="false" data-v="900">Шляпная коробка</button></div></div>
+    </div>
+    <div style="display:grid;gap:22px">
+      <div class="preview" aria-hidden="true"><svg id="bq" viewBox="0 0 200 220"></svg></div>
+      <div class="sum"><div><small>Итого с доставкой</small><b id="total">4 900 ₽</b></div><a class="btn btn-main" href="#">Оформить заказ</a></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="catalog" style="padding-top:0"><div class="wrap">
+  <h2>Готовые букеты на сегодня</h2>
+  <div class="cat">
+    <a class="prod" href="#"><div class="img"><img src="../_img/tulips.jpg" alt="Букет тюльпанов" loading="lazy"></div><h3>Утро в марте</h3><p><span>25 тюльпанов</span><b>3 600 ₽</b></p></a>
+    <a class="prod" href="#"><div class="img"><img src="../_img/poppies.jpg" alt="Яркие маки" loading="lazy"></div><h3>Калифорния</h3><p><span>эшшольция, ромашка</span><b>4 200 ₽</b></p></a>
+    <a class="prod" href="#"><div class="img"><img src="../_img/flower-shop.jpg" alt="Сборный букет" loading="lazy" style="object-position:70% 50%"></div><h3>Прованс</h3><p><span>сборный, сезонный</span><b>5 400 ₽</b></p></a>
+    <a class="prod" href="#"><div class="img"><img src="../_img/tulips.jpg" alt="Тюльпаны в вазе" loading="lazy" style="object-position:30% 60%;transform:scaleX(-1)"></div><h3>Нежность</h3><p><span>15 тюльпанов, ваза</span><b>2 900 ₽</b></p></a>
+  </div>
+</div></section>
+
+<section id="delivery" style="padding-top:0"><div class="wrap">
+  <h2>Как это работает</h2>
+  <div class="how">
+    <div><b>Заказ</b><p>Соберите букет или выберите готовый, укажите адрес и время.</p></div>
+    <div><b>Фото</b><p>Флорист соберёт букет и пришлёт фото. Оплата только после вашего «да».</p></div>
+    <div><b>Доставка</b><p>Курьер привезёт за 90 минут по Самаре, можно анонимно и с открыткой.</p></div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap" style="display:grid;gap:22px">
+  <h2>Цветы по подписке для офиса и кафе</h2>
+  <p class="sub">Раз в неделю привозим свежую композицию и забираем прошлую. От 3 500 ₽ в неделю.</p>
+  <div><a class="btn btn-main" href="#">Обсудить подписку</a></div>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© Цветочная мастерская «Пион», демо-проект</span><span>Самара, ул. Ленинградская, 12</span></div></footer>
+<script>
+var st={size:4900,s:1,pack:0,c:['#E9809C','#F6B9C8','#C93765']};
+function draw(){
+  var s='<g transform="translate(100 110) scale('+st.s+') translate(-100 -110)">';
+  s+='<path d="M88 130 70 210h60l-18-80z" fill="#2F5A3E"/><path d="M60 150l40 18 40-18-12 60H72z" fill="#E7D3B7"/>';
+  var pts=[[100,70,26],[70,82,22],[130,82,22],[84,108,22],[116,108,22],[56,110,18],[144,110,18],[100,104,20],[78,58,18],[122,58,18]];
+  pts.forEach(function(p,i){var col=st.c[i%3];s+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+p[2]+'" fill="'+col+'"/><circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+(p[2]*.45)+'" fill="#fff" opacity=".35"/>'});
+  s+='<path d="M48 96c-10-12-4-26 8-26M152 96c10-12 4-26-8-26" stroke="#4E7B5A" stroke-width="6" fill="none" stroke-linecap="round"/></g>';
+  document.getElementById('bq').innerHTML=s;
+  document.getElementById('total').textContent=(st.size+st.pack).toLocaleString('ru-RU')+' ₽';
+}
+document.querySelectorAll('.chips').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+  g.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+  var k=g.dataset.g;if(k=='size'){st.size=+b.dataset.v;st.s=+b.dataset.s}else if(k=='pack')st.pack=+b.dataset.v;else st.c=b.dataset.c.split(',');draw()})});
+draw();
+</script>
+</body>
+</html>
